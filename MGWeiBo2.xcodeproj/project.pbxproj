@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC10E7321E07217700DF6DE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC10E7311E07217700DF6DE7 /* Assets.xcassets */; };
+		CC10E7341E07236000DF6DE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC10E7331E07236000DF6DE7 /* LaunchScreen.storyboard */; };
 		CC8C1F0E1E06C5AC00FF3B3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8C1F0D1E06C5AC00FF3B3E /* AppDelegate.swift */; };
 		CC8C1F101E06C5AC00FF3B3E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8C1F0F1E06C5AC00FF3B3E /* ViewController.swift */; };
 		CC8C1F131E06C5AC00FF3B3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC8C1F111E06C5AC00FF3B3E /* Main.storyboard */; };
-		CC8C1F151E06C5AC00FF3B3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC8C1F141E06C5AC00FF3B3E /* Assets.xcassets */; };
-		CC8C1F181E06C5AC00FF3B3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC8C1F161E06C5AC00FF3B3E /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC10E7311E07217700DF6DE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CC10E7331E07236000DF6DE7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC8C1F0A1E06C5AC00FF3B3E /* MGWeiBo2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGWeiBo2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC8C1F0D1E06C5AC00FF3B3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC8C1F0F1E06C5AC00FF3B3E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CC8C1F121E06C5AC00FF3B3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CC8C1F141E06C5AC00FF3B3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CC8C1F171E06C5AC00FF3B3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC8C1F191E06C5AC00FF3B3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -35,6 +35,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC10E7381E0724CC00DF6DE7 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				CC10E73A1E0724CC00DF6DE7 /* Home(首页) */,
+				CC10E73C1E0724CC00DF6DE7 /* Message(消息) */,
+				CC10E7391E0724CC00DF6DE7 /* Discover(发现) */,
+				CC10E73D1E0724CC00DF6DE7 /* Profile(我的) */,
+				CC10E73B1E0724CC00DF6DE7 /* Main(主要) */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		CC10E7391E0724CC00DF6DE7 /* Discover(发现) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Discover(发现)";
+			sourceTree = "<group>";
+		};
+		CC10E73A1E0724CC00DF6DE7 /* Home(首页) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Home(首页)";
+			sourceTree = "<group>";
+		};
+		CC10E73B1E0724CC00DF6DE7 /* Main(主要) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Main(主要)";
+			sourceTree = "<group>";
+		};
+		CC10E73C1E0724CC00DF6DE7 /* Message(消息) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Message(消息)";
+			sourceTree = "<group>";
+		};
+		CC10E73D1E0724CC00DF6DE7 /* Profile(我的) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Profile(我的)";
+			sourceTree = "<group>";
+		};
 		CC8C1F011E06C5AC00FF3B3E = {
 			isa = PBXGroup;
 			children = (
@@ -54,11 +101,12 @@
 		CC8C1F0C1E06C5AC00FF3B3E /* MGWeiBo2 */ = {
 			isa = PBXGroup;
 			children = (
+				CC10E7381E0724CC00DF6DE7 /* Classes */,
 				CC8C1F0D1E06C5AC00FF3B3E /* AppDelegate.swift */,
 				CC8C1F0F1E06C5AC00FF3B3E /* ViewController.swift */,
 				CC8C1F111E06C5AC00FF3B3E /* Main.storyboard */,
-				CC8C1F141E06C5AC00FF3B3E /* Assets.xcassets */,
-				CC8C1F161E06C5AC00FF3B3E /* LaunchScreen.storyboard */,
+				CC10E7331E07236000DF6DE7 /* LaunchScreen.storyboard */,
+				CC10E7311E07217700DF6DE7 /* Assets.xcassets */,
 				CC8C1F191E06C5AC00FF3B3E /* Info.plist */,
 			);
 			path = MGWeiBo2;
@@ -124,8 +172,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC8C1F181E06C5AC00FF3B3E /* LaunchScreen.storyboard in Resources */,
-				CC8C1F151E06C5AC00FF3B3E /* Assets.xcassets in Resources */,
+				CC10E7341E07236000DF6DE7 /* LaunchScreen.storyboard in Resources */,
+				CC10E7321E07217700DF6DE7 /* Assets.xcassets in Resources */,
 				CC8C1F131E06C5AC00FF3B3E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,14 +199,6 @@
 				CC8C1F121E06C5AC00FF3B3E /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		CC8C1F161E06C5AC00FF3B3E /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CC8C1F171E06C5AC00FF3B3E /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -259,9 +299,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = YEH9VENLMS;
 				INFOPLIST_FILE = MGWeiBo2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_SWIFT_FLAGS[arch=*]" = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mg.MGWeiBo2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -272,8 +315,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = YEH9VENLMS;
 				INFOPLIST_FILE = MGWeiBo2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mg.MGWeiBo2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -300,6 +345,7 @@
 				CC8C1F1E1E06C5AC00FF3B3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

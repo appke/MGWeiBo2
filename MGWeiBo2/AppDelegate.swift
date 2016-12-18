@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        MGLog("12223")
         return true
     }
 
@@ -40,7 +42,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+}
 
-
+/// 全局打印函数
+func MGLog<T>(_ message : T, file : String = #file, funcName : String = #function, lineNum : Int = #line) {
+    
+    #if DEBUG
+        let fileName = (file as NSString).lastPathComponent
+        print("\(fileName):[\(funcName)](\(lineNum))-\(message)")
+    #endif
 }
 
