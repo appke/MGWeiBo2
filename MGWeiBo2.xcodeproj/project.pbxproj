@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		CC10E7321E07217700DF6DE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC10E7311E07217700DF6DE7 /* Assets.xcassets */; };
 		CC10E7341E07236000DF6DE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC10E7331E07236000DF6DE7 /* LaunchScreen.storyboard */; };
+		CC10E73F1E076D0500DF6DE7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC10E73E1E076D0500DF6DE7 /* MainViewController.swift */; };
+		CC10E7411E076D1600DF6DE7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC10E7401E076D1600DF6DE7 /* ProfileViewController.swift */; };
+		CC10E7431E076D2C00DF6DE7 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC10E7421E076D2C00DF6DE7 /* DiscoverViewController.swift */; };
+		CC10E7451E076D3A00DF6DE7 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC10E7441E076D3A00DF6DE7 /* MessageViewController.swift */; };
+		CC10E7471E076D4400DF6DE7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC10E7461E076D4400DF6DE7 /* HomeViewController.swift */; };
 		CC8C1F0E1E06C5AC00FF3B3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8C1F0D1E06C5AC00FF3B3E /* AppDelegate.swift */; };
 		CC8C1F101E06C5AC00FF3B3E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8C1F0F1E06C5AC00FF3B3E /* ViewController.swift */; };
 		CC8C1F131E06C5AC00FF3B3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC8C1F111E06C5AC00FF3B3E /* Main.storyboard */; };
@@ -17,6 +22,11 @@
 /* Begin PBXFileReference section */
 		CC10E7311E07217700DF6DE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC10E7331E07236000DF6DE7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CC10E73E1E076D0500DF6DE7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		CC10E7401E076D1600DF6DE7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		CC10E7421E076D2C00DF6DE7 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		CC10E7441E076D3A00DF6DE7 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		CC10E7461E076D4400DF6DE7 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CC8C1F0A1E06C5AC00FF3B3E /* MGWeiBo2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGWeiBo2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC8C1F0D1E06C5AC00FF3B3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC8C1F0F1E06C5AC00FF3B3E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +60,7 @@
 		CC10E7391E0724CC00DF6DE7 /* Discover(发现) */ = {
 			isa = PBXGroup;
 			children = (
+				CC10E7421E076D2C00DF6DE7 /* DiscoverViewController.swift */,
 			);
 			path = "Discover(发现)";
 			sourceTree = "<group>";
@@ -57,6 +68,7 @@
 		CC10E73A1E0724CC00DF6DE7 /* Home(首页) */ = {
 			isa = PBXGroup;
 			children = (
+				CC10E7461E076D4400DF6DE7 /* HomeViewController.swift */,
 			);
 			path = "Home(首页)";
 			sourceTree = "<group>";
@@ -64,6 +76,7 @@
 		CC10E73B1E0724CC00DF6DE7 /* Main(主要) */ = {
 			isa = PBXGroup;
 			children = (
+				CC10E73E1E076D0500DF6DE7 /* MainViewController.swift */,
 			);
 			path = "Main(主要)";
 			sourceTree = "<group>";
@@ -71,6 +84,7 @@
 		CC10E73C1E0724CC00DF6DE7 /* Message(消息) */ = {
 			isa = PBXGroup;
 			children = (
+				CC10E7441E076D3A00DF6DE7 /* MessageViewController.swift */,
 			);
 			path = "Message(消息)";
 			sourceTree = "<group>";
@@ -78,6 +92,7 @@
 		CC10E73D1E0724CC00DF6DE7 /* Profile(我的) */ = {
 			isa = PBXGroup;
 			children = (
+				CC10E7401E076D1600DF6DE7 /* ProfileViewController.swift */,
 			);
 			path = "Profile(我的)";
 			sourceTree = "<group>";
@@ -185,8 +200,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC10E73F1E076D0500DF6DE7 /* MainViewController.swift in Sources */,
 				CC8C1F101E06C5AC00FF3B3E /* ViewController.swift in Sources */,
+				CC10E7411E076D1600DF6DE7 /* ProfileViewController.swift in Sources */,
 				CC8C1F0E1E06C5AC00FF3B3E /* AppDelegate.swift in Sources */,
+				CC10E7451E076D3A00DF6DE7 /* MessageViewController.swift in Sources */,
+				CC10E7471E076D4400DF6DE7 /* HomeViewController.swift in Sources */,
+				CC10E7431E076D2C00DF6DE7 /* DiscoverViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
