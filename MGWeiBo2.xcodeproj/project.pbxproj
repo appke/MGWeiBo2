@@ -45,6 +45,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B97440D211B4BD0004ECDDF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3B97440E211B4C6B004ECDDF /* Vendor(第三方) */,
+				CC8C1F0D1E06C5AC00FF3B3E /* AppDelegate.swift */,
+				CC8C1F0F1E06C5AC00FF3B3E /* ViewController.swift */,
+				CC8C1F111E06C5AC00FF3B3E /* Main.storyboard */,
+				CC10E7331E07236000DF6DE7 /* LaunchScreen.storyboard */,
+				CC10E7311E07217700DF6DE7 /* Assets.xcassets */,
+				CC8C1F191E06C5AC00FF3B3E /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3B97440E211B4C6B004ECDDF /* Vendor(第三方) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Vendor(第三方)";
+			sourceTree = "<group>";
+		};
 		CC10E7381E0724CC00DF6DE7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,12 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				CC10E7381E0724CC00DF6DE7 /* Classes */,
-				CC8C1F0D1E06C5AC00FF3B3E /* AppDelegate.swift */,
-				CC8C1F0F1E06C5AC00FF3B3E /* ViewController.swift */,
-				CC8C1F111E06C5AC00FF3B3E /* Main.storyboard */,
-				CC10E7331E07236000DF6DE7 /* LaunchScreen.storyboard */,
-				CC10E7311E07217700DF6DE7 /* Assets.xcassets */,
-				CC8C1F191E06C5AC00FF3B3E /* Info.plist */,
+				3B97440D211B4BD0004ECDDF /* Supporting Files */,
 			);
 			path = MGWeiBo2;
 			sourceTree = "<group>";
@@ -321,7 +337,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = YEH9VENLMS;
-				INFOPLIST_FILE = MGWeiBo2/Info.plist;
+				INFOPLIST_FILE = "MGWeiBo2/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				"OTHER_SWIFT_FLAGS[arch=*]" = "-D DEBUG";
@@ -337,7 +353,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = YEH9VENLMS;
-				INFOPLIST_FILE = MGWeiBo2/Info.plist;
+				INFOPLIST_FILE = "MGWeiBo2/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mg.MGWeiBo2;
