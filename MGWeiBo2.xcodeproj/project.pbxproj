@@ -14,6 +14,7 @@
 		CC10E7431E076D2C00DF6DE7 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC10E7421E076D2C00DF6DE7 /* DiscoverViewController.swift */; };
 		CC10E7451E076D3A00DF6DE7 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC10E7441E076D3A00DF6DE7 /* MessageViewController.swift */; };
 		CC10E7471E076D4400DF6DE7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC10E7461E076D4400DF6DE7 /* HomeViewController.swift */; };
+		CC10E74C1E08029C00DF6DE7 /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = CC10E74B1E08029C00DF6DE7 /* MainVCSettings.json */; };
 		CC8C1F0E1E06C5AC00FF3B3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8C1F0D1E06C5AC00FF3B3E /* AppDelegate.swift */; };
 		CC8C1F101E06C5AC00FF3B3E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8C1F0F1E06C5AC00FF3B3E /* ViewController.swift */; };
 		CC8C1F131E06C5AC00FF3B3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC8C1F111E06C5AC00FF3B3E /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 		CC10E7421E076D2C00DF6DE7 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		CC10E7441E076D3A00DF6DE7 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		CC10E7461E076D4400DF6DE7 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		CC10E74B1E08029C00DF6DE7 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
 		CC8C1F0A1E06C5AC00FF3B3E /* MGWeiBo2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGWeiBo2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC8C1F0D1E06C5AC00FF3B3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC8C1F0F1E06C5AC00FF3B3E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 				CC10E7391E0724CC00DF6DE7 /* Discover(发现) */,
 				CC10E73D1E0724CC00DF6DE7 /* Profile(我的) */,
 				CC10E73B1E0724CC00DF6DE7 /* Main(主要) */,
+				CC6033821EE8454C0084A29A /* Other(其它) */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -76,6 +79,7 @@
 		CC10E73B1E0724CC00DF6DE7 /* Main(主要) */ = {
 			isa = PBXGroup;
 			children = (
+				CC10E74A1E08029C00DF6DE7 /* Resource */,
 				CC10E73E1E076D0500DF6DE7 /* MainViewController.swift */,
 			);
 			path = "Main(主要)";
@@ -95,6 +99,21 @@
 				CC10E7401E076D1600DF6DE7 /* ProfileViewController.swift */,
 			);
 			path = "Profile(我的)";
+			sourceTree = "<group>";
+		};
+		CC10E74A1E08029C00DF6DE7 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				CC10E74B1E08029C00DF6DE7 /* MainVCSettings.json */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		CC6033821EE8454C0084A29A /* Other(其它) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Other(其它)";
 			sourceTree = "<group>";
 		};
 		CC8C1F011E06C5AC00FF3B3E = {
@@ -189,6 +208,7 @@
 			files = (
 				CC10E7341E07236000DF6DE7 /* LaunchScreen.storyboard in Resources */,
 				CC10E7321E07217700DF6DE7 /* Assets.xcassets in Resources */,
+				CC10E74C1E08029C00DF6DE7 /* MainVCSettings.json in Resources */,
 				CC8C1F131E06C5AC00FF3B3E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
