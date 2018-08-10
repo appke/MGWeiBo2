@@ -30,9 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
-/// 全局打印函数， 任何地方都可以访问
-/// 第二个参数开始，默认值
+/// 自定义Log
 func MGLog<T>(_ message : T, file : String = #file, funcName : String = #function, lineNum : Int = #line) {
+    /// 全局打印函数， 任何地方都可以访问
+    /// 第二个参数开始，默认值
     #if DEBUG
         let fileName = (file as NSString).lastPathComponent
         // print("\(fileName):[\(funcName)](\(lineNum))-\(message)")

@@ -20,29 +20,64 @@ class MainViewController: UITabBarController {
     
     /// 添加所有子控制器
     func addChildViewControllers() {
-//        addChildViewController("HomeViewController", title: "首页", imageName: "tabbar_home")
-//        addChildViewController("MessageViewController", title: "消息", imageName: "tabbar_message_center")
-//        addChildViewController("DiscoverViewController", title: "发现", imageName: "tabbar_discover")
-//        addChildViewController("ProfileViewController", title: "我", imageName: "tabbar_profile")
+
+        // 获得文件名
+        guard let filePath = Bundle.main.path(forResource: "MainVCSettings.json", ofType: nil) else {
+            MGLog("json文件不存在")
+            return
+        }
         
-        // 读取plist文件中创建
+        // 读取json数据
+        guard let data = NSData(contentsOfFile: filePath) else {
+            MGLog("加载二进制数据失败")
+            return
+        }
+        
+        
+        do {
+            // 将json转换为对象(服务器)
+            let objc = try JSONSerialization.jsonObject(with: data as Data, options: JSONSerialization.ReadingOptions.mutableContainers) as!
+            [[String : Any]]
+            
+            for dict in objc {
+                // 第一步要告诉他是个String? 类型
+                let vcName = dict["vcName"] as? String
+                let imageName = dict["imageName"] as? String
+                let title = dict["title"] as? String
+
+                // 强制拆包
+                addChildViewController(vcName, title: title, imageName: imageName)
+            }
+            
+        } catch {
+            // 从本地加载
+            addChildViewController("HomeViewController", title: "首页", imageName: "tabbar_home")
+            addChildViewController("MessageViewController", title: "消息", imageName: "tabbar_message_center")
+            addChildViewController("DiscoverViewController", title: "发现", imageName: "tabbar_discover")
+            addChildViewController("ProfileViewController", title: "我", imageName: "tabbar_profile")
+        }
+        
+        
+        
         
         
     }
     
     /// 添加子控制器，重载系统方法，扩充
-    private func addChildViewController(_ childVcStr: String, title : String, imageName : String) {
+    private func addChildViewController(_ childVcStr: String?, title : String?, imageName : String?) {
         
         guard let childVc = transStringToClass(childVcStr) else {
-            MGLog("\(childVcStr)类名称有错误")
+            MGLog("创建控制器失败")
             return
         }
         
         // 设置chileVc属性
         childVc.title = title;
-        childVc.tabBarItem.image = UIImage(named: imageName);
-        // .withRenderingMode(.alwaysOriginal) 文字还是蓝色
-        childVc.tabBarItem.selectedImage = UIImage(named: imageName + "_highlighted")
+        if let ivName = imageName {
+            childVc.tabBarItem.image = UIImage(named: ivName);
+            // .withRenderingMode(.alwaysOriginal) 文字还是蓝色
+            childVc.tabBarItem.selectedImage = UIImage(named: ivName + "_highlighted")
+        }
         
         // 包装导航控制器
         let childNav = UINavigationController(rootViewController: childVc)
@@ -51,19 +86,19 @@ class MainViewController: UITabBarController {
     
     
     /// 字符串创建类型
-    func transStringToClass(_ name:String) -> UIViewController? {
+    func transStringToClass(_ name:String?) -> UIViewController? {
         // 1.拿到命名空间
-        guard let nameSpace = Bundle.main.infoDictionary!["CFBundleExecutable"] as? String else {
+        guard let spaceName = Bundle.main.infoDictionary!["CFBundleExecutable"] as? String else {
             MGLog("获取不到命名空间")
             return nil
         }
 
         // 2.转成类型Class -> AnyClass
-        guard let className = NSClassFromString(nameSpace + "." + name) else {
-            MGLog("获取不到类名")
-            return nil
+        var className: Any? = nil
+        if let vcName = name {
+            className = NSClassFromString(spaceName + "." + vcName)
         }
-
+        
         // 3.AnyClass转成对应控制器的类型
         guard let typeClass = className as? UIViewController.Type else {
             MGLog("没有获取到对应控制器类型")
@@ -74,5 +109,6 @@ class MainViewController: UITabBarController {
         return typeClass.init()
     }
 }
+
 
 
