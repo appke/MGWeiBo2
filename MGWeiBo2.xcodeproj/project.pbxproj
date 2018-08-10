@@ -60,13 +60,6 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		3B97440E211B4C6B004ECDDF /* Vendor(第三方) */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Vendor(第三方)";
-			sourceTree = "<group>";
-		};
 		CC10E7381E0724CC00DF6DE7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,7 +125,6 @@
 		CC6033821EE8454C0084A29A /* Other(其它) */ = {
 			isa = PBXGroup;
 			children = (
-				3B97440E211B4C6B004ECDDF /* Vendor(第三方) */,
 			);
 			path = "Other(其它)";
 			sourceTree = "<group>";
