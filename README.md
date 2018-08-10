@@ -1,5 +1,15 @@
 # MGWeiBo2
+
+- [ ] 删除NJ——Swift
+
+
+
+
+
+
+
 #### 自定义Log
+
 ```swift
 /// 全局打印函数
 func MGLog<T>(_ message : T, file : String = #file, funcName : String = #function, lineNum : Int = #line) {
