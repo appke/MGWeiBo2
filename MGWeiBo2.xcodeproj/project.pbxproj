@@ -50,7 +50,6 @@
 		3B97440D211B4BD0004ECDDF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3B97440E211B4C6B004ECDDF /* Vendor(第三方) */,
 				CC8C1F0D1E06C5AC00FF3B3E /* AppDelegate.swift */,
 				CC8C1F0F1E06C5AC00FF3B3E /* ViewController.swift */,
 				CC8C1F111E06C5AC00FF3B3E /* Main.storyboard */,
@@ -133,6 +132,7 @@
 		CC6033821EE8454C0084A29A /* Other(其它) */ = {
 			isa = PBXGroup;
 			children = (
+				3B97440E211B4C6B004ECDDF /* Vendor(第三方) */,
 			);
 			path = "Other(其它)";
 			sourceTree = "<group>";
@@ -360,9 +360,10 @@
 				INFOPLIST_FILE = "MGWeiBo2/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				"OTHER_SWIFT_FLAGS[arch=*]" = "-D DEBUG";
+				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mg.MGWeiBo2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;

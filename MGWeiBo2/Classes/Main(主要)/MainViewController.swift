@@ -13,29 +13,26 @@ class MainViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(HomeViewController())
+        // iOS7 文字图片 都设置
+        tabBar.tintColor = UIColor.orange
         
         addChildViewController(HomeViewController(), title: "首页", imageName: "tabbar_home")
         addChildViewController(MessageViewController(), title: "消息", imageName: "tabbar_message_center")
         addChildViewController(DiscoverViewController(), title: "发现", imageName: "tabbar_discover")
         addChildViewController(ProfileViewController(), title: "我", imageName: "tabbar_profile")
         
-        transStringToClass("HomeViewController")
-        
-        
-        // 1.获取json文件路径
-        
-        // 2.
     }
     
-    // 函数重载 private
+    /// 添加子控制器
+    /// 重载系统方法，扩充
     private func addChildViewController(_ childVc: UIViewController, title : String, imageName : String) {
-        
         // 设置chileVc属性
         childVc.title = title;
         childVc.tabBarItem.image = UIImage(named: imageName);
         // .withRenderingMode(.alwaysOriginal) 文字还是蓝色
         childVc.tabBarItem.selectedImage = UIImage(named: imageName + "_highlighted")
+        
+        
         
         // 包装导航控制器
         let childNav = UINavigationController(rootViewController: childVc)
@@ -43,7 +40,6 @@ class MainViewController: UITabBarController {
     }
     
     func transStringToClass(_ name:String) {
-        
         // 1.拿到命名空间
         guard let nameSpace = Bundle.main.infoDictionary!["CFBundleExecutable"] as? String else {
             print("获取不到命名空间")
