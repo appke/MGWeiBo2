@@ -20,10 +20,14 @@ class MainViewController: UITabBarController {
     
     /// 添加所有子控制器
     func addChildViewControllers() {
-        addChildViewController("HomeViewController", title: "首页", imageName: "tabbar_home")
-        addChildViewController("MessageViewController", title: "消息", imageName: "tabbar_message_center")
-        addChildViewController("DiscoverViewController", title: "发现", imageName: "tabbar_discover")
-        addChildViewController("ProfileViewController", title: "我", imageName: "tabbar_profile")
+//        addChildViewController("HomeViewController", title: "首页", imageName: "tabbar_home")
+//        addChildViewController("MessageViewController", title: "消息", imageName: "tabbar_message_center")
+//        addChildViewController("DiscoverViewController", title: "发现", imageName: "tabbar_discover")
+//        addChildViewController("ProfileViewController", title: "我", imageName: "tabbar_profile")
+        
+        // 读取plist文件中创建
+        
+        
     }
     
     /// 添加子控制器，重载系统方法，扩充
