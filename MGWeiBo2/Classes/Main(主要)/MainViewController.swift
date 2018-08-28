@@ -33,34 +33,26 @@ class MainViewController: UITabBarController {
             return
         }
         
-        
-        do {
+        do { // 网络加载
             // 将json转换为对象(服务器)
             let objc = try JSONSerialization.jsonObject(with: data as Data, options: JSONSerialization.ReadingOptions.mutableContainers) as!
             [[String : Any]]
             
             for dict in objc {
-                // 第一步要告诉他是个String? 类型
+                // 第一步要告诉它是个String? 类型
                 let vcName = dict["vcName"] as? String
                 let imageName = dict["imageName"] as? String
                 let title = dict["title"] as? String
-
                 // 强制拆包
                 addChildViewController(vcName, title: title, imageName: imageName)
             }
             
-        } catch {
-            // 从本地加载
+        } catch { // 从本地加载
             addChildViewController("HomeViewController", title: "首页", imageName: "tabbar_home")
             addChildViewController("MessageViewController", title: "消息", imageName: "tabbar_message_center")
             addChildViewController("DiscoverViewController", title: "发现", imageName: "tabbar_discover")
             addChildViewController("ProfileViewController", title: "我", imageName: "tabbar_profile")
         }
-        
-        
-        
-        
-        
     }
     
     /// 添加子控制器，重载系统方法，扩充
