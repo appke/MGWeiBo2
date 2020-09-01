@@ -25,7 +25,7 @@
 		CC10E7441E076D3A00DF6DE7 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		CC10E7461E076D4400DF6DE7 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CC10E74B1E08029C00DF6DE7 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
-		CC8C1F0A1E06C5AC00FF3B3E /* MGWeiBo2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGWeiBo2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC8C1F0A1E06C5AC00FF3B3E /* 微博2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "微博2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC8C1F0D1E06C5AC00FF3B3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC8C1F191E06C5AC00FF3B3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,7 +131,7 @@
 		CC8C1F0B1E06C5AC00FF3B3E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CC8C1F0A1E06C5AC00FF3B3E /* MGWeiBo2.app */,
+				CC8C1F0A1E06C5AC00FF3B3E /* 微博2.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,7 +162,7 @@
 			);
 			name = MGWeiBo2;
 			productName = MGWeiBo2;
-			productReference = CC8C1F0A1E06C5AC00FF3B3E /* MGWeiBo2.app */;
+			productReference = CC8C1F0A1E06C5AC00FF3B3E /* 微博2.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -187,6 +187,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -331,9 +332,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mg.MGWeiBo2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "微博2";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -347,8 +348,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mg.MGWeiBo2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				PRODUCT_NAME = "微博2";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

@@ -73,7 +73,7 @@ class MainViewController: UITabBarController {
         
         // 包装导航控制器
         let childNav = UINavigationController(rootViewController: childVc)
-        addChildViewController(childNav)
+        addChild(childNav)
     }
     
     
@@ -101,6 +101,3 @@ class MainViewController: UITabBarController {
         return typeClass.init()
     }
 }
-
-
-
