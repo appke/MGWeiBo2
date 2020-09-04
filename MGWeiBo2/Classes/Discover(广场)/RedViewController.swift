@@ -21,9 +21,9 @@ class RedViewController: UIViewController {
         print("-----\(#function)")
 
 //        weak var weakSelf = self //Optional
-        httpTool.loadData { [unowned self] (jsonData: String) in
+        httpTool.loadData { [weak self] (jsonData: String) in
             print("在HomeViewController中，请求到数据：\(jsonData)")
-            self.view.backgroundColor = .red
+            self?.view.backgroundColor = .red
 //            weakSelf?.view.backgroundColor = .red
         }
     }

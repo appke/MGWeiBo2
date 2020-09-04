@@ -60,7 +60,7 @@
 			children = (
 				CC10E73A1E0724CC00DF6DE7 /* Home(首页) */,
 				CC10E73C1E0724CC00DF6DE7 /* Message(消息) */,
-				CC10E7391E0724CC00DF6DE7 /* Discover(发现) */,
+				CC10E7391E0724CC00DF6DE7 /* Discover(广场) */,
 				CC10E73D1E0724CC00DF6DE7 /* Profile(我的) */,
 				CC10E73B1E0724CC00DF6DE7 /* Main(主要) */,
 				CC6033821EE8454C0084A29A /* Other(其它) */,
@@ -68,14 +68,14 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		CC10E7391E0724CC00DF6DE7 /* Discover(发现) */ = {
+		CC10E7391E0724CC00DF6DE7 /* Discover(广场) */ = {
 			isa = PBXGroup;
 			children = (
 				CC10E7421E076D2C00DF6DE7 /* DiscoverViewController.swift */,
 				3B3833A425021F0900195410 /* RedViewController.swift */,
 				3B3833A2250218C900195410 /* HttpTool.swift */,
 			);
-			path = "Discover(发现)";
+			path = "Discover(广场)";
 			sourceTree = "<group>";
 		};
 		CC10E73A1E0724CC00DF6DE7 /* Home(首页) */ = {
@@ -338,7 +338,7 @@
 				INFOPLIST_FILE = "MGWeiBo2/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "-DDEBUG";
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mg.MGWeiBo2;
 				PRODUCT_NAME = "微博2";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
