@@ -14,5 +14,15 @@ class DiscoverViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let button = UIButton.init(type: .contactAdd)
+        view.addSubview(button)
+        button.center = CGPoint(x: 100, y: 100)
+        button.addTarget(self, action: #selector(push2NextVC), for: .touchUpInside)
     }
+    
+    @objc func push2NextVC() {
+        let vc: RedViewController = RedViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B3833A3250218C900195410 /* HttpTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3833A2250218C900195410 /* HttpTool.swift */; };
+		3B3833A525021F0900195410 /* RedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3833A425021F0900195410 /* RedViewController.swift */; };
 		CC10E7321E07217700DF6DE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC10E7311E07217700DF6DE7 /* Assets.xcassets */; };
 		CC10E73F1E076D0500DF6DE7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC10E73E1E076D0500DF6DE7 /* MainViewController.swift */; };
 		CC10E7411E076D1600DF6DE7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC10E7401E076D1600DF6DE7 /* ProfileViewController.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B3833A2250218C900195410 /* HttpTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpTool.swift; sourceTree = "<group>"; };
+		3B3833A425021F0900195410 /* RedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedViewController.swift; sourceTree = "<group>"; };
 		CC10E7311E07217700DF6DE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC10E73E1E076D0500DF6DE7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CC10E7401E076D1600DF6DE7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +72,8 @@
 			isa = PBXGroup;
 			children = (
 				CC10E7421E076D2C00DF6DE7 /* DiscoverViewController.swift */,
+				3B3833A425021F0900195410 /* RedViewController.swift */,
+				3B3833A2250218C900195410 /* HttpTool.swift */,
 			);
 			path = "Discover(发现)";
 			sourceTree = "<group>";
@@ -222,8 +228,10 @@
 				CC10E7411E076D1600DF6DE7 /* ProfileViewController.swift in Sources */,
 				CC8C1F0E1E06C5AC00FF3B3E /* AppDelegate.swift in Sources */,
 				CC10E7451E076D3A00DF6DE7 /* MessageViewController.swift in Sources */,
+				3B3833A525021F0900195410 /* RedViewController.swift in Sources */,
 				CC10E7471E076D4400DF6DE7 /* HomeViewController.swift in Sources */,
 				CC10E7431E076D2C00DF6DE7 /* DiscoverViewController.swift in Sources */,
+				3B3833A3250218C900195410 /* HttpTool.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
