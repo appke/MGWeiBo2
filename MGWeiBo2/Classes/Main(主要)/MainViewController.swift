@@ -28,30 +28,27 @@ class MainViewController: UITabBarController {
 //        composeBtn.sizeToFit()
         composeBtn.center = CGPoint(x: tabBar.center.x, y: tabBar.bounds.size.height*0.5)
         
-        
-        composeBtn.addTarget(self, action: #selector(compse), for: .touchUpInside)
+        composeBtn.addTarget(self, action:#selector(compseBtnClick), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        
         // 可以在SB中设置
 //        let composeItem = tabBar.items![2]
 //        // 发布按钮不可点击
 //        composeItem.isEnabled = false
-        
-    
     }
-    
-    
-    @objc private func compse() {
-        MGLog("------ \(#function)")
+}
+
+//MARK:- 监听发布按钮点击
+extension MainViewController {
+    @objc private func compseBtnClick() {
+        MGLog("--- \(#function)")
     }
 }
 
 
-
+//MARK:- 通过代码构建tabBar
 extension MainViewController {
     /// 添加所有子控制器
     func addChildViewControllers() {
