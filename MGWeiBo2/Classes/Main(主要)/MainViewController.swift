@@ -9,8 +9,9 @@
 import UIKit
 
 class MainViewController: UITabBarController {
-    
-    private lazy var composeBtn: UIButton = UIButton()
+
+//    private lazy var composeBtn: UIButton = UIButton.createButton(imageName: "tabbar_compose_icon_add", bgImageName: "tabbar_compose_button")
+    private lazy var composeBtn = UIButton(imageName: "tabbar_compose_icon_add", bgImageName: "tabbar_compose_button")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,14 +23,11 @@ class MainViewController: UITabBarController {
         
         // 添加中间发布按钮
         tabBar.addSubview(composeBtn)
-        composeBtn.setImage(UIImage(named: "tabbar_compose_icon_add"), for: .normal)
-        composeBtn.setImage(UIImage(named: "tabbar_compose_icon_add_highlighted"), for: .highlighted)
-        composeBtn.setBackgroundImage(UIImage(named: "tabbar_compose_button"), for: .normal)
-        composeBtn.setBackgroundImage(UIImage(named: "tabbar_compose_button_highlighted"), for: .highlighted)
         
-        // 自动调整尺寸 必须要写,否则没有尺寸
-        composeBtn.sizeToFit()
+        // 自动调整尺寸 必须要写,否则没有尺寸,默认尺寸是(0, 0)
+//        composeBtn.sizeToFit()
         composeBtn.center = CGPoint(x: tabBar.center.x, y: tabBar.bounds.size.height*0.5)
+        
         
         composeBtn.addTarget(self, action: #selector(compse), for: .touchUpInside)
     }

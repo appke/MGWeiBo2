@@ -16,6 +16,7 @@
 		3BA8746D2508D077006710BC /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA8746C2508D077006710BC /* Profile.storyboard */; };
 		3BA8746F2508D18E006710BC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA8746E2508D18E006710BC /* Launch Screen.storyboard */; };
 		3BA874AD2508F6C9006710BC /* Null.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA874AC2508F6C9006710BC /* Null.storyboard */; };
+		3BA874B12509019E006710BC /* UIButton-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA874B02509019E006710BC /* UIButton-Extension.swift */; };
 		CC10E7321E07217700DF6DE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC10E7311E07217700DF6DE7 /* Assets.xcassets */; };
 		CC10E73F1E076D0500DF6DE7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC10E73E1E076D0500DF6DE7 /* MainViewController.swift */; };
 		CC10E7411E076D1600DF6DE7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC10E7401E076D1600DF6DE7 /* ProfileViewController.swift */; };
@@ -36,6 +37,7 @@
 		3BA8746C2508D077006710BC /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		3BA8746E2508D18E006710BC /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		3BA874AC2508F6C9006710BC /* Null.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Null.storyboard; sourceTree = "<group>"; };
+		3BA874B02509019E006710BC /* UIButton-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton-Extension.swift"; sourceTree = "<group>"; };
 		CC10E7311E07217700DF6DE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC10E73E1E076D0500DF6DE7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CC10E7401E076D1600DF6DE7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			children = (
 				CC10E74A1E08029C00DF6DE7 /* Resource */,
 				CC10E73E1E076D0500DF6DE7 /* MainViewController.swift */,
+				3BA874B02509019E006710BC /* UIButton-Extension.swift */,
 			);
 			path = "Main(主要)";
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC10E73F1E076D0500DF6DE7 /* MainViewController.swift in Sources */,
+				3BA874B12509019E006710BC /* UIButton-Extension.swift in Sources */,
 				CC10E7411E076D1600DF6DE7 /* ProfileViewController.swift in Sources */,
 				CC8C1F0E1E06C5AC00FF3B3E /* AppDelegate.swift in Sources */,
 				CC10E7451E076D3A00DF6DE7 /* MessageViewController.swift in Sources */,
