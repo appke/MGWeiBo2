@@ -14,8 +14,8 @@ class MainViewController: UITabBarController {
         super.viewDidLoad()
         
         // iOS7 文字图片 都设置
-        tabBar.tintColor = UIColor.orange
-        addChildViewControllers()
+//        tabBar.tintColor = UIColor.orange
+//        addChildViewControllers()
     }
     
     /// 添加所有子控制器

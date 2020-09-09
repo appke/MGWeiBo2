@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		3B3833A3250218C900195410 /* HttpTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3833A2250218C900195410 /* HttpTool.swift */; };
 		3B3833A525021F0900195410 /* RedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3833A425021F0900195410 /* RedViewController.swift */; };
+		3BA874652508C984006710BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA874642508C984006710BC /* Main.storyboard */; };
+		3BA874672508CF8A006710BC /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA874662508CF8A006710BC /* Home.storyboard */; };
+		3BA874692508D018006710BC /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA874682508D018006710BC /* Message.storyboard */; };
+		3BA8746B2508D060006710BC /* Discovery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA8746A2508D060006710BC /* Discovery.storyboard */; };
+		3BA8746D2508D077006710BC /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA8746C2508D077006710BC /* Profile.storyboard */; };
+		3BA8746F2508D18E006710BC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA8746E2508D18E006710BC /* Launch Screen.storyboard */; };
 		CC10E7321E07217700DF6DE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC10E7311E07217700DF6DE7 /* Assets.xcassets */; };
 		CC10E73F1E076D0500DF6DE7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC10E73E1E076D0500DF6DE7 /* MainViewController.swift */; };
 		CC10E7411E076D1600DF6DE7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC10E7401E076D1600DF6DE7 /* ProfileViewController.swift */; };
@@ -22,6 +28,12 @@
 /* Begin PBXFileReference section */
 		3B3833A2250218C900195410 /* HttpTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpTool.swift; sourceTree = "<group>"; };
 		3B3833A425021F0900195410 /* RedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedViewController.swift; sourceTree = "<group>"; };
+		3BA874642508C984006710BC /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3BA874662508CF8A006710BC /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		3BA874682508D018006710BC /* Message.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Message.storyboard; sourceTree = "<group>"; };
+		3BA8746A2508D060006710BC /* Discovery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discovery.storyboard; sourceTree = "<group>"; };
+		3BA8746C2508D077006710BC /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		3BA8746E2508D18E006710BC /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		CC10E7311E07217700DF6DE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC10E73E1E076D0500DF6DE7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CC10E7401E076D1600DF6DE7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +134,12 @@
 		CC6033821EE8454C0084A29A /* Other(其它) */ = {
 			isa = PBXGroup;
 			children = (
+				3BA874662508CF8A006710BC /* Home.storyboard */,
+				3BA874682508D018006710BC /* Message.storyboard */,
+				3BA8746A2508D060006710BC /* Discovery.storyboard */,
+				3BA8746C2508D077006710BC /* Profile.storyboard */,
+				3BA874642508C984006710BC /* Main.storyboard */,
+				3BA8746E2508D18E006710BC /* Launch Screen.storyboard */,
 			);
 			path = "Other(其它)";
 			sourceTree = "<group>";
@@ -178,7 +196,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 1170;
 				ORGANIZATIONNAME = "穆良";
 				TargetAttributes = {
 					CC8C1F091E06C5AC00FF3B3E = {
@@ -190,10 +208,9 @@
 			};
 			buildConfigurationList = CC8C1F051E06C5AC00FF3B3E /* Build configuration list for PBXProject "MGWeiBo2" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -214,6 +231,12 @@
 			files = (
 				CC10E7321E07217700DF6DE7 /* Assets.xcassets in Resources */,
 				CC10E74C1E08029C00DF6DE7 /* MainVCSettings.json in Resources */,
+				3BA8746F2508D18E006710BC /* Launch Screen.storyboard in Resources */,
+				3BA874692508D018006710BC /* Message.storyboard in Resources */,
+				3BA874652508C984006710BC /* Main.storyboard in Resources */,
+				3BA874672508CF8A006710BC /* Home.storyboard in Resources */,
+				3BA8746D2508D077006710BC /* Profile.storyboard in Resources */,
+				3BA8746B2508D060006710BC /* Discovery.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,20 +265,29 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -291,20 +323,29 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -333,11 +374,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
+				CURRENT_PROJECT_VERSION = 1.2;
 				DEVELOPMENT_TEAM = YEH9VENLMS;
 				INFOPLIST_FILE = "MGWeiBo2/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.2;
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mg.MGWeiBo2;
 				PRODUCT_NAME = "微博2";
@@ -350,11 +393,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
+				CURRENT_PROJECT_VERSION = 1.2;
 				DEVELOPMENT_TEAM = YEH9VENLMS;
 				INFOPLIST_FILE = "MGWeiBo2/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mg.MGWeiBo2;
 				PRODUCT_NAME = "微博2";
 				SWIFT_VERSION = 5.0;
