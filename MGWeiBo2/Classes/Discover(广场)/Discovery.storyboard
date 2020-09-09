@@ -11,7 +11,7 @@
         <scene sceneID="QqR-Si-WbH">
             <objects>
                 <navigationController id="EOD-KM-MjG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="广场" image="tabbar_discover" id="fEv-IP-iZX"/>
+                    <tabBarItem key="tabBarItem" title="广场" image="tabbar_discover" selectedImage="tabbar_discover_highlighted" id="fEv-IP-iZX"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="14L-nO-oxI">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="-84" y="1193"/>
         </scene>
-        <!--Discover View Controller-->
+        <!--广场-->
         <scene sceneID="7xu-S7-wen">
             <objects>
                 <tableViewController id="hEF-0h-sdm" customClass="DiscoverViewController" customModule="微博2" customModuleProvider="target" sceneMemberID="viewController">
@@ -47,7 +47,7 @@
                             <outlet property="delegate" destination="hEF-0h-sdm" id="NqS-g9-Q1f"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="uEA-Wn-MPg"/>
+                    <navigationItem key="navigationItem" title="广场" id="uEA-Wn-MPg"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kHV-9q-n8Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -56,5 +56,6 @@
     </scenes>
     <resources>
         <image name="tabbar_discover" width="30" height="30"/>
+        <image name="tabbar_discover_highlighted" width="30" height="30"/>
     </resources>
 </document>

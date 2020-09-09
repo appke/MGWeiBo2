@@ -10,14 +10,51 @@ import UIKit
 
 class MainViewController: UITabBarController {
     
+    private lazy var composeBtn: UIButton = UIButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // iOS7 文字图片 都设置
-//        tabBar.tintColor = UIColor.orange
+        tabBar.tintColor = UIColor.orange
 //        addChildViewControllers()
+        
+        // 2020-09-09 切换storyboard创建
+        
+        // 添加中间发布按钮
+        tabBar.addSubview(composeBtn)
+        composeBtn.setImage(UIImage(named: "tabbar_compose_icon_add"), for: .normal)
+        composeBtn.setImage(UIImage(named: "tabbar_compose_icon_add_highlighted"), for: .highlighted)
+        composeBtn.setBackgroundImage(UIImage(named: "tabbar_compose_button"), for: .normal)
+        composeBtn.setBackgroundImage(UIImage(named: "tabbar_compose_button_highlighted"), for: .highlighted)
+        
+        // 自动调整尺寸 必须要写,否则没有尺寸
+        composeBtn.sizeToFit()
+        composeBtn.center = CGPoint(x: tabBar.center.x, y: tabBar.bounds.size.height*0.5)
+        
+        composeBtn.addTarget(self, action: #selector(compse), for: .touchUpInside)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+        // 可以在SB中设置
+//        let composeItem = tabBar.items![2]
+//        // 发布按钮不可点击
+//        composeItem.isEnabled = false
+        
+    
+    }
+    
+    
+    @objc private func compse() {
+        MGLog("------ \(#function)")
+    }
+}
+
+
+
+extension MainViewController {
     /// 添加所有子控制器
     func addChildViewControllers() {
 

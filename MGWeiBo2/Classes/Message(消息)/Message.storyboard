@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ePG-fn-V1C">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,7 +12,7 @@
         <scene sceneID="uEJ-RC-clM">
             <objects>
                 <navigationController id="ePG-fn-V1C" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="消息" image="tabbar_message_center" id="MKU-9P-Hux"/>
+                    <tabBarItem key="tabBarItem" title="消息" image="tabbar_message_center" badgeValue="7" selectedImage="tabbar_message_center_highlighted" id="MKU-9P-Hux"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AEP-Xc-tzr">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -23,17 +25,17 @@
             </objects>
             <point key="canvasLocation" x="-84" y="490"/>
         </scene>
-        <!--Message View Controller-->
+        <!--消息-->
         <scene sceneID="MNZ-KN-VxM">
             <objects>
                 <viewController id="O31-OQ-oPs" customClass="MessageViewController" customModule="微博2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6wb-IJ-U5r">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="7JU-AF-vEm"/>
                     </view>
-                    <navigationItem key="navigationItem" id="TS3-pH-mo2"/>
+                    <navigationItem key="navigationItem" title="消息" id="TS3-pH-mo2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="drL-a6-Hli" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -42,5 +44,6 @@
     </scenes>
     <resources>
         <image name="tabbar_message_center" width="30" height="30"/>
+        <image name="tabbar_message_center_highlighted" width="30" height="30"/>
     </resources>
 </document>

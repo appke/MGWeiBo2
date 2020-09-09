@@ -12,7 +12,7 @@
         <scene sceneID="aHE-rx-3pI">
             <objects>
                 <navigationController id="Ip0-1A-IjU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="首页" image="tabbar_home" id="x34-7a-h9r"/>
+                    <tabBarItem key="tabBarItem" title="首页" image="tabbar_home" selectedImage="tabbar_home_highlighted" id="x34-7a-h9r"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5nw-0T-yT0">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="-84" y="-186"/>
         </scene>
-        <!--Home View Controller-->
+        <!--首页-->
         <scene sceneID="RmI-0B-q0Q">
             <objects>
                 <viewController id="uho-ZZ-0Ee" customClass="HomeViewController" customModule="微博2" customModuleProvider="target" sceneMemberID="viewController">
@@ -35,7 +35,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="oNU-oP-NgD"/>
                     </view>
-                    <navigationItem key="navigationItem" id="NyH-2z-vQC"/>
+                    <navigationItem key="navigationItem" title="首页" id="NyH-2z-vQC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xaq-vW-b8l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -44,5 +44,6 @@
     </scenes>
     <resources>
         <image name="tabbar_home" width="30" height="30"/>
+        <image name="tabbar_home_highlighted" width="30" height="30"/>
     </resources>
 </document>
