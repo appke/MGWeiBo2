@@ -14,11 +14,12 @@ class RedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gray
-        
+        navigationItem.title = "红色控制器"
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("-----\(#function)")
+        print("-----\(self)")
 
 //        weak var weakSelf = self //Optional
         httpTool.loadData { [weak self] (jsonData: String) in

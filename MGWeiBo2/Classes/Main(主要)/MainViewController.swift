@@ -33,10 +33,9 @@ class MainViewController: UITabBarController {
             return
         }
         
-        do { // 网络加载
+        do { //网络加载
             // 将json转换为对象(服务器)
-            let objc = try JSONSerialization.jsonObject(with: data as Data, options: JSONSerialization.ReadingOptions.mutableContainers) as!
-            [[String : Any]]
+            let objc = try JSONSerialization.jsonObject(with: data as Data, options: JSONSerialization.ReadingOptions.mutableContainers) as! [[String : Any]]
             
             for dict in objc {
                 // 第一步要告诉它是个String? 类型
@@ -46,7 +45,6 @@ class MainViewController: UITabBarController {
                 // 强制拆包
                 addChildViewController(vcName, title: title, imageName: imageName)
             }
-            
         } catch { // 从本地加载
             addChildViewController("HomeViewController", title: "首页", imageName: "tabbar_home")
             addChildViewController("MessageViewController", title: "消息", imageName: "tabbar_message_center")
@@ -75,7 +73,6 @@ class MainViewController: UITabBarController {
         let childNav = UINavigationController(rootViewController: childVc)
         addChild(childNav)
     }
-    
     
     /// 字符串创建类型
     func transStringToClass(_ name:String?) -> UIViewController? {

@@ -24,5 +24,4 @@ class DiscoverViewController: UITableViewController {
         let vc: RedViewController = RedViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
-
 }

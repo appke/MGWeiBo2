@@ -13,7 +13,7 @@ class HttpTool: NSObject {
     var callBack: ((String) -> ())?
     
     
-    func loadData(callBack: @escaping(_ jsonData: String) -> ()) {
+    func loadData(callBack: @escaping (_ jsonData: String) -> ()) {
         
         self.callBack = callBack
         
