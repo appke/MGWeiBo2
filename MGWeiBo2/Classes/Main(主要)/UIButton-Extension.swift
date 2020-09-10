@@ -26,7 +26,6 @@ extension UIButton {
     }
     
     /// 通过构造函数创建
-    
     convenience init(imageName: String, bgImageName: String) {
         self.init()
         

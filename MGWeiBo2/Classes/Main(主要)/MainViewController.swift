@@ -42,7 +42,7 @@ class MainViewController: UITabBarController {
 
 //MARK:- 监听发布按钮点击
 extension MainViewController {
-    @objc private func compseBtnClick() {
+    @objc func compseBtnClick() {
         MGLog("--- \(#function)")
     }
 }

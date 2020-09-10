@@ -8,19 +8,26 @@
 
 import UIKit
 
-class MessageViewController: UIViewController  {
+class MessageViewController: BaseViewController  {
     
-    var tableView: UITableView = UITableView()
+    lazy var tableView: UITableView = UITableView()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupUI()
     }
 }
 
+//MARK:- 表格
 extension MessageViewController {
     /// 设置UI相关
     func setupUI() {
+        
+        guard isLogin else {
+            return
+        }
         view.addSubview(tableView)
         tableView.frame = view.bounds
         tableView.dataSource = self
@@ -28,6 +35,7 @@ extension MessageViewController {
     }
 }
 
+//MARK:- 表格数据源、代理方法
 extension MessageViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellId = "cell"
