@@ -5,8 +5,22 @@
       "scale" : "1x"
     },
     {
-      "idiom" : "universal",
       "filename" : "common_button_white_disable@2x.png",
+      "idiom" : "universal",
+      "resizing" : {
+        "cap-insets" : {
+          "bottom" : 9,
+          "left" : 10,
+          "right" : 11,
+          "top" : 9
+        },
+        "center" : {
+          "height" : 1,
+          "mode" : "tile",
+          "width" : 1
+        },
+        "mode" : "9-part"
+      },
       "scale" : "2x"
     },
     {
@@ -15,7 +29,7 @@
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   }
 }
