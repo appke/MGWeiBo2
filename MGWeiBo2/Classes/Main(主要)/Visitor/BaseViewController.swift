@@ -20,15 +20,23 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+        setupNavigationItems()
     }
+    
 }
 
 //MARK:- 获得访客视图
 extension BaseViewController {
+    /// 设置访客视图
     private func setupVisitorView() {
 //        visitorView.backgroundColor = .purple
         view = visitorView
+    }
+    
+    /// 设置导航栏左右的Item
+    private func setupNavigationItems() {
+
     }
 }

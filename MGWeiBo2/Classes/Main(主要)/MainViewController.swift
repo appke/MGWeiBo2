@@ -16,7 +16,7 @@ class MainViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // iOS7 文字图片 都设置
-        tabBar.tintColor = UIColor.orange
+//        tabBar.tintColor = UIColor.orange
 //        addChildViewControllers()
         
         // 2020-09-09 切换storyboard创建

@@ -14,5 +14,7 @@ class ProfileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        visitorView.setupVisitorInfo(iconName: "visitordiscover_image_profile", title: "登录后，别人评论你的微博，给你发消息，都会在在这里收到通知")
+        
     }
 }
