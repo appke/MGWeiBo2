@@ -14,6 +14,9 @@ class VisitorView: UIView {
     @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var tipLabel: UILabel!
     
+    @IBOutlet weak var registerBtn: UIButton!
+    @IBOutlet weak var loginBtn: UIButton!
+    
     /// 快速通过类方法创建，方法名==类名
     class func visitorView() -> VisitorView {
         return Bundle.main.loadNibNamed("VisitorView", owner: nil, options: nil)?.first as! VisitorView

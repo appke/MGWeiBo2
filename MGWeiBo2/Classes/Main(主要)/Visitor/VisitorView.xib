@@ -42,7 +42,7 @@
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dkd-Ta-biL">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dkd-Ta-biL">
                     <rect key="frame" x="120.5" y="494" width="90" height="38"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="38" id="Kux-YO-7X0"/>
@@ -53,7 +53,7 @@
                         <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kht-CQ-kwc">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kht-CQ-kwc">
                     <rect key="frame" x="290.5" y="494" width="90" height="38"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="38" id="4Sl-Yy-cja"/>
@@ -84,6 +84,8 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="iconView" destination="TUF-SB-Khe" id="l8H-M7-3BO"/>
+                <outlet property="loginBtn" destination="Kht-CQ-kwc" id="jqH-rg-wUa"/>
+                <outlet property="registerBtn" destination="Dkd-Ta-biL" id="HIA-gu-tEU"/>
                 <outlet property="rotationView" destination="04C-rC-WRe" id="hOj-r3-JgZ"/>
                 <outlet property="tipLabel" destination="AaI-xh-Frw" id="nxA-Z7-gCQ"/>
             </connections>

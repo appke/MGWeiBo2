@@ -9,7 +9,6 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-    
     /// 是否登录，没登录显示访客视图
     var isLogin: Bool = false
     lazy var visitorView = VisitorView.visitorView()
@@ -24,7 +23,6 @@ class BaseViewController: UIViewController {
         
         setupNavigationItems()
     }
-    
 }
 
 //MARK:- 获得访客视图
@@ -33,10 +31,26 @@ extension BaseViewController {
     private func setupVisitorView() {
 //        visitorView.backgroundColor = .purple
         view = visitorView
+        
+        visitorView.registerBtn.addTarget(self, action: #selector(registerClick), for: .touchUpInside)
+        visitorView.loginBtn.addTarget(self, action: #selector(loginClick), for: .touchUpInside)
     }
     
     /// 设置导航栏左右的Item
     private func setupNavigationItems() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: .plain, target: self, action: #selector(registerClick))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: .plain, target: self, action: #selector(loginClick))
+    }
+}
 
+
+//MARK:- 监听Item点击
+extension BaseViewController {
+    @objc private func registerClick() {
+        MGLog("\(#function)")
+    }
+    
+    @objc private func loginClick() {
+        MGLog("\(#function)")
     }
 }
