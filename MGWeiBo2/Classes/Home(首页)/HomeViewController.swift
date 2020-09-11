@@ -10,6 +10,7 @@ import UIKit
 
 class HomeViewController: BaseViewController {
     
+    lazy var titleBtn: TitleButton = TitleButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +25,26 @@ class HomeViewController: BaseViewController {
 //MARK:- 设置UI界面 
 extension HomeViewController {
     private func setupNavigationBar() {
-        
         navigationItem.leftBarButtonItem = UIBarButtonItem(imageName: "navigationbar_friendattention")
         navigationItem.rightBarButtonItem = UIBarButtonItem(imageName: "navigationbar_pop")
+        
+        // 设置titleView
+        titleBtn.setTitle("helloAppke", for: .normal)
+        titleBtn.addTarget(self, action: #selector(titleBtnClick(button:)), for: .touchUpInside)
+        navigationItem.titleView = titleBtn
+    }
+}
+
+extension HomeViewController {
+    @objc private func titleBtnClick(button: TitleButton) {
+        button.isSelected = !button.isSelected
+        
+        let vc = PopoverController()
+        vc.view.backgroundColor = .magenta
+        
+        // 设置控制器的modal样式
+        vc.modalPresentationStyle = .custom
+        
+        present(vc, animated: true, completion: nil)
     }
 }
