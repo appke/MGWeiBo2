@@ -16,7 +16,7 @@ class MessageViewController: BaseViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        isLogin = true
+        //isLogin = true
         
         setupUI()
         
@@ -30,6 +30,7 @@ extension MessageViewController {
     /// 设置UI相关
     func setupUI() {
         
+        // 登录后，显示自定义view
         guard isLogin else {
             return
         }

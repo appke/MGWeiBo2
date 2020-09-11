@@ -10,7 +10,7 @@ import UIKit
 
 class BaseViewController: UIViewController {
     /// 是否登录，没登录显示访客视图
-    var isLogin: Bool = false
+    var isLogin: Bool = true
     lazy var visitorView = VisitorView.visitorView()
     
     override func loadView() {

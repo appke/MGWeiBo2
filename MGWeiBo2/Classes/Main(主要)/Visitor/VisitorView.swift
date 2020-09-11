@@ -22,18 +22,17 @@ class VisitorView: UIView {
         return Bundle.main.loadNibNamed("VisitorView", owner: nil, options: nil)?.first as! VisitorView
     }
     
-    func addRotation() {
-        
+    func addRotation() { 
         // 创建旋转动画
         let rotationAnim = CABasicAnimation(keyPath: "transform.rotation.z")
-        
+
         // 设置动画属性
         rotationAnim.fromValue = 0
         rotationAnim.toValue = Double.pi * 2
         rotationAnim.repeatCount = MAXFLOAT
         rotationAnim.duration = 4 //转1圈的时间
         rotationAnim.isRemovedOnCompletion = false //切换之后动画会移除
-        
+
         // 将动画添加到layer中
         rotationView.layer.add(rotationAnim, forKey: nil)
     }

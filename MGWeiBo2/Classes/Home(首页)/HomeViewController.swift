@@ -15,11 +15,17 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
         
         visitorView.addRotation()
+        
+        setupNavigationBar()
     }
     
 }
 
-
+//MARK:- 设置UI界面 
 extension HomeViewController {
-    
+    private func setupNavigationBar() {
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(imageName: "navigationbar_friendattention")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(imageName: "navigationbar_pop")
+    }
 }
