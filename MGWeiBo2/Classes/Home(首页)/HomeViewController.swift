@@ -9,6 +9,8 @@
 import UIKit
 
 class HomeViewController: BaseViewController {
+    /// 是否弹出动画
+    var isPresented: Bool = false
     
     lazy var titleBtn: TitleButton = TitleButton()
     
@@ -59,13 +61,15 @@ extension HomeViewController: UIViewControllerTransitioningDelegate {
     
     // 自定义弹出动画
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        isPresented = true
         return self
     }
     
     // 自定义消失动画
-//    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        return self
-//    }
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        isPresented = false
+        return self
+    }
     
     
 }
@@ -73,10 +77,15 @@ extension HomeViewController: UIViewControllerTransitioningDelegate {
 //MARK:- 转场动画相关
 extension HomeViewController: UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.5
+        return 0.25
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        isPresented ? animateForPresentedView(transitionContext: transitionContext) : animateForDismissedView(transitionContext: transitionContext)
+    }
+    
+    /// 弹出动画
+    private func animateForPresentedView(transitionContext: UIViewControllerContextTransitioning) {
         // 拿到弹出的view
         let presetedView = transitionContext.view(forKey: .to)!
         
@@ -93,9 +102,19 @@ extension HomeViewController: UIViewControllerAnimatedTransitioning {
             // 必须告诉转场上下文，动画已经结束
             transitionContext.completeTransition(true)
         }
-        
-        
     }
     
-    
+    /// 消失动画
+    private func animateForDismissedView(transitionContext: UIViewControllerContextTransitioning) {
+        // 拿到消失的view
+        let dismissedView = transitionContext.view(forKey: .from)!
+        
+        // 已经存在不用在添加，执行动画
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
+            dismissedView.transform = CGAffineTransform(scaleX: 1.0, y: 0.001) //x轴1倍不变，y轴消失，对临界值处理不好
+        }) { (_)->() in
+            dismissedView.removeFromSuperview()
+            transitionContext.completeTransition(true)
+        }
+    }
 }
