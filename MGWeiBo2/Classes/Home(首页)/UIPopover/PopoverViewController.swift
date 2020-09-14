@@ -1,5 +1,5 @@
 //
-//  PopoverController.swift
+//  PopoverViewController.swift
 //  MGWeiBo2
 //
 //  Created by MGBook on 2020/9/11.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PopoverController: UIViewController {
+class PopoverViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

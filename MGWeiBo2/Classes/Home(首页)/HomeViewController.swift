@@ -39,12 +39,20 @@ extension HomeViewController {
     @objc private func titleBtnClick(button: TitleButton) {
         button.isSelected = !button.isSelected
         
-        let vc = PopoverController()
-        vc.view.backgroundColor = .magenta
+        let vc = PopoverViewController()
+//        vc.view.backgroundColor = .magenta 
         
         // 设置控制器的modal样式
         vc.modalPresentationStyle = .custom
-        
+        // 设置转场代理
+        vc.transitioningDelegate = self
         present(vc, animated: true, completion: nil)
+    }
+}
+
+//MARK:- 代理相关
+extension HomeViewController: UIViewControllerTransitioningDelegate {
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return MGPresentationController(presentedViewController: presented, presenting: presenting)
     }
 }
