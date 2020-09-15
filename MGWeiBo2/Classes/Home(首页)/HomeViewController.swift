@@ -7,12 +7,12 @@
 //
 
 import UIKit
+import AFNetworking
 
 class HomeViewController: BaseViewController {
-    /// 是否弹出动画
-    var isPresented: Bool = false
     
-    lazy var titleBtn: TitleButton = TitleButton()
+    private lazy var titleBtn: TitleButton = TitleButton()
+    private lazy var popverAnimator: PopoverAnimator = PopoverAnimator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +20,18 @@ class HomeViewController: BaseViewController {
         visitorView.addRotation()
         
         setupNavigationBar()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+//        let shareInstance = AFHTTPSessionManager()
+//        shareInstance.responseSerializer.acceptableContentTypes?.insert("text/html")
+//        // 发送网络请求 
+//        AFHTTPSessionManager().get("http://httpbin.org/get", parameters: ["name": "mul2"], headers: nil, progress: nil, success: { (task: URLSessionDataTask, result: Any?) in
+//            print(result!)
+//        }) { (task: URLSessionDataTask?, error: Error) in
+//            print(error)
+//        }
     }
     
 }
@@ -32,14 +44,14 @@ extension HomeViewController {
         
         // 设置titleView
         titleBtn.setTitle("helloAppke", for: .normal)
-        titleBtn.addTarget(self, action: #selector(titleBtnClick(button:)), for: .touchUpInside)
+        titleBtn.addTarget(self, action: #selector(titleBtnClick), for: .touchUpInside)
         navigationItem.titleView = titleBtn
     }
 }
 
+//MARK:- 事件监听
 extension HomeViewController {
-    @objc private func titleBtnClick(button: TitleButton) {
-        button.isSelected = !button.isSelected
+    @objc private func titleBtnClick() {
         
         let vc = PopoverViewController()
 //        vc.view.backgroundColor = .magenta 
@@ -47,74 +59,12 @@ extension HomeViewController {
         // 设置控制器的modal样式
         vc.modalPresentationStyle = .custom
         // 设置转场代理
-        vc.transitioningDelegate = self
+        vc.transitioningDelegate = popverAnimator
+//        popverAnimator.
+        popverAnimator.presentedBlack = { [weak self] (isPresnted: Bool)->() in
+            self?.titleBtn.isSelected = isPresnted
+        }
+        
         present(vc, animated: true, completion: nil)
-    }
-}
-
-//MARK:- 代理相关
-extension HomeViewController: UIViewControllerTransitioningDelegate {
-    // 自定义弹出view的尺寸
-    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        return MGPresentationController(presentedViewController: presented, presenting: presenting)
-    }
-    
-    // 自定义弹出动画
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        isPresented = true
-        return self
-    }
-    
-    // 自定义消失动画
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        isPresented = false
-        return self
-    }
-    
-    
-}
-
-//MARK:- 转场动画相关
-extension HomeViewController: UIViewControllerAnimatedTransitioning {
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.25
-    }
-    
-    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        isPresented ? animateForPresentedView(transitionContext: transitionContext) : animateForDismissedView(transitionContext: transitionContext)
-    }
-    
-    /// 弹出动画
-    private func animateForPresentedView(transitionContext: UIViewControllerContextTransitioning) {
-        // 拿到弹出的view
-        let presetedView = transitionContext.view(forKey: .to)!
-        
-        // 将弹出view添加到containView中
-        transitionContext.containerView.addSubview(presetedView)
-        
-        // 执行动画
-        presetedView.transform = CGAffineTransform(scaleX: 1.0, y: 0)
-        // 动画从中间开始？–≥ 设置锚点
-        presetedView.layer.anchorPoint = CGPoint(x: 0.5, y: 0)
-        UIView .animate(withDuration: transitionDuration(using: transitionContext), animations: {
-            presetedView.transform = CGAffineTransform.identity
-        }) { (_)->() in
-            // 必须告诉转场上下文，动画已经结束
-            transitionContext.completeTransition(true)
-        }
-    }
-    
-    /// 消失动画
-    private func animateForDismissedView(transitionContext: UIViewControllerContextTransitioning) {
-        // 拿到消失的view
-        let dismissedView = transitionContext.view(forKey: .from)!
-        
-        // 已经存在不用在添加，执行动画
-        UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
-            dismissedView.transform = CGAffineTransform(scaleX: 1.0, y: 0.001) //x轴1倍不变，y轴消失，对临界值处理不好
-        }) { (_)->() in
-            dismissedView.removeFromSuperview()
-            transitionContext.completeTransition(true)
-        }
     }
 }
