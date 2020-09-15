@@ -3,14 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		3B3833A3250218C900195410 /* HttpTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3833A2250218C900195410 /* HttpTool.swift */; };
 		3B3833A525021F0900195410 /* RedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3833A425021F0900195410 /* RedViewController.swift */; };
+		3B578FA3251065FB00C0D55C /* AFNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 3B578FA2251065FB00C0D55C /* AFNetworking */; };
+		3B578FA6251066D200C0D55C /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 3B578FA5251066D200C0D55C /* MBProgressHUD */; };
+		3B58E5AC251048BA00E7673C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3B58E5AB251048BA00E7673C /* Alamofire */; };
 		3B95F575250F050C00A3B843 /* MGPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95F574250F050C00A3B843 /* MGPresentationController.swift */; };
 		3B95F577250F4D8C00A3B843 /* PopoverAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95F576250F4D8C00A3B843 /* PopoverAnimator.swift */; };
+		3B95F57A250F5ECA00A3B843 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3B95F579250F5ECA00A3B843 /* SnapKit */; };
 		3BA874652508C984006710BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA874642508C984006710BC /* Main.storyboard */; };
 		3BA874672508CF8A006710BC /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA874662508CF8A006710BC /* Home.storyboard */; };
 		3BA874692508D018006710BC /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA874682508D018006710BC /* Message.storyboard */; };
@@ -73,6 +77,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B95F57A250F5ECA00A3B843 /* SnapKit in Frameworks */,
+				3B58E5AC251048BA00E7673C /* Alamofire in Frameworks */,
+				3B578FA6251066D200C0D55C /* MBProgressHUD in Frameworks */,
+				3B578FA3251065FB00C0D55C /* AFNetworking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +250,12 @@
 			dependencies = (
 			);
 			name = MGWeiBo2;
+			packageProductDependencies = (
+				3B95F579250F5ECA00A3B843 /* SnapKit */,
+				3B58E5AB251048BA00E7673C /* Alamofire */,
+				3B578FA2251065FB00C0D55C /* AFNetworking */,
+				3B578FA5251066D200C0D55C /* MBProgressHUD */,
+			);
 			productName = MGWeiBo2;
 			productReference = CC8C1F0A1E06C5AC00FF3B3E /* 微博2.app */;
 			productType = "com.apple.product-type.application";
@@ -272,6 +286,13 @@
 				Base,
 			);
 			mainGroup = CC8C1F011E06C5AC00FF3B3E;
+			packageReferences = (
+				3B95F578250F5ECA00A3B843 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				3B58E5AA251048BA00E7673C /* XCRemoteSwiftPackageReference "Alamofire" */,
+				3B578FA025105D3300C0D55C /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				3B578FA1251065FB00C0D55C /* XCRemoteSwiftPackageReference "AFNetworking" */,
+				3B578FA4251066D200C0D55C /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
+			);
 			productRefGroup = CC8C1F0B1E06C5AC00FF3B3E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -433,7 +454,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -447,7 +469,10 @@
 				DEVELOPMENT_TEAM = YEH9VENLMS;
 				INFOPLIST_FILE = "MGWeiBo2/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.2;
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mg.MGWeiBo2;
@@ -466,7 +491,10 @@
 				DEVELOPMENT_TEAM = YEH9VENLMS;
 				INFOPLIST_FILE = "MGWeiBo2/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mg.MGWeiBo2;
 				PRODUCT_NAME = "微博2";
@@ -496,6 +524,72 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3B578FA025105D3300C0D55C /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+		3B578FA1251065FB00C0D55C /* XCRemoteSwiftPackageReference "AFNetworking" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AFNetworking/AFNetworking";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.1;
+			};
+		};
+		3B578FA4251066D200C0D55C /* XCRemoteSwiftPackageReference "MBProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jdg/MBProgressHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+		3B58E5AA251048BA00E7673C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.2;
+			};
+		};
+		3B95F578250F5ECA00A3B843 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3B578FA2251065FB00C0D55C /* AFNetworking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B578FA1251065FB00C0D55C /* XCRemoteSwiftPackageReference "AFNetworking" */;
+			productName = AFNetworking;
+		};
+		3B578FA5251066D200C0D55C /* MBProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B578FA4251066D200C0D55C /* XCRemoteSwiftPackageReference "MBProgressHUD" */;
+			productName = MBProgressHUD;
+		};
+		3B58E5AB251048BA00E7673C /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B58E5AA251048BA00E7673C /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		3B95F579250F5ECA00A3B843 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B95F578250F5ECA00A3B843 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CC8C1F021E06C5AC00FF3B3E /* Project object */;
 }
