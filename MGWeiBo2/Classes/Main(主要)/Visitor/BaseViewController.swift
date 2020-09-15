@@ -10,7 +10,7 @@ import UIKit
 
 class BaseViewController: UIViewController {
     /// 是否登录，没登录显示访客视图
-    var isLogin: Bool = true
+    var isLogin: Bool = false
     lazy var visitorView = VisitorView.visitorView()
     
     override func loadView() {
@@ -51,6 +51,8 @@ extension BaseViewController {
     }
     
     @objc private func loginClick() {
-        MGLog("\(#function)")
+        let oAuth = OAuthViewController()
+        let nav = UINavigationController(rootViewController: oAuth)
+        present(nav, animated: true, completion: nil)
     }
 }
