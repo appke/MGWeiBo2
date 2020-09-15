@@ -13,6 +13,9 @@
 		3B578FA6251066D200C0D55C /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 3B578FA5251066D200C0D55C /* MBProgressHUD */; };
 		3B578FB42510D4D400C0D55C /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B578FB22510D4D400C0D55C /* OAuthViewController.swift */; };
 		3B578FB52510D4D500C0D55C /* OAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B578FB32510D4D400C0D55C /* OAuthViewController.xib */; };
+		3B578FB72510DB4C00C0D55C /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B578FB62510DB4C00C0D55C /* Common.swift */; };
+		3B578FB92510E14E00C0D55C /* MBProgressHUD-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B578FB82510E14E00C0D55C /* MBProgressHUD-Extension.swift */; };
+		3B578FBB2510E30B00C0D55C /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3B578FBA2510E30B00C0D55C /* MBProgressHUD.bundle */; };
 		3B58E5AC251048BA00E7673C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3B58E5AB251048BA00E7673C /* Alamofire */; };
 		3B95F575250F050C00A3B843 /* MGPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95F574250F050C00A3B843 /* MGPresentationController.swift */; };
 		3B95F577250F4D8C00A3B843 /* PopoverAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95F576250F4D8C00A3B843 /* PopoverAnimator.swift */; };
@@ -47,6 +50,9 @@
 		3B3833A425021F0900195410 /* RedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedViewController.swift; sourceTree = "<group>"; };
 		3B578FB22510D4D400C0D55C /* OAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		3B578FB32510D4D400C0D55C /* OAuthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OAuthViewController.xib; sourceTree = "<group>"; };
+		3B578FB62510DB4C00C0D55C /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		3B578FB82510E14E00C0D55C /* MBProgressHUD-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MBProgressHUD-Extension.swift"; sourceTree = "<group>"; };
+		3B578FBA2510E30B00C0D55C /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		3B95F574250F050C00A3B843 /* MGPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPresentationController.swift; sourceTree = "<group>"; };
 		3B95F576250F4D8C00A3B843 /* PopoverAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverAnimator.swift; sourceTree = "<group>"; };
 		3BA874642508C984006710BC /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -125,6 +131,8 @@
 			children = (
 				3BA874B02509019E006710BC /* UIButton-Extension.swift */,
 				3BBD16E1250B570400F3D6FF /* UIBarButtonItem-Extension.swift */,
+				3B578FB82510E14E00C0D55C /* MBProgressHUD-Extension.swift */,
+				3B578FBA2510E30B00C0D55C /* MBProgressHUD.bundle */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -183,6 +191,7 @@
 				CC10E74A1E08029C00DF6DE7 /* Resource */,
 				CC10E73E1E076D0500DF6DE7 /* MainViewController.swift */,
 				3BBD16E4250B5D5300F3D6FF /* TitleButton.swift */,
+				3B578FB62510DB4C00C0D55C /* Common.swift */,
 			);
 			path = "Main(主要)";
 			sourceTree = "<group>";
@@ -321,6 +330,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B578FBB2510E30B00C0D55C /* MBProgressHUD.bundle in Resources */,
 				CC10E7321E07217700DF6DE7 /* Assets.xcassets in Resources */,
 				3BA874BA2509FF2A006710BC /* VisitorView.xib in Resources */,
 				CC10E74C1E08029C00DF6DE7 /* MainVCSettings.json in Resources */,
@@ -347,11 +357,13 @@
 				CC10E73F1E076D0500DF6DE7 /* MainViewController.swift in Sources */,
 				3BBD16E2250B570400F3D6FF /* UIBarButtonItem-Extension.swift in Sources */,
 				3BA874B12509019E006710BC /* UIButton-Extension.swift in Sources */,
+				3B578FB72510DB4C00C0D55C /* Common.swift in Sources */,
 				CC10E7411E076D1600DF6DE7 /* ProfileViewController.swift in Sources */,
 				CC8C1F0E1E06C5AC00FF3B3E /* AppDelegate.swift in Sources */,
 				3B95F577250F4D8C00A3B843 /* PopoverAnimator.swift in Sources */,
 				CC10E7451E076D3A00DF6DE7 /* MessageViewController.swift in Sources */,
 				3BA874B62509FDFE006710BC /* BaseViewController.swift in Sources */,
+				3B578FB92510E14E00C0D55C /* MBProgressHUD-Extension.swift in Sources */,
 				3B3833A525021F0900195410 /* RedViewController.swift in Sources */,
 				3B578FB42510D4D400C0D55C /* OAuthViewController.swift in Sources */,
 				3BBD16E9250B6DCE00F3D6FF /* PopoverViewController.swift in Sources */,

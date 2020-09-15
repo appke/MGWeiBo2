@@ -7,16 +7,7 @@
 //
 
 import UIKit
-
-/**
- App Key：3204583937
- App Secret：205130042e0e31678899faa5e28d756d
- 回调地址：https://open.weibo.com
- https://api.weibo.com/oauth2/authorize?client_id=3204583937&redirect_uri=https://open.weibo.com
- 
- https://open.weibo.com/?code=5a3b86b3af38c1bf00eb7da9ee733d75
-
- */
+import MBProgressHUD
 
 class OAuthViewController: UIViewController {
 
@@ -28,20 +19,33 @@ class OAuthViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setupNavigationItem()
-        let ulrStr = "https://api.weibo.com/oauth2/authorize?client_id=3204583937&redirect_uri=https://open.weibo.com/"
         
-        webView.loadRequest(URLRequest(url: URL(string: ulrStr)!))
+        loadWebView()
     }
 }
 
+//MARK:- 导航按钮相关
 extension OAuthViewController {
     func setupNavigationItem() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "关闭", style: .plain, target: self, action: #selector(closeItemClick))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "填充", style: .plain, target: self, action: #selector(fillItemClick))
         title = "登录页面"
     }
+    
+    func loadWebView() {
+        
+        let urlString = "https://api.weibo.com/oauth2/authorize?client_id=\(app_key)&redirect_uri=\(redirect_uri)"
+        
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        
+        let request = URLRequest(url: url)
+        webView.loadRequest(request)
+    }
 }
 
+//MARK:- 事件监听
 extension OAuthViewController {
     @objc private func closeItemClick() {
         dismiss(animated: true, completion: nil)
@@ -50,4 +54,29 @@ extension OAuthViewController {
     @objc private func fillItemClick() {
         print(#function)
     }
+}
+
+
+//MARK:- xib已经连线，实现webView协议
+extension OAuthViewController: UIWebViewDelegate{
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        MBProgressHUD.show()
+    }
+    
+        
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        MBProgressHUD.hideHUD()
+    }
+    
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebView.NavigationType) -> Bool {
+        print("---- \(request.url!)")
+        
+        return true
+    }
+
+    /// 加载网页失败
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        MBProgressHUD.hideHUD()
+    }
+    
 }
