@@ -10,7 +10,7 @@ import UIKit
 
 class UserAccountViewModel: NSObject {
 
-    static let shareInstance = UserAccountViewModel()
+    static let shared = UserAccountViewModel()
     // 定义属性
     var isLogin: Bool {
         guard let account = account else {
@@ -24,10 +24,8 @@ class UserAccountViewModel: NSObject {
         return expirseDate.compare(Date()) == .orderedDescending
     } 
     
-    
     //MARK: 定义属性，保存账号信息
     var account: UserAccount?
-    
     
     //MARK: 计算属性
     var accountPath: String {
@@ -39,6 +37,7 @@ class UserAccountViewModel: NSObject {
         super.init()
         // 读取账号信息
         account = NSKeyedUnarchiver.unarchiveObject(withFile: accountPath) as? UserAccount
+        print("accountPath ==== \(accountPath)")
     }
     
 //    func isLogin() -> Bool {

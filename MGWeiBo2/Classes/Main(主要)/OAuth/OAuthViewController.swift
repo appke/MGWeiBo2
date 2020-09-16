@@ -145,7 +145,7 @@ extension OAuthViewController {
             account.screen_name = result["screen_name"] as? String
             account.avatar_large = result["avatar_large"] as? String
             
-            print(account)
+//            print(account)
             
             // 获取沙盒路径
             var accountPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last!
@@ -155,7 +155,12 @@ extension OAuthViewController {
             // 保存对象
             NSKeyedArchiver.archiveRootObject(account, toFile: accountPath)
             
-            
+            // 必须重新赋值，否则后面用单例拿到的属性account，都是nil
+            UserAccountViewModel.shared.account = account
+            // 退出当前控制器
+            self.dismiss(animated: true) {
+                UIApplication.shared.keyWindow?.rootViewController = WelcomeViewController()
+            }
         }) { (task: URLSessionDataTask?, error: Error) in
             print("error: \(error)")
         }

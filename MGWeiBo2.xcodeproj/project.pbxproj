@@ -18,6 +18,11 @@
 		3B578FBB2510E30B00C0D55C /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3B578FBA2510E30B00C0D55C /* MBProgressHUD.bundle */; };
 		3B578FBF2511A9DB00C0D55C /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B578FBE2511A9DB00C0D55C /* UserAccount.swift */; };
 		3B578FC12511FA9F00C0D55C /* UserAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B578FC02511FA9F00C0D55C /* UserAccountViewModel.swift */; };
+		3B578FC52512015900C0D55C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B578FC32512015900C0D55C /* WelcomeViewController.swift */; };
+		3B578FC62512015900C0D55C /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B578FC42512015900C0D55C /* WelcomeViewController.xib */; };
+		3B578FCB25121A8100C0D55C /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3B578FCA25121A8100C0D55C /* SDWebImage */; };
+		3B578FCD25121A8500C0D55C /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3B578FCC25121A8500C0D55C /* SDWebImageMapKit */; };
+		3B578FD02512279200C0D55C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3B578FCF2512279200C0D55C /* Kingfisher */; };
 		3B58E5AC251048BA00E7673C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3B58E5AB251048BA00E7673C /* Alamofire */; };
 		3B95F575250F050C00A3B843 /* MGPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95F574250F050C00A3B843 /* MGPresentationController.swift */; };
 		3B95F577250F4D8C00A3B843 /* PopoverAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95F576250F4D8C00A3B843 /* PopoverAnimator.swift */; };
@@ -57,6 +62,8 @@
 		3B578FBA2510E30B00C0D55C /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		3B578FBE2511A9DB00C0D55C /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		3B578FC02511FA9F00C0D55C /* UserAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountViewModel.swift; sourceTree = "<group>"; };
+		3B578FC32512015900C0D55C /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		3B578FC42512015900C0D55C /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		3B95F574250F050C00A3B843 /* MGPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPresentationController.swift; sourceTree = "<group>"; };
 		3B95F576250F4D8C00A3B843 /* PopoverAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverAnimator.swift; sourceTree = "<group>"; };
 		3BA874642508C984006710BC /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -93,8 +100,11 @@
 			files = (
 				3B95F57A250F5ECA00A3B843 /* SnapKit in Frameworks */,
 				3B58E5AC251048BA00E7673C /* Alamofire in Frameworks */,
+				3B578FD02512279200C0D55C /* Kingfisher in Frameworks */,
 				3B578FA6251066D200C0D55C /* MBProgressHUD in Frameworks */,
 				3B578FA3251065FB00C0D55C /* AFNetworking in Frameworks */,
+				3B578FCD25121A8500C0D55C /* SDWebImageMapKit in Frameworks */,
+				3B578FCB25121A8100C0D55C /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +120,22 @@
 				3B578FC02511FA9F00C0D55C /* UserAccountViewModel.swift */,
 			);
 			path = OAuth;
+			sourceTree = "<group>";
+		};
+		3B578FC22512013200C0D55C /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				3B578FC32512015900C0D55C /* WelcomeViewController.swift */,
+				3B578FC42512015900C0D55C /* WelcomeViewController.xib */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		3B578FC7251219D700C0D55C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		3B97440D211B4BD0004ECDDF /* Supporting Files */ = {
@@ -181,6 +207,7 @@
 		CC10E73A1E0724CC00DF6DE7 /* Home(首页) */ = {
 			isa = PBXGroup;
 			children = (
+				3B578FC22512013200C0D55C /* Welcome */,
 				3BBD16E6250B6D9E00F3D6FF /* UIPopover */,
 				CC10E7461E076D4400DF6DE7 /* HomeViewController.swift */,
 				3BA874662508CF8A006710BC /* Home.storyboard */,
@@ -243,6 +270,7 @@
 			children = (
 				CC8C1F0C1E06C5AC00FF3B3E /* MGWeiBo2 */,
 				CC8C1F0B1E06C5AC00FF3B3E /* Products */,
+				3B578FC7251219D700C0D55C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -284,6 +312,9 @@
 				3B58E5AB251048BA00E7673C /* Alamofire */,
 				3B578FA2251065FB00C0D55C /* AFNetworking */,
 				3B578FA5251066D200C0D55C /* MBProgressHUD */,
+				3B578FCA25121A8100C0D55C /* SDWebImage */,
+				3B578FCC25121A8500C0D55C /* SDWebImageMapKit */,
+				3B578FCF2512279200C0D55C /* Kingfisher */,
 			);
 			productName = MGWeiBo2;
 			productReference = CC8C1F0A1E06C5AC00FF3B3E /* 微博2.app */;
@@ -321,6 +352,7 @@
 				3B578FA025105D3300C0D55C /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				3B578FA1251065FB00C0D55C /* XCRemoteSwiftPackageReference "AFNetworking" */,
 				3B578FA4251066D200C0D55C /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
+				3B578FCE2512272200C0D55C /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = CC8C1F0B1E06C5AC00FF3B3E /* Products */;
 			projectDirPath = "";
@@ -337,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B578FBB2510E30B00C0D55C /* MBProgressHUD.bundle in Resources */,
+				3B578FC62512015900C0D55C /* WelcomeViewController.xib in Resources */,
 				CC10E7321E07217700DF6DE7 /* Assets.xcassets in Resources */,
 				3BA874BA2509FF2A006710BC /* VisitorView.xib in Resources */,
 				CC10E74C1E08029C00DF6DE7 /* MainVCSettings.json in Resources */,
@@ -372,6 +405,7 @@
 				3BA874B62509FDFE006710BC /* BaseViewController.swift in Sources */,
 				3B578FB92510E14E00C0D55C /* MBProgressHUD-Extension.swift in Sources */,
 				3B3833A525021F0900195410 /* RedViewController.swift in Sources */,
+				3B578FC52512015900C0D55C /* WelcomeViewController.swift in Sources */,
 				3B578FB42510D4D400C0D55C /* OAuthViewController.swift in Sources */,
 				3BBD16E9250B6DCE00F3D6FF /* PopoverViewController.swift in Sources */,
 				CC10E7471E076D4400DF6DE7 /* HomeViewController.swift in Sources */,
@@ -586,6 +620,14 @@
 				minimumVersion = 1.2.0;
 			};
 		};
+		3B578FCE2512272200C0D55C /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.15.0;
+			};
+		};
 		3B58E5AA251048BA00E7673C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -614,6 +656,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3B578FA4251066D200C0D55C /* XCRemoteSwiftPackageReference "MBProgressHUD" */;
 			productName = MBProgressHUD;
+		};
+		3B578FCA25121A8100C0D55C /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B578FA025105D3300C0D55C /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		3B578FCC25121A8500C0D55C /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B578FA025105D3300C0D55C /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+		3B578FCF2512279200C0D55C /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B578FCE2512272200C0D55C /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		3B58E5AB251048BA00E7673C /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
