@@ -107,7 +107,7 @@ extension OAuthViewController: UIWebViewDelegate{
 
 //MARK:- 请求数据
 extension OAuthViewController {
-    // 用code交换access_token
+    /// 用code交换access_token
     private func loadAccessToken(_ code: String) {
         
         var param: [String: Any] = [String: Any]()
@@ -124,10 +124,33 @@ extension OAuthViewController {
             }
             
             let account = UserAccount(dict: result)
-            print(account)
+            
+            self.loadUserInfo(account)
             
         }) { (task: URLSessionDataTask?, error: Error) in
             print(error)
+        }
+    }
+    
+    ///  请求用户信息
+    private func loadUserInfo(_ account : UserAccount) {
+        let param = ["access_token": account.access_token, "uid": account.uid]
+        
+        AFHTTPSessionManager().get("https://api.weibo.com/2/users/show.json", parameters: param, headers: nil, progress: nil, success: { (task: URLSessionDataTask, result: Any?) in
+            print(result!)
+            
+            guard let result = result as? [String: Any] else {
+                print("没有返回用户信息")
+                return
+            }
+            
+            account.screen_name = result["screen_name"] as? String
+            account.avatar_large = result["avatar_large"] as? String
+            
+            print(account)
+            
+        }) { (task: URLSessionDataTask?, error: Error) in
+            print("error: \(error)")
         }
     }
 }

@@ -22,6 +22,10 @@ class UserAccount: NSObject {
     
     /// 过期日期
     @objc var expires_date: Date?
+    // 用户昵称
+    @objc var screen_name: String?
+    // 用户图像地址
+    @objc var avatar_large: String?
     
     
     init(dict: [String: Any]) {
@@ -31,10 +35,9 @@ class UserAccount: NSObject {
     
     override func setValue(_ value: Any?, forUndefinedKey key: String) {}
     
-    
     override var description: String {
         // 模型对象转场字典
-        return dictionaryWithValues(forKeys: ["access_token", "expires_date", "uid"]).description
+        return dictionaryWithValues(forKeys: ["access_token", "expires_date", "uid", "screen_name", "avatar_large"]).description
     }
 }
 
