@@ -34,9 +34,7 @@ extension OAuthViewController {
     }
     
     func loadWebView() {
-        
         let urlString = "https://api.weibo.com/oauth2/authorize?client_id=\(app_key)&redirect_uri=\(redirect_uri)"
-        
         guard let url = URL(string: urlString) else {
             return
         }
@@ -156,6 +154,7 @@ extension OAuthViewController {
             print(accountPath)
             // 保存对象
             NSKeyedArchiver.archiveRootObject(account, toFile: accountPath)
+            
             
         }) { (task: URLSessionDataTask?, error: Error) in
             print("error: \(error)")

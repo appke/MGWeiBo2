@@ -10,25 +10,10 @@ import UIKit
 
 class BaseViewController: UIViewController {
     /// 是否登录，没登录显示访客视图
-    var isLogin: Bool = false
+    var isLogin: Bool = UserAccountViewModel.shareInstance.isLogin
     lazy var visitorView = VisitorView.visitorView()
     
     override func loadView() {
-        // 读取归档信息
-        var accountPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last!
-        accountPath = accountPath + "/account.plist"
-        
-        print(accountPath)
-        
-        let account = NSKeyedUnarchiver.unarchiveObject(withFile: accountPath) as? UserAccount
-        
-        if let account = account {
-            // 取出过期日期
-            if let expirseDate = account.expires_date {
-                isLogin = expirseDate.compare(Date()) == .orderedDescending
-            }
-        }
-        
         isLogin ? super.loadView() : setupVisitorView()
     }
 
