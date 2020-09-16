@@ -148,12 +148,12 @@ extension OAuthViewController {
 //            print(account)
             
             // 获取沙盒路径
-            var accountPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last!
-            // 拼接文件路径
-            accountPath = accountPath + "/account.plist"
-            print(accountPath)
+//            var accountPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last!
+//            // 拼接文件路径
+//            accountPath = accountPath + "/account.plist"
+//            print(accountPath)
             // 保存对象
-            NSKeyedArchiver.archiveRootObject(account, toFile: accountPath)
+            NSKeyedArchiver.archiveRootObject(account, toFile: UserAccountViewModel.shared.accountPath)
             
             // 必须重新赋值，否则后面用单例拿到的属性account，都是nil
             UserAccountViewModel.shared.account = account

@@ -37,7 +37,7 @@ class UserAccountViewModel: NSObject {
         super.init()
         // 读取账号信息
         account = NSKeyedUnarchiver.unarchiveObject(withFile: accountPath) as? UserAccount
-        print("accountPath ==== \(accountPath)")
+//        print("accountPath ==== \(accountPath)")
     }
     
 //    func isLogin() -> Bool {
