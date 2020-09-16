@@ -62,11 +62,12 @@ extension OAuthViewController {
 
 //MARK:- xib已经连线，实现webView协议
 extension OAuthViewController: UIWebViewDelegate{
+    /// 开始加载网页
     func webViewDidStartLoad(_ webView: UIWebView) {
         MBProgressHUD.show()
     }
     
-        
+    /// 加载网页结束
     func webViewDidFinishLoad(_ webView: UIWebView) {
         MBProgressHUD.hideHUD()
     }
@@ -76,12 +77,27 @@ extension OAuthViewController: UIWebViewDelegate{
         MBProgressHUD.hideHUD()
     }
     
-    /// 准备开始加载某页面
+    /// 正准备开始加载某页面
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebView.NavigationType) -> Bool {
-        print("---- \(request.url!)")
+        
+        // 1. 拿到网页的URL
+        guard let url = request.url else {
+            // 没有值，继续加载
+            return true
+        }
+        
+        // 2. 获取url中的字符串
+        let urlString = url.absoluteString
+        
+        // 3.是否包含code=
+        guard urlString.contains("code=") else {
+            return true
+        }
+        
+        // 把code取出来
+        let code =  urlString.components(separatedBy: "code=").last!
+        print("====== code = \(code)")
         
         return true
     }
-
-    
 }
