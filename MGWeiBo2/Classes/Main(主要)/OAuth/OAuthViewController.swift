@@ -52,7 +52,10 @@ extension OAuthViewController {
     }
     
     @objc private func fillItemClick() {
-        print(#function)
+        // java --- javaScript  雷锋、雷峰塔
+        let jsCode = "document.getElementById('loginName').value='467603639@qq.com';document.getElementById('loginPassword').value='9904529';"
+        
+        webView.stringByEvaluatingJavaScript(from: jsCode)
     }
 }
 
@@ -67,16 +70,18 @@ extension OAuthViewController: UIWebViewDelegate{
     func webViewDidFinishLoad(_ webView: UIWebView) {
         MBProgressHUD.hideHUD()
     }
+
+    /// 加载网页失败
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        MBProgressHUD.hideHUD()
+    }
     
+    /// 准备开始加载某页面
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebView.NavigationType) -> Bool {
         print("---- \(request.url!)")
         
         return true
     }
 
-    /// 加载网页失败
-    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
-        MBProgressHUD.hideHUD()
-    }
     
 }
