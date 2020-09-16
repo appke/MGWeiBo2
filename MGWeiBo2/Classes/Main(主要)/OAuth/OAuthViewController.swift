@@ -8,6 +8,7 @@
 
 import UIKit
 import MBProgressHUD
+import AFNetworking
 
 class OAuthViewController: UIViewController {
 
@@ -98,6 +99,36 @@ extension OAuthViewController: UIWebViewDelegate{
         let code =  urlString.components(separatedBy: "code=").last!
         print("====== code = \(code)")
         
-        return true
+        loadAccessToken(code)
+        // 有code的页面不加载
+        return false
     }
 }
+
+//MARK:- 请求数据
+extension OAuthViewController {
+    // 用code交换access_token
+    private func loadAccessToken(_ code: String) {
+        
+        var param: [String: Any] = [String: Any]()
+        param["client_id"] = app_key
+        param["client_secret"] = app_secret
+        param["grant_type"] = "authorization_code"
+        param["code"] = code
+        param["redirect_uri"] = redirect_uri
+        
+        AFHTTPSessionManager().post("https://api.weibo.com/oauth2/access_token", parameters: param, headers: nil, progress: nil, success: { (task: URLSessionDataTask, result: Any?) in
+            print(result!)
+        }) { (task: URLSessionDataTask?, error: Error) in
+            print(error)
+        }
+    }
+}
+
+/**
+ "access_token" = "2.00xRuvQChfGsUD9cf1df3393avy_eC";
+ "expires_in" = 157679999;
+ isRealName = true;
+ "remind_in" = 157679999;
+ uid = 2082488113;
+ */
