@@ -9,7 +9,7 @@
 import UIKit
 
 //@objcMembers 属性不必1个个添加 @objc
-class UserAccount: NSObject {
+class UserAccount: NSObject, NSCoding {
 
     @objc var access_token: String?
     // 过期时间,秒
@@ -20,7 +20,7 @@ class UserAccount: NSObject {
     }
     @objc var uid: String?
     
-    /// 过期日期
+    // 过期日期
     @objc var expires_date: Date?
     // 用户昵称
     @objc var screen_name: String?
@@ -38,6 +38,25 @@ class UserAccount: NSObject {
     override var description: String {
         // 模型对象转场字典
         return dictionaryWithValues(forKeys: ["access_token", "expires_date", "uid", "screen_name", "avatar_large"]).description
+    }
+    
+
+    /// 解档方法
+    required init?(coder: NSCoder) {
+        access_token = coder.decodeObject(forKey: "access_token") as? String
+        uid = coder.decodeObject(forKey: "uid") as? String
+        expires_date = coder.decodeObject(forKey: "expires_date") as? Date
+        screen_name = coder.decodeObject(forKey: "screen_name") as? String
+        avatar_large = coder.decodeObject(forKey: "avatar_large") as? String
+    }
+    
+    /// 归档方法
+    func encode(with coder: NSCoder) {
+        coder.encode(access_token, forKey: "access_token")
+        coder.encode(uid, forKey: "uid")
+        coder.encode(expires_date, forKey: "expires_date") //expires_in不需要归档
+        coder.encode(screen_name, forKey: "screen_name")
+        coder.encode(avatar_large, forKey: "avatar_large")
     }
 }
 
