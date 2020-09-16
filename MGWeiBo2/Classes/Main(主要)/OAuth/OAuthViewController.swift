@@ -118,17 +118,17 @@ extension OAuthViewController {
         param["redirect_uri"] = redirect_uri
         
         AFHTTPSessionManager().post("https://api.weibo.com/oauth2/access_token", parameters: param, headers: nil, progress: nil, success: { (task: URLSessionDataTask, result: Any?) in
-            print(result!)
+            
+            guard let result = result as? [String: Any] else {
+                return
+            }
+            
+            let account = UserAccount(dict: result)
+            print(account)
+            
         }) { (task: URLSessionDataTask?, error: Error) in
             print(error)
         }
     }
 }
 
-/**
- "access_token" = "2.00xRuvQChfGsUD9cf1df3393avy_eC";
- "expires_in" = 157679999;
- isRealName = true;
- "remind_in" = 157679999;
- uid = 2082488113;
- */

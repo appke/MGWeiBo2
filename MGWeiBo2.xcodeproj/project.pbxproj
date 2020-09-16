@@ -16,6 +16,7 @@
 		3B578FB72510DB4C00C0D55C /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B578FB62510DB4C00C0D55C /* Common.swift */; };
 		3B578FB92510E14E00C0D55C /* MBProgressHUD-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B578FB82510E14E00C0D55C /* MBProgressHUD-Extension.swift */; };
 		3B578FBB2510E30B00C0D55C /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3B578FBA2510E30B00C0D55C /* MBProgressHUD.bundle */; };
+		3B578FBF2511A9DB00C0D55C /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B578FBE2511A9DB00C0D55C /* UserAccount.swift */; };
 		3B58E5AC251048BA00E7673C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3B58E5AB251048BA00E7673C /* Alamofire */; };
 		3B95F575250F050C00A3B843 /* MGPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95F574250F050C00A3B843 /* MGPresentationController.swift */; };
 		3B95F577250F4D8C00A3B843 /* PopoverAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95F576250F4D8C00A3B843 /* PopoverAnimator.swift */; };
@@ -53,6 +54,7 @@
 		3B578FB62510DB4C00C0D55C /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		3B578FB82510E14E00C0D55C /* MBProgressHUD-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MBProgressHUD-Extension.swift"; sourceTree = "<group>"; };
 		3B578FBA2510E30B00C0D55C /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		3B578FBE2511A9DB00C0D55C /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		3B95F574250F050C00A3B843 /* MGPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPresentationController.swift; sourceTree = "<group>"; };
 		3B95F576250F4D8C00A3B843 /* PopoverAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverAnimator.swift; sourceTree = "<group>"; };
 		3BA874642508C984006710BC /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			children = (
 				3B578FB22510D4D400C0D55C /* OAuthViewController.swift */,
 				3B578FB32510D4D400C0D55C /* OAuthViewController.xib */,
+				3B578FBE2511A9DB00C0D55C /* UserAccount.swift */,
 			);
 			path = OAuth;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				CC10E73F1E076D0500DF6DE7 /* MainViewController.swift in Sources */,
 				3BBD16E2250B570400F3D6FF /* UIBarButtonItem-Extension.swift in Sources */,
 				3BA874B12509019E006710BC /* UIButton-Extension.swift in Sources */,
+				3B578FBF2511A9DB00C0D55C /* UserAccount.swift in Sources */,
 				3B578FB72510DB4C00C0D55C /* Common.swift in Sources */,
 				CC10E7411E076D1600DF6DE7 /* ProfileViewController.swift in Sources */,
 				CC8C1F0E1E06C5AC00FF3B3E /* AppDelegate.swift in Sources */,
