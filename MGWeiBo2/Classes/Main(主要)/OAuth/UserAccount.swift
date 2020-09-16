@@ -8,11 +8,21 @@
 
 import UIKit
 
+//@objcMembers 属性不必1个个添加 @objc
 class UserAccount: NSObject {
 
     @objc var access_token: String?
-    @objc var expires_in: Double = 0.0
+    // 过期时间,秒
+    @objc var expires_in: TimeInterval = 0.0 {
+        didSet {
+            expires_date = Date(timeIntervalSinceNow: expires_in)
+        }
+    }
     @objc var uid: String?
+    
+    /// 过期日期
+    @objc var expires_date: Date?
+    
     
     init(dict: [String: Any]) {
         super.init()
@@ -24,7 +34,7 @@ class UserAccount: NSObject {
     
     override var description: String {
         // 模型对象转场字典
-        return dictionaryWithValues(forKeys: ["access_token", "expires_in", "uid"]).description
+        return dictionaryWithValues(forKeys: ["access_token", "expires_date", "uid"]).description
     }
 }
 
