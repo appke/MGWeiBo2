@@ -42,6 +42,7 @@
 		3BBD16E5250B5D5300F3D6FF /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD16E4250B5D5300F3D6FF /* TitleButton.swift */; };
 		3BBD16E9250B6DCE00F3D6FF /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD16E7250B6DCE00F3D6FF /* PopoverViewController.swift */; };
 		3BBD16EA250B6DCE00F3D6FF /* PopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BBD16E8250B6DCE00F3D6FF /* PopoverViewController.xib */; };
+		3BE13D21251236E000B0D977 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE13D20251236E000B0D977 /* NetworkTools.swift */; };
 		CC10E7321E07217700DF6DE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC10E7311E07217700DF6DE7 /* Assets.xcassets */; };
 		CC10E73F1E076D0500DF6DE7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC10E73E1E076D0500DF6DE7 /* MainViewController.swift */; };
 		CC10E7411E076D1600DF6DE7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC10E7401E076D1600DF6DE7 /* ProfileViewController.swift */; };
@@ -81,6 +82,7 @@
 		3BBD16E4250B5D5300F3D6FF /* TitleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
 		3BBD16E7250B6DCE00F3D6FF /* PopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 		3BBD16E8250B6DCE00F3D6FF /* PopoverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopoverViewController.xib; sourceTree = "<group>"; };
+		3BE13D20251236E000B0D977 /* NetworkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		CC10E7311E07217700DF6DE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC10E73E1E076D0500DF6DE7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CC10E7401E076D1600DF6DE7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +182,17 @@
 			path = UIPopover;
 			sourceTree = "<group>";
 		};
+		3BE13D1F2512366D00B0D977 /* Tools(工具) */ = {
+			isa = PBXGroup;
+			children = (
+				3BBD16E3250B5D3000F3D6FF /* Category */,
+				3BBD16E4250B5D5300F3D6FF /* TitleButton.swift */,
+				3B578FB62510DB4C00C0D55C /* Common.swift */,
+				3BE13D20251236E000B0D977 /* NetworkTools.swift */,
+			);
+			path = "Tools(工具)";
+			sourceTree = "<group>";
+		};
 		CC10E7381E0724CC00DF6DE7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +201,7 @@
 				CC10E7391E0724CC00DF6DE7 /* Discover(广场) */,
 				CC10E73D1E0724CC00DF6DE7 /* Profile(我的) */,
 				CC10E73B1E0724CC00DF6DE7 /* Main(主要) */,
+				3BE13D1F2512366D00B0D977 /* Tools(工具) */,
 				CC6033821EE8454C0084A29A /* Other(其它) */,
 			);
 			path = Classes;
@@ -219,12 +233,9 @@
 			isa = PBXGroup;
 			children = (
 				3B578FA72510CF1000C0D55C /* OAuth */,
-				3BBD16E3250B5D3000F3D6FF /* Category */,
 				3BA874B22509FDB9006710BC /* Visitor */,
 				CC10E74A1E08029C00DF6DE7 /* Resource */,
 				CC10E73E1E076D0500DF6DE7 /* MainViewController.swift */,
-				3BBD16E4250B5D5300F3D6FF /* TitleButton.swift */,
-				3B578FB62510DB4C00C0D55C /* Common.swift */,
 			);
 			path = "Main(主要)";
 			sourceTree = "<group>";
@@ -402,6 +413,7 @@
 				CC8C1F0E1E06C5AC00FF3B3E /* AppDelegate.swift in Sources */,
 				3B95F577250F4D8C00A3B843 /* PopoverAnimator.swift in Sources */,
 				CC10E7451E076D3A00DF6DE7 /* MessageViewController.swift in Sources */,
+				3BE13D21251236E000B0D977 /* NetworkTools.swift in Sources */,
 				3BA874B62509FDFE006710BC /* BaseViewController.swift in Sources */,
 				3B578FB92510E14E00C0D55C /* MBProgressHUD-Extension.swift in Sources */,
 				3B3833A525021F0900195410 /* RedViewController.swift in Sources */,
