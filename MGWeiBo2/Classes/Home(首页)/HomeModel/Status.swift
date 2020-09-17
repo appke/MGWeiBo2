@@ -36,6 +36,8 @@ class Status: NSObject {
     }     // 来源
     var text: String?       // 正文
     var mid: Int = 0        // ID
+    var user: User?
+    
     
     //MARK: 对数据处理的属性
     var sourceText: String?
@@ -46,13 +48,16 @@ class Status: NSObject {
     init(dict: [String: Any]) {
         super.init()
         setValuesForKeys(dict)
+        
+        // 将用户字典转成 用户模型
+        if let userDict = dict["user"] as? [String: Any] {
+            user = User(dict: userDict)
+        }
+        
     }
     
     override func setValue(_ value: Any?, forUndefinedKey key: String) {
     }
-    
-    
-
 }
 
 /**

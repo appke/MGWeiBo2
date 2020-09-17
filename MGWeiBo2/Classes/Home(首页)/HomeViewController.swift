@@ -75,8 +75,6 @@ extension HomeViewController {
             
             // 刷新表格
             self.tableView.reloadData()
-            
-            print(self.statuses.count)
         }
     }
 }
