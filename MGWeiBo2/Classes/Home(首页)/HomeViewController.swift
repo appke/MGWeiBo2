@@ -13,6 +13,20 @@ class HomeViewController: BaseViewController {
     
     private lazy var titleBtn: TitleButton = TitleButton()
     private lazy var popverAnimator: PopoverAnimator = PopoverAnimator()
+    private lazy var statuses: [Status] = [Status]()
+    
+    private lazy var tableView: UITableView = {
+        let tb: UITableView = UITableView(frame: CGRect.zero, style: .plain)
+        tb.delegate = self
+        tb.dataSource = self
+        tb.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        return tb
+    }()
+    
+    override func loadView() {
+        view = tableView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,12 +67,43 @@ extension HomeViewController {
             }
             
             // 3.遍历微博字典
-            for status in reslutArray {
-                print(status)
+            for statusDict in reslutArray {
+                // 字典转模型
+                let status = Status(dict: statusDict)
+                self.statuses.append(status)
             }
+            
+            print(reslutArray[0])
+            
+            // 刷新表格
+            self.tableView.reloadData()
+            
+            print(self.statuses.count)
         }
     }
 }
+
+//MARK:- tableView代理、数据源
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return statuses.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        let status = statuses[indexPath.row]
+        cell.textLabel?.text = status.text
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(" ----- \(indexPath.row)")
+    }
+}
+
+
 
 //MARK:- 设置UI界面 
 extension HomeViewController {
@@ -76,10 +121,8 @@ extension HomeViewController {
 //MARK:- 事件监听
 extension HomeViewController {
     @objc private func titleBtnClick() {
-        
         let vc = PopoverViewController()
-//        vc.view.backgroundColor = .magenta 
-        
+//        vc.view.backgroundColor = .magenta
         // 设置控制器的modal样式
         vc.modalPresentationStyle = .custom
         // 设置转场代理

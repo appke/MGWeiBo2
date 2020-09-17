@@ -43,6 +43,7 @@
 		3BBD16E9250B6DCE00F3D6FF /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD16E7250B6DCE00F3D6FF /* PopoverViewController.swift */; };
 		3BBD16EA250B6DCE00F3D6FF /* PopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BBD16E8250B6DCE00F3D6FF /* PopoverViewController.xib */; };
 		3BE13D21251236E000B0D977 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE13D20251236E000B0D977 /* NetworkTools.swift */; };
+		3BE13D262512FD5500B0D977 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE13D252512FD5500B0D977 /* Status.swift */; };
 		CC10E7321E07217700DF6DE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC10E7311E07217700DF6DE7 /* Assets.xcassets */; };
 		CC10E73F1E076D0500DF6DE7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC10E73E1E076D0500DF6DE7 /* MainViewController.swift */; };
 		CC10E7411E076D1600DF6DE7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC10E7401E076D1600DF6DE7 /* ProfileViewController.swift */; };
@@ -83,6 +84,7 @@
 		3BBD16E7250B6DCE00F3D6FF /* PopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 		3BBD16E8250B6DCE00F3D6FF /* PopoverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopoverViewController.xib; sourceTree = "<group>"; };
 		3BE13D20251236E000B0D977 /* NetworkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
+		3BE13D252512FD5500B0D977 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		CC10E7311E07217700DF6DE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC10E73E1E076D0500DF6DE7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CC10E7401E076D1600DF6DE7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +195,14 @@
 			path = "Tools(工具)";
 			sourceTree = "<group>";
 		};
+		3BE13D222512FCB400B0D977 /* HomeModel */ = {
+			isa = PBXGroup;
+			children = (
+				3BE13D252512FD5500B0D977 /* Status.swift */,
+			);
+			path = HomeModel;
+			sourceTree = "<group>";
+		};
 		CC10E7381E0724CC00DF6DE7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +231,7 @@
 		CC10E73A1E0724CC00DF6DE7 /* Home(首页) */ = {
 			isa = PBXGroup;
 			children = (
+				3BE13D222512FCB400B0D977 /* HomeModel */,
 				3B578FC22512013200C0D55C /* Welcome */,
 				3BBD16E6250B6D9E00F3D6FF /* UIPopover */,
 				CC10E7461E076D4400DF6DE7 /* HomeViewController.swift */,
@@ -414,6 +425,7 @@
 				3B95F577250F4D8C00A3B843 /* PopoverAnimator.swift in Sources */,
 				CC10E7451E076D3A00DF6DE7 /* MessageViewController.swift in Sources */,
 				3BE13D21251236E000B0D977 /* NetworkTools.swift in Sources */,
+				3BE13D262512FD5500B0D977 /* Status.swift in Sources */,
 				3BA874B62509FDFE006710BC /* BaseViewController.swift in Sources */,
 				3B578FB92510E14E00C0D55C /* MBProgressHUD-Extension.swift in Sources */,
 				3B3833A525021F0900195410 /* RedViewController.swift in Sources */,
