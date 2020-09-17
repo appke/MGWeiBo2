@@ -20,6 +20,8 @@ class HomeViewController: BaseViewController {
         visitorView.addRotation()
         
         setupNavigationBar()
+        
+        loadStatuses()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -33,7 +35,29 @@ class HomeViewController: BaseViewController {
 //            print(error)
 //        }
     }
-    
+}
+
+//MARK:- 请求数据
+extension HomeViewController {
+    private func loadStatuses() {
+        NetworkTools.shared.loadStatuses { (result: [[String : Any]]?, error: Error?) in
+            // 1.错误校验
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            // 2.获得数组中数据
+            guard let reslutArray = result else {
+                return
+            }
+            
+            // 3.遍历微博字典
+            for status in reslutArray {
+                print(status)
+            }
+        }
+    }
 }
 
 //MARK:- 设置UI界面 
