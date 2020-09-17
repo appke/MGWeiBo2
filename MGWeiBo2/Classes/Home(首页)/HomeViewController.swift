@@ -13,7 +13,7 @@ class HomeViewController: BaseViewController {
     
     private lazy var titleBtn: TitleButton = TitleButton()
     private lazy var popverAnimator: PopoverAnimator = PopoverAnimator()
-    private lazy var statuses: [Status] = [Status]()
+    private lazy var viewModels: [StatusViewModel] = [StatusViewModel]()
     
     private lazy var tableView: UITableView = {
         let tb: UITableView = UITableView(frame: CGRect.zero, style: .plain)
@@ -70,7 +70,8 @@ extension HomeViewController {
             for statusDict in reslutArray {
                 // 字典转模型
                 let status = Status(dict: statusDict)
-                self.statuses.append(status)
+                let viewModel = StatusViewModel(status: status)
+                self.viewModels.append(viewModel)
             }
             
             // 刷新表格
@@ -82,14 +83,14 @@ extension HomeViewController {
 //MARK:- tableView代理、数据源
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return statuses.count
+        return viewModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        let status = statuses[indexPath.row]
-        cell.textLabel?.text = status.text!
+        let viewModel = viewModels[indexPath.row]
+        cell.textLabel?.text = viewModel.status?.text!
         
         return cell
     }

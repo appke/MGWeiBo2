@@ -26,6 +26,7 @@
 		3B58E5AC251048BA00E7673C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3B58E5AB251048BA00E7673C /* Alamofire */; };
 		3B86423325136812008AB856 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B86423225136812008AB856 /* Date+Extension.swift */; };
 		3B864235251377E1008AB856 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B864234251377E1008AB856 /* User.swift */; };
+		3B86423725137FEF008AB856 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B86423625137FEF008AB856 /* StatusViewModel.swift */; };
 		3B95F575250F050C00A3B843 /* MGPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95F574250F050C00A3B843 /* MGPresentationController.swift */; };
 		3B95F577250F4D8C00A3B843 /* PopoverAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95F576250F4D8C00A3B843 /* PopoverAnimator.swift */; };
 		3B95F57A250F5ECA00A3B843 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3B95F579250F5ECA00A3B843 /* SnapKit */; };
@@ -70,6 +71,7 @@
 		3B578FC42512015900C0D55C /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		3B86423225136812008AB856 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		3B864234251377E1008AB856 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3B86423625137FEF008AB856 /* StatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
 		3B95F574250F050C00A3B843 /* MGPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPresentationController.swift; sourceTree = "<group>"; };
 		3B95F576250F4D8C00A3B843 /* PopoverAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverAnimator.swift; sourceTree = "<group>"; };
 		3BA874642508C984006710BC /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 			children = (
 				3BE13D252512FD5500B0D977 /* Status.swift */,
 				3B864234251377E1008AB856 /* User.swift */,
+				3B86423625137FEF008AB856 /* StatusViewModel.swift */,
 			);
 			path = HomeModel;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				3BBD16E2250B570400F3D6FF /* UIBarButtonItem-Extension.swift in Sources */,
 				3BA874B12509019E006710BC /* UIButton-Extension.swift in Sources */,
 				3B578FBF2511A9DB00C0D55C /* UserAccount.swift in Sources */,
+				3B86423725137FEF008AB856 /* StatusViewModel.swift in Sources */,
 				3B578FB72510DB4C00C0D55C /* Common.swift in Sources */,
 				CC10E7411E076D1600DF6DE7 /* ProfileViewController.swift in Sources */,
 				CC8C1F0E1E06C5AC00FF3B3E /* AppDelegate.swift in Sources */,
