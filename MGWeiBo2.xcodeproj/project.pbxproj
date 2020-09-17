@@ -24,6 +24,7 @@
 		3B578FCD25121A8500C0D55C /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3B578FCC25121A8500C0D55C /* SDWebImageMapKit */; };
 		3B578FD02512279200C0D55C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3B578FCF2512279200C0D55C /* Kingfisher */; };
 		3B58E5AC251048BA00E7673C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3B58E5AB251048BA00E7673C /* Alamofire */; };
+		3B86423325136812008AB856 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B86423225136812008AB856 /* Date+Extension.swift */; };
 		3B95F575250F050C00A3B843 /* MGPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95F574250F050C00A3B843 /* MGPresentationController.swift */; };
 		3B95F577250F4D8C00A3B843 /* PopoverAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95F576250F4D8C00A3B843 /* PopoverAnimator.swift */; };
 		3B95F57A250F5ECA00A3B843 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3B95F579250F5ECA00A3B843 /* SnapKit */; };
@@ -66,6 +67,7 @@
 		3B578FC02511FA9F00C0D55C /* UserAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountViewModel.swift; sourceTree = "<group>"; };
 		3B578FC32512015900C0D55C /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		3B578FC42512015900C0D55C /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
+		3B86423225136812008AB856 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		3B95F574250F050C00A3B843 /* MGPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPresentationController.swift; sourceTree = "<group>"; };
 		3B95F576250F4D8C00A3B843 /* PopoverAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverAnimator.swift; sourceTree = "<group>"; };
 		3BA874642508C984006710BC /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 		3BBD16E3250B5D3000F3D6FF /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				3B86423225136812008AB856 /* Date+Extension.swift */,
 				3BA874B02509019E006710BC /* UIButton-Extension.swift */,
 				3BBD16E1250B570400F3D6FF /* UIBarButtonItem-Extension.swift */,
 				3B578FB82510E14E00C0D55C /* MBProgressHUD-Extension.swift */,
@@ -414,6 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B86423325136812008AB856 /* Date+Extension.swift in Sources */,
 				3BA874B82509FF21006710BC /* VisitorView.swift in Sources */,
 				CC10E73F1E076D0500DF6DE7 /* MainViewController.swift in Sources */,
 				3BBD16E2250B570400F3D6FF /* UIBarButtonItem-Extension.swift in Sources */,

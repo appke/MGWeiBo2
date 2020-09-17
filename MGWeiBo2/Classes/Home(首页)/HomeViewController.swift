@@ -73,8 +73,6 @@ extension HomeViewController {
                 self.statuses.append(status)
             }
             
-            print(reslutArray[0])
-            
             // 刷新表格
             self.tableView.reloadData()
             
@@ -93,7 +91,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         let status = statuses[indexPath.row]
-        cell.textLabel?.text = status.text
+        cell.textLabel?.text = status.text!
         
         return cell
     }
