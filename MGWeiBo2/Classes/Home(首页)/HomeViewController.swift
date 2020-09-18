@@ -88,13 +88,11 @@ extension HomeViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModels.count
-    }
+    } 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-        
-        let viewModel = viewModels[indexPath.row]
-        cell.textLabel?.text = viewModel.status?.text!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! HomeViewCell
+        cell.viewModel = viewModels[indexPath.row]
         
         return cell
     }

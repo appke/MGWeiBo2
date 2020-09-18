@@ -14,7 +14,7 @@ class User: NSObject {
     var profile_image_url: String?  //图像
     var screen_name: String?        //昵称
     var verified_type: Int = -1     //认证等级
-    var mbank: Int = 0              //会员等级
+    var mbrank: Int = 0              //会员等级
     
     //MARK: 重写构造方法
     init(dict: [String: Any]) {
