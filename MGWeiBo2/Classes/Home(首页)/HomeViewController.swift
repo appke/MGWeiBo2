@@ -11,22 +11,24 @@ import AFNetworking
 
 class HomeViewController: BaseViewController {
     
+    
     private lazy var titleBtn: TitleButton = TitleButton()
     private lazy var popverAnimator: PopoverAnimator = PopoverAnimator()
     private lazy var viewModels: [StatusViewModel] = [StatusViewModel]()
     
-    private lazy var tableView: UITableView = {
-        let tb: UITableView = UITableView(frame: CGRect.zero, style: .plain)
-        tb.delegate = self
-        tb.dataSource = self
-        tb.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
-        return tb
-    }()
-    
-    override func loadView() {
-        view = tableView
-    }
+    @IBOutlet weak var tableView: UITableView!
+//    private lazy var tableView: UITableView = {
+//        let tb: UITableView = UITableView(frame: CGRect.zero, style: .plain)
+//        tb.delegate = self
+//        tb.dataSource = self
+//        tb.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+//
+//        return tb
+//    }()
+//    // 重写后BaseViewController的loadView()就不会调用，加载不了访客vc
+//    override func loadView() {
+//        view = tableView
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +37,9 @@ class HomeViewController: BaseViewController {
         
         setupNavigationBar()
         
-        loadStatuses()
+        if UserAccountViewModel.shared.isLogin {
+            loadStatuses()
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -87,7 +91,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
         
         let viewModel = viewModels[indexPath.row]
         cell.textLabel?.text = viewModel.status?.text!
