@@ -16,6 +16,7 @@ class HomeViewController: BaseViewController {
     private lazy var popverAnimator: PopoverAnimator = PopoverAnimator()
     private lazy var viewModels: [StatusViewModel] = [StatusViewModel]()
     
+    
     @IBOutlet weak var tableView: UITableView!
 //    private lazy var tableView: UITableView = {
 //        let tb: UITableView = UITableView(frame: CGRect.zero, style: .plain)

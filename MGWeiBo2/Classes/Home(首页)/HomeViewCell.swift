@@ -21,6 +21,8 @@ class HomeViewCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var sourceLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var pictureView: PictureCollectionView!
+    
     
     //MARK:拖线约束
     @IBOutlet weak var picViewWConst: NSLayoutConstraint!
@@ -61,14 +63,25 @@ class HomeViewCell: UITableViewCell {
             let picViewSize = calculatePicViewSize(count: viewModel.picURLs.count)
             picViewWConst.constant = picViewSize.width
             picViewHConst.constant = picViewSize.height
+            
+            // 10.设置配图数据
+            pictureView.picURLs = viewModel.picURLs
+
         }
     }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
         // 正文宽度约束？
+        
+
+        // 设置collectionView的尺寸
+        let layout = pictureView.collectionViewLayout as! UICollectionViewFlowLayout
+        let imageViewWH = (UIScreen.main.bounds.width - 2 * edgeMargin - 2 * itemMargin) / 3
+        layout.itemSize = CGSize(width: imageViewWH, height: imageViewWH)
     }
 }
 
@@ -84,7 +97,7 @@ extension HomeViewCell {
         
         // 4张配图 
         if count == 4 {
-            let picViewWH = edgeMargin + 2 * imageViewWH + itemMargin
+            let picViewWH = 2 * imageViewWH + itemMargin
             return CGSize(width: picViewWH, height: picViewWH)
         }
         

@@ -70,9 +70,10 @@ class StatusViewModel: NSObject {
         // 6.处理微博配图 
         if let picURLDicts = status.pic_urls {
             for picURLDict in picURLDicts {
-                guard let picURLString = picURLDict["thumbnail_pic"] else { //不一定能从字典中取到值
+                guard var picURLString = picURLDict["thumbnail_pic"] else { //不一定能从字典中取到值
                     continue
                 }
+                picURLString = picURLString.replacingOccurrences(of: "thumbnail", with: "bmiddle")
                 picURLs.append(URL(string: picURLString)!)
             }
         }

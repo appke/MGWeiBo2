@@ -45,6 +45,7 @@
 		3BBD16E5250B5D5300F3D6FF /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD16E4250B5D5300F3D6FF /* TitleButton.swift */; };
 		3BBD16E9250B6DCE00F3D6FF /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD16E7250B6DCE00F3D6FF /* PopoverViewController.swift */; };
 		3BBD16EA250B6DCE00F3D6FF /* PopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BBD16E8250B6DCE00F3D6FF /* PopoverViewController.xib */; };
+		3BDF45D925189E430078D957 /* PictureCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDF45D825189E430078D957 /* PictureCollectionView.swift */; };
 		3BE13D21251236E000B0D977 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE13D20251236E000B0D977 /* NetworkTools.swift */; };
 		3BE13D262512FD5500B0D977 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE13D252512FD5500B0D977 /* Status.swift */; };
 		CC10E7321E07217700DF6DE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC10E7311E07217700DF6DE7 /* Assets.xcassets */; };
@@ -90,6 +91,7 @@
 		3BBD16E4250B5D5300F3D6FF /* TitleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
 		3BBD16E7250B6DCE00F3D6FF /* PopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 		3BBD16E8250B6DCE00F3D6FF /* PopoverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopoverViewController.xib; sourceTree = "<group>"; };
+		3BDF45D825189E430078D957 /* PictureCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureCollectionView.swift; sourceTree = "<group>"; };
 		3BE13D20251236E000B0D977 /* NetworkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		3BE13D252512FD5500B0D977 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		CC10E7311E07217700DF6DE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				CC10E7461E076D4400DF6DE7 /* HomeViewController.swift */,
 				3BA874662508CF8A006710BC /* Home.storyboard */,
 				3B86423C25148FEC008AB856 /* HomeViewCell.swift */,
+				3BDF45D825189E430078D957 /* PictureCollectionView.swift */,
 			);
 			path = "Home(首页)";
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				3B578FC52512015900C0D55C /* WelcomeViewController.swift in Sources */,
 				3B578FB42510D4D400C0D55C /* OAuthViewController.swift in Sources */,
 				3BBD16E9250B6DCE00F3D6FF /* PopoverViewController.swift in Sources */,
+				3BDF45D925189E430078D957 /* PictureCollectionView.swift in Sources */,
 				CC10E7471E076D4400DF6DE7 /* HomeViewController.swift in Sources */,
 				3B95F575250F050C00A3B843 /* MGPresentationController.swift in Sources */,
 				CC10E7431E076D2C00DF6DE7 /* DiscoverViewController.swift in Sources */,
