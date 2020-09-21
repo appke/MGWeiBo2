@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -93,11 +94,36 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今天天气真不错。。。。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GqJ-aV-cOZ" userLabel="正文">
-                                                    <rect key="frame" x="15" y="60" width="384" height="215"/>
+                                                    <rect key="frame" x="15" y="60" width="384" height="82"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bLP-8d-XeK" userLabel="配图">
+                                                    <rect key="frame" x="15" y="147" width="240" height="128"/>
+                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="240" id="Bu8-CL-cWQ"/>
+                                                        <constraint firstAttribute="height" constant="128" id="cXq-jn-UyF"/>
+                                                    </constraints>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Jbz-5G-7O6">
+                                                        <size key="itemSize" width="138" height="159"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="7q9-mK-9fF">
+                                                            <rect key="frame" x="51" y="0.0" width="138" height="159"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="HUg-pi-6wc">
+                                                                <rect key="frame" x="0.0" y="0.0" width="138" height="159"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                            </collectionViewCellContentView>
+                                                            <size key="customSize" width="138" height="159"/>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                </collectionView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uy2-4a-ae6" userLabel="底部工具栏">
                                                     <rect key="frame" x="0.0" y="280" width="414" height="40"/>
                                                     <subviews>
@@ -183,6 +209,7 @@
                                             <constraints>
                                                 <constraint firstItem="uy2-4a-ae6" firstAttribute="leading" secondItem="fKQ-Ir-xQB" secondAttribute="leading" id="4ch-Zz-zah"/>
                                                 <constraint firstItem="Ylt-Ek-EYV" firstAttribute="leading" secondItem="Rey-s7-HjU" secondAttribute="trailing" constant="15" id="6Pi-Nr-fCx"/>
+                                                <constraint firstItem="uy2-4a-ae6" firstAttribute="top" secondItem="bLP-8d-XeK" secondAttribute="bottom" priority="700" constant="5" id="8uI-Gu-38x"/>
                                                 <constraint firstAttribute="trailing" secondItem="uy2-4a-ae6" secondAttribute="trailing" id="AtC-aq-QgY"/>
                                                 <constraint firstItem="Cxa-YX-aAg" firstAttribute="leading" secondItem="Ylt-Ek-EYV" secondAttribute="leading" id="Bvf-lk-L0z"/>
                                                 <constraint firstItem="GqJ-aV-cOZ" firstAttribute="leading" secondItem="fKQ-Ir-xQB" secondAttribute="leading" constant="15" id="CI5-hn-83c"/>
@@ -190,21 +217,24 @@
                                                 <constraint firstItem="GqJ-aV-cOZ" firstAttribute="top" secondItem="Rey-s7-HjU" secondAttribute="bottom" constant="10" id="EL2-lZ-rpr"/>
                                                 <constraint firstAttribute="bottom" secondItem="uy2-4a-ae6" secondAttribute="bottom" id="RoS-sG-kzK"/>
                                                 <constraint firstItem="Cxa-YX-aAg" firstAttribute="bottom" secondItem="Rey-s7-HjU" secondAttribute="bottom" id="SRn-ny-kOQ"/>
+                                                <constraint firstItem="bLP-8d-XeK" firstAttribute="top" secondItem="GqJ-aV-cOZ" secondAttribute="bottom" constant="5" id="T0R-BA-we1"/>
                                                 <constraint firstItem="4JU-Po-mLc" firstAttribute="centerY" secondItem="Ylt-Ek-EYV" secondAttribute="centerY" id="Tno-8j-Exa"/>
                                                 <constraint firstItem="Ylt-Ek-EYV" firstAttribute="top" secondItem="Rey-s7-HjU" secondAttribute="top" id="bJJ-4m-WnQ"/>
                                                 <constraint firstItem="rKS-N1-2II" firstAttribute="trailing" secondItem="Rey-s7-HjU" secondAttribute="trailing" id="cQe-by-kbv"/>
-                                                <constraint firstItem="uy2-4a-ae6" firstAttribute="top" secondItem="GqJ-aV-cOZ" secondAttribute="bottom" constant="5" id="dYX-sJ-xNN"/>
                                                 <constraint firstItem="ksN-a0-mZE" firstAttribute="leading" secondItem="Cxa-YX-aAg" secondAttribute="trailing" constant="5" id="el8-rO-gVU"/>
                                                 <constraint firstItem="4JU-Po-mLc" firstAttribute="leading" secondItem="Ylt-Ek-EYV" secondAttribute="trailing" constant="4" id="fbl-7I-xih"/>
                                                 <constraint firstItem="Rey-s7-HjU" firstAttribute="leading" secondItem="fKQ-Ir-xQB" secondAttribute="leading" constant="15" id="jwf-Pp-iaz"/>
                                                 <constraint firstAttribute="trailing" secondItem="GqJ-aV-cOZ" secondAttribute="trailing" constant="15" id="pCW-UQ-B7Y"/>
                                                 <constraint firstItem="ksN-a0-mZE" firstAttribute="bottom" secondItem="Cxa-YX-aAg" secondAttribute="bottom" id="tfL-2u-b2n"/>
                                                 <constraint firstItem="rKS-N1-2II" firstAttribute="bottom" secondItem="Rey-s7-HjU" secondAttribute="bottom" id="ybT-DG-9p7"/>
+                                                <constraint firstItem="bLP-8d-XeK" firstAttribute="leading" secondItem="fKQ-Ir-xQB" secondAttribute="leading" constant="15" id="ypL-xD-fPM"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="contentLabel" destination="GqJ-aV-cOZ" id="ctE-oP-Crg"/>
                                             <outlet property="iconView" destination="Rey-s7-HjU" id="4qt-g9-c9x"/>
+                                            <outlet property="picViewHConst" destination="cXq-jn-UyF" id="qbd-n1-Igf"/>
+                                            <outlet property="picViewWConst" destination="Bu8-CL-cWQ" id="tJE-ow-FS0"/>
                                             <outlet property="screenNameLabel" destination="Ylt-Ek-EYV" id="LG0-Ap-R7Q"/>
                                             <outlet property="sourceLabel" destination="ksN-a0-mZE" id="61P-02-wgf"/>
                                             <outlet property="timeLabel" destination="Cxa-YX-aAg" id="3hb-By-N0b"/>

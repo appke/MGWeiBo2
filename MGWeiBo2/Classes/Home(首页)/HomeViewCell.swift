@@ -9,6 +9,9 @@
 import UIKit
 import SDWebImage
 
+private let edgeMargin: CGFloat = 15
+private let itemMargin: CGFloat = 10
+
 class HomeViewCell: UITableViewCell {
 
     @IBOutlet weak var iconView: UIImageView!
@@ -18,6 +21,10 @@ class HomeViewCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var sourceLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
+    
+    //MARK:拖线约束
+    @IBOutlet weak var picViewWConst: NSLayoutConstraint!
+    @IBOutlet weak var picViewHConst: NSLayoutConstraint!
     
     
     //MARK: 自定义属性
@@ -50,8 +57,10 @@ class HomeViewCell: UITableViewCell {
             // 8.正文
             contentLabel.text = viewModel.status?.text
             
-            print("--picURLs ---- \(viewModel.picURLs)")
-            print("--pic_urls ---- \(viewModel.status?.pic_urls)")
+            // 9.计算配图视图宽/高
+            let picViewSize = calculatePicViewSize(count: viewModel.picURLs.count)
+            picViewWConst.constant = picViewSize.width
+            picViewHConst.constant = picViewSize.height
         }
     }
     
@@ -60,5 +69,30 @@ class HomeViewCell: UITableViewCell {
         // Initialization code
         
         // 正文宽度约束？
+    }
+}
+
+extension HomeViewCell {
+    private func calculatePicViewSize(count: Int) -> CGSize {
+        
+        if count == 0 {
+            return CGSize.zero
+        }
+        
+        // 计算imageView宽高
+        let imageViewWH = (UIScreen.main.bounds.width - 2 * edgeMargin - 2 * itemMargin) / 3
+        
+        // 4张配图 
+        if count == 4 {
+            let picViewWH = edgeMargin + 2 * imageViewWH + itemMargin
+            return CGSize(width: picViewWH, height: picViewWH)
+        }
+        
+        // 其它配图
+        let rows = CGFloat((count - 1) / 3 + 1)
+        let picViewW = UIScreen.main.bounds.width - 2 * edgeMargin
+        let picViewH = imageViewWH * rows + itemMargin * (rows - 1)
+        
+        return CGSize(width: picViewW, height: picViewH)
     }
 }
