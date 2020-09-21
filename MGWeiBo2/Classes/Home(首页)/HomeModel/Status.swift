@@ -12,10 +12,11 @@ import UIKit
 class Status: NSObject {
 
     //MARK: 属性
-    var created_at: String? // 创建时间
-    var source: String?     // 来源
-    var text: String?       // 正文
-    var mid: Int = 0        // ID
+    var created_at: String? //创建时间
+    var source: String?     //来源
+    var text: String?       //正文
+    var mid: Int = 0        //ID
+    var pic_urls: [[String : String]]?   //配图
     var user: User?
     
     //MARK: 自定义构造函数

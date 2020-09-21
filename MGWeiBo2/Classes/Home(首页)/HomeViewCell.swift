@@ -28,7 +28,7 @@ class HomeViewCell: UITableViewCell {
                 return
             }
             
-            // 2.设置图形
+            // 2.设置用户图像
             iconView.sd_setImage(with: viewModel.profileURL, placeholderImage: UIImage(named: "avatar_default"), options: [], context: nil);
             
             // 3.设置认证图标
@@ -49,6 +49,9 @@ class HomeViewCell: UITableViewCell {
             
             // 8.正文
             contentLabel.text = viewModel.status?.text
+            
+            print("--picURLs ---- \(viewModel.picURLs)")
+            print("--pic_urls ---- \(viewModel.status?.pic_urls)")
         }
     }
     
