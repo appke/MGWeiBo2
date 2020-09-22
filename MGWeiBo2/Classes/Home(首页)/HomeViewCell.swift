@@ -26,10 +26,12 @@ class HomeViewCell: UITableViewCell {
     @IBOutlet weak var bottomToolView: UIView!
     @IBOutlet weak var retweetedContentLabel: UILabel!
     
+    
     //MARK:拖线约束
     @IBOutlet weak var picViewWConst: NSLayoutConstraint!
     @IBOutlet weak var picViewHConst: NSLayoutConstraint!
-    
+    @IBOutlet weak var retweetedLabelTopConst: NSLayoutConstraint!
+    @IBOutlet weak var pictureViewBottomConst: NSLayoutConstraint!
     
     //MARK: 自定义属性
     var viewModel: StatusViewModel? {
@@ -74,13 +76,19 @@ class HomeViewCell: UITableViewCell {
                 if let screenName = viewModel.status?.retweeted_status?.user?.screen_name,
                     let retweetedText = viewModel.status?.retweeted_status?.text {
                     retweetedContentLabel.text = "@" + "\(screenName): " + retweetedText
+                    
+                    // 设置转发正文距离顶部约束
+                    retweetedLabelTopConst.constant = 10
                 }
                 // 设置背景显示
                 retweetedBgView.isHidden = false
             } else {
+                // 1.设置转发文字
                 retweetedContentLabel.text = nil
-                // 设置背景显示
+                // 2.设置背景显示
                 retweetedBgView.isHidden = true
+                // 3.设置转发正文距离顶部约束
+                retweetedLabelTopConst.constant = 0
             }
             
             // 12.计算cell高度
@@ -94,10 +102,7 @@ class HomeViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        
         // 正文宽度约束？
-        
 
         // 设置collectionView的尺寸
         let layout = pictureView.collectionViewLayout as! UICollectionViewFlowLayout
@@ -110,8 +115,12 @@ extension HomeViewCell {
     private func calculatePicViewSize(count: Int) -> CGSize {
         
         if count == 0 {
+            pictureViewBottomConst.constant = 0
             return CGSize.zero
         }
+        
+        // 有配图需要该约束有值
+        pictureViewBottomConst.constant = 5
         
         // 计算imageView宽高
         let imageViewWH = (UIScreen.main.bounds.width - 2 * edgeMargin - 2 * itemMargin) / 3

@@ -232,22 +232,22 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="RXP-SO-XKM" firstAttribute="top" secondItem="GqJ-aV-cOZ" secondAttribute="bottom" constant="5" id="2HB-s2-rBM"/>
                                                 <constraint firstItem="uy2-4a-ae6" firstAttribute="leading" secondItem="fKQ-Ir-xQB" secondAttribute="leading" id="4ch-Zz-zah"/>
                                                 <constraint firstItem="Ylt-Ek-EYV" firstAttribute="leading" secondItem="Rey-s7-HjU" secondAttribute="trailing" constant="15" id="6Pi-Nr-fCx"/>
                                                 <constraint firstItem="uy2-4a-ae6" firstAttribute="top" secondItem="bLP-8d-XeK" secondAttribute="bottom" priority="700" constant="5" id="8uI-Gu-38x"/>
                                                 <constraint firstAttribute="trailing" secondItem="uy2-4a-ae6" secondAttribute="trailing" id="AtC-aq-QgY"/>
                                                 <constraint firstItem="Cxa-YX-aAg" firstAttribute="leading" secondItem="Ylt-Ek-EYV" secondAttribute="leading" id="Bvf-lk-L0z"/>
                                                 <constraint firstItem="GqJ-aV-cOZ" firstAttribute="leading" secondItem="fKQ-Ir-xQB" secondAttribute="leading" constant="15" id="CI5-hn-83c"/>
-                                                <constraint firstItem="uy2-4a-ae6" firstAttribute="top" secondItem="RXP-SO-XKM" secondAttribute="bottom" id="CPd-J5-tgz"/>
                                                 <constraint firstItem="Rey-s7-HjU" firstAttribute="top" secondItem="fKQ-Ir-xQB" secondAttribute="top" constant="10" id="CcQ-T3-3E3"/>
                                                 <constraint firstItem="GqJ-aV-cOZ" firstAttribute="top" secondItem="Rey-s7-HjU" secondAttribute="bottom" constant="10" id="EL2-lZ-rpr"/>
+                                                <constraint firstItem="RXP-SO-XKM" firstAttribute="bottom" secondItem="bLP-8d-XeK" secondAttribute="bottom" constant="5" id="Gfx-qg-azW"/>
                                                 <constraint firstItem="x2O-9E-ukf" firstAttribute="leading" secondItem="fKQ-Ir-xQB" secondAttribute="leading" constant="15" id="J1f-o5-YqI"/>
                                                 <constraint firstItem="bLP-8d-XeK" firstAttribute="top" secondItem="x2O-9E-ukf" secondAttribute="bottom" constant="10" id="Jtk-tI-aW4"/>
                                                 <constraint firstItem="Cxa-YX-aAg" firstAttribute="bottom" secondItem="Rey-s7-HjU" secondAttribute="bottom" id="SRn-ny-kOQ"/>
                                                 <constraint firstItem="4JU-Po-mLc" firstAttribute="centerY" secondItem="Ylt-Ek-EYV" secondAttribute="centerY" id="Tno-8j-Exa"/>
                                                 <constraint firstItem="Ylt-Ek-EYV" firstAttribute="top" secondItem="Rey-s7-HjU" secondAttribute="top" id="bJJ-4m-WnQ"/>
                                                 <constraint firstItem="rKS-N1-2II" firstAttribute="trailing" secondItem="Rey-s7-HjU" secondAttribute="trailing" id="cQe-by-kbv"/>
+                                                <constraint firstItem="RXP-SO-XKM" firstAttribute="top" secondItem="x2O-9E-ukf" secondAttribute="top" constant="-5" id="eLa-nA-TY4"/>
                                                 <constraint firstItem="ksN-a0-mZE" firstAttribute="leading" secondItem="Cxa-YX-aAg" secondAttribute="trailing" constant="5" id="el8-rO-gVU"/>
                                                 <constraint firstItem="4JU-Po-mLc" firstAttribute="leading" secondItem="Ylt-Ek-EYV" secondAttribute="trailing" constant="4" id="fbl-7I-xih"/>
                                                 <constraint firstItem="Rey-s7-HjU" firstAttribute="leading" secondItem="fKQ-Ir-xQB" secondAttribute="leading" constant="15" id="jwf-Pp-iaz"/>
@@ -268,8 +268,10 @@
                                             <outlet property="picViewHConst" destination="cXq-jn-UyF" id="qbd-n1-Igf"/>
                                             <outlet property="picViewWConst" destination="Bu8-CL-cWQ" id="tJE-ow-FS0"/>
                                             <outlet property="pictureView" destination="bLP-8d-XeK" id="vl0-Nh-60l"/>
+                                            <outlet property="pictureViewBottomConst" destination="8uI-Gu-38x" id="GjW-go-dWD"/>
                                             <outlet property="retweetedBgView" destination="RXP-SO-XKM" id="dlg-JW-xVX"/>
                                             <outlet property="retweetedContentLabel" destination="x2O-9E-ukf" id="tgW-pJ-jWV"/>
+                                            <outlet property="retweetedLabelTopConst" destination="nsk-9B-Rnh" id="UVL-F4-opC"/>
                                             <outlet property="screenNameLabel" destination="Ylt-Ek-EYV" id="LG0-Ap-R7Q"/>
                                             <outlet property="sourceLabel" destination="ksN-a0-mZE" id="61P-02-wgf"/>
                                             <outlet property="timeLabel" destination="Cxa-YX-aAg" id="3hb-By-N0b"/>
