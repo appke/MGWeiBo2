@@ -27,11 +27,15 @@ extension NetworkTools {
 
 //MARK:- 请求首页数据
 extension NetworkTools {
-    func loadStatuses(finished: @escaping (_ result: [[String: Any]]?, _ error: Error?) -> ()) {
+    func loadStatuses(since_id: Int, max_id: Int, finished: @escaping (_ result: [[String: Any]]?, _ error: Error?) -> ()) {
         
         // https://api.weibo.com/2/statuses/home_timeline.json?access_token=2.00xRuvQChfGsUD9cf1df3393avy_eC
         let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
-        let param = ["access_token": (UserAccountViewModel.shared.account?.access_token)!]
+        var param: [String: Any] = [String: Any]()
+        param["access_token"] = (UserAccountViewModel.shared.account?.access_token)!
+        param["since_id"] = since_id
+        param["max_id"] = max_id
+        
         
         NetworkTools.shared.get(urlString, parameters: param, headers: nil, progress: nil, success: { (task: URLSessionDataTask, result: Any?) in
             

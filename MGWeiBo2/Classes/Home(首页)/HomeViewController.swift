@@ -17,18 +17,6 @@ class HomeViewController: BaseViewController {
     private lazy var viewModels: [StatusViewModel] = [StatusViewModel]()
     
     @IBOutlet weak var tableView: UITableView!
-//    private lazy var tableView: UITableView = {
-//        let tb: UITableView = UITableView(frame: CGRect.zero, style: .plain)
-//        tb.delegate = self
-//        tb.dataSource = self
-//        tb.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-//
-//        return tb
-//    }()
-//    // 重写后BaseViewController的loadView()就不会调用，加载不了访客vc
-//    override func loadView() {
-//        view = tableView
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,90 +28,31 @@ class HomeViewController: BaseViewController {
         tableView.estimatedRowHeight = 200
         
         setupHeaderView()
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        let shareInstance = AFHTTPSessionManager()
-//        shareInstance.responseSerializer.acceptableContentTypes?.insert("text/html")
-//        // 发送网络请求 
-//        AFHTTPSessionManager().get("http://httpbin.org/get", parameters: ["name": "mul2"], headers: nil, progress: nil, success: { (task: URLSessionDataTask, result: Any?) in
-//            print(result!)
-//        }) { (task: URLSessionDataTask?, error: Error) in
-//            print(error)
-//        }
+        setupFooterView()
     }
 }
 
-//MARK:- 请求数据
-extension HomeViewController {
-    
-    @objc func loadNewStatuses() {
-        loadStatuses()
-    }
-    
-    private func loadStatuses() {
-        
-        NetworkTools.shared.loadStatuses { (result: [[String : Any]]?, error: Error?) in
-            // 1.错误校验
-            if let error = error {
-                print(error)
-                return
-            }
-            
-            // 2.获得数组中数据
-            guard let reslutArray = result else {
-                return
-            }
-            
-            // 3.遍历微博字典
-            for statusDict in reslutArray {
-                // 字典转模型
-                let status = Status(dict: statusDict)
-                let viewModel = StatusViewModel(status: status)
-                self.viewModels.append(viewModel)
-            }
-            
-            // 刷新表格
-            self.tableView.reloadData()
-        }
-    }
-}
-
-//MARK:- tableView代理、数据源
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModels.count
-    } 
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! HomeViewCell
-        cell.viewModel = viewModels[indexPath.row]
-        
-        return cell
-    }
-    
-    func  tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let viewModel = viewModels[indexPath.row]
-        return viewModel.cellHeight
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(" ----- \(indexPath.row)")
-    }
-}
-
-
-
-//MARK:- 设置UI界面 
+//MARK:- 设置UI界面
 extension HomeViewController {
     
     private func setupHeaderView() {
-     
-//        let header = MJRefreshHeader
+        // 1.创建
+        let header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(loadNewStatuses))
+        
+        // 2.设置header的属性
+        header.setTitle("下拉刷新", for: .idle)
+        header.setTitle("释放刷新", for: .pulling)
+        header.setTitle("加载中...", for: .refreshing)
+        
+        // 3.设置tableView的header
+        tableView.mj_header = header
+        
         // 进入刷新状态
-//        if UserAccountViewModel.shared.isLogin {
-//            loadNewStatuses()
-//        }
+        tableView.mj_header?.beginRefreshing()
+    }
+    
+    private func setupFooterView() {
+        tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreStatuses))
     }
     
     private func setupNavigationBar() {
@@ -139,6 +68,18 @@ extension HomeViewController {
 
 //MARK:- 事件监听
 extension HomeViewController {
+    @objc func loadNewStatuses() {
+        if UserAccountViewModel.shared.isLogin {
+            loadStatuses(true)
+        }
+    }
+    
+    @objc func loadMoreStatuses() {
+        if UserAccountViewModel.shared.isLogin {
+            loadStatuses(false)
+        }
+    }
+
     @objc private func titleBtnClick() {
         let vc = PopoverViewController()
 //        vc.view.backgroundColor = .magenta
@@ -152,5 +93,76 @@ extension HomeViewController {
         }
         
         present(vc, animated: true, completion: nil)
+    }
+}
+
+
+//MARK:- 请求数据
+extension HomeViewController {
+    private func loadStatuses(_ isNewData: Bool) {
+        // 获取since_id
+        var since_id = 0
+        var max_id = 0
+        if isNewData {
+            since_id = viewModels.first?.status?.mid ?? 0
+        } else {
+            max_id = viewModels.last?.status?.mid ?? 0
+            max_id = max_id == 0 ? 0 : (max_id - 1)
+        }
+        
+        NetworkTools.shared.loadStatuses(since_id: since_id, max_id: max_id) {(result: [[String : Any]]?, error: Error?) in
+            // 1.错误校验
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            // 2.获得数组中数据
+            guard let reslutArray = result else {
+                return
+            }
+            
+            // 3.遍历微博字典
+            var tempViewModels = [StatusViewModel]()
+            // 字典转模型
+            for statusDict in reslutArray {
+                let status = Status(dict: statusDict)
+                let viewModel = StatusViewModel(status: status)
+                tempViewModels.append(viewModel)
+            }
+            
+            // 4.拼接数据
+            if isNewData {
+                // 最新数据
+                self.viewModels = tempViewModels + self.viewModels
+            } else {
+                self.viewModels += tempViewModels
+            }
+            
+            // 刷新表格
+            self.tableView.reloadData()
+            
+            self.tableView.mj_header?.endRefreshing()
+            self.tableView.mj_footer?.endRefreshing()
+        }
+    }
+}
+
+//MARK:- tableView代理、数据源
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModels.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! HomeViewCell
+        cell.viewModel = viewModels[indexPath.row]
+        
+        return cell
+    }
+    
+    func  tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let viewModel = viewModels[indexPath.row]
+        return viewModel.cellHeight
     }
 }
