@@ -11,6 +11,7 @@ import UIKit
 class ComposeViewController: UIViewController {
 
     lazy private var titleView: ComposeTitleView = ComposeTitleView()
+    @IBOutlet weak var composeTextView: ComposeTextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
