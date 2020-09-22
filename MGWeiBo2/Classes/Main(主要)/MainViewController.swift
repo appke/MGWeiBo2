@@ -43,7 +43,8 @@ class MainViewController: UITabBarController {
 //MARK:- 监听发布按钮点击
 extension MainViewController {
     @objc func compseBtnClick() {
-        MGLog("--- \(#function)")
+        let composeNav = UINavigationController(rootViewController: ComposeViewController())
+        present(composeNav, animated: true, completion: nil)
     }
 }
 

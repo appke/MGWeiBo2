@@ -10,5 +10,6 @@ target "MGWeiBo2" do
   pod "MJRefresh"
   pod "SDWebImage"
   pod "MBProgressHUD"
+  pod "SnapKit"
   
 end

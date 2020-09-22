@@ -35,6 +35,10 @@
 		3BA874B62509FDFE006710BC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA874B52509FDFE006710BC /* BaseViewController.swift */; };
 		3BA874B82509FF21006710BC /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA874B72509FF21006710BC /* VisitorView.swift */; };
 		3BA874BA2509FF2A006710BC /* VisitorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BA874B92509FF2A006710BC /* VisitorView.xib */; };
+		3BABA183251A2C0100CF7F6D /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BABA181251A2C0100CF7F6D /* ComposeViewController.swift */; };
+		3BABA184251A2C0100CF7F6D /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BABA182251A2C0100CF7F6D /* ComposeViewController.xib */; };
+		3BABA186251AB72700CF7F6D /* ComposeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BABA185251AB72700CF7F6D /* ComposeTextView.swift */; };
+		3BABA188251AB74C00CF7F6D /* ComposeTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BABA187251AB74C00CF7F6D /* ComposeTitleView.swift */; };
 		3BBD16E2250B570400F3D6FF /* UIBarButtonItem-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD16E1250B570400F3D6FF /* UIBarButtonItem-Extension.swift */; };
 		3BBD16E5250B5D5300F3D6FF /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD16E4250B5D5300F3D6FF /* TitleButton.swift */; };
 		3BBD16E9250B6DCE00F3D6FF /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD16E7250B6DCE00F3D6FF /* PopoverViewController.swift */; };
@@ -82,6 +86,10 @@
 		3BA874B52509FDFE006710BC /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3BA874B72509FF21006710BC /* VisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		3BA874B92509FF2A006710BC /* VisitorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VisitorView.xib; sourceTree = "<group>"; };
+		3BABA181251A2C0100CF7F6D /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		3BABA182251A2C0100CF7F6D /* ComposeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
+		3BABA185251AB72700CF7F6D /* ComposeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeTextView.swift; sourceTree = "<group>"; };
+		3BABA187251AB74C00CF7F6D /* ComposeTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeTitleView.swift; sourceTree = "<group>"; };
 		3BBD16E1250B570400F3D6FF /* UIBarButtonItem-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem-Extension.swift"; sourceTree = "<group>"; };
 		3BBD16E4250B5D5300F3D6FF /* TitleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
 		3BBD16E7250B6DCE00F3D6FF /* PopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +172,17 @@
 			path = Visitor;
 			sourceTree = "<group>";
 		};
+		3BABA180251A2BC600CF7F6D /* Compose(发布) */ = {
+			isa = PBXGroup;
+			children = (
+				3BABA181251A2C0100CF7F6D /* ComposeViewController.swift */,
+				3BABA182251A2C0100CF7F6D /* ComposeViewController.xib */,
+				3BABA187251AB74C00CF7F6D /* ComposeTitleView.swift */,
+				3BABA185251AB72700CF7F6D /* ComposeTextView.swift */,
+			);
+			path = "Compose(发布)";
+			sourceTree = "<group>";
+		};
 		3BBD16E3250B5D3000F3D6FF /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				CC10E73A1E0724CC00DF6DE7 /* Home(首页) */,
+				3BABA180251A2BC600CF7F6D /* Compose(发布) */,
 				CC10E73C1E0724CC00DF6DE7 /* Message(消息) */,
 				CC10E7391E0724CC00DF6DE7 /* Discover(广场) */,
 				CC10E73D1E0724CC00DF6DE7 /* Profile(我的) */,
@@ -409,6 +429,7 @@
 				3BBD16EA250B6DCE00F3D6FF /* PopoverViewController.xib in Resources */,
 				3BA874672508CF8A006710BC /* Home.storyboard in Resources */,
 				3BA8746D2508D077006710BC /* Profile.storyboard in Resources */,
+				3BABA184251A2C0100CF7F6D /* ComposeViewController.xib in Resources */,
 				3BA8746B2508D060006710BC /* Discovery.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,6 +487,7 @@
 				3B86423325136812008AB856 /* Date+Extension.swift in Sources */,
 				3BA874B82509FF21006710BC /* VisitorView.swift in Sources */,
 				CC10E73F1E076D0500DF6DE7 /* MainViewController.swift in Sources */,
+				3BABA188251AB74C00CF7F6D /* ComposeTitleView.swift in Sources */,
 				3BBD16E2250B570400F3D6FF /* UIBarButtonItem-Extension.swift in Sources */,
 				3BA874B12509019E006710BC /* UIButton-Extension.swift in Sources */,
 				3B578FBF2511A9DB00C0D55C /* UserAccount.swift in Sources */,
@@ -477,11 +499,13 @@
 				3B95F577250F4D8C00A3B843 /* PopoverAnimator.swift in Sources */,
 				CC10E7451E076D3A00DF6DE7 /* MessageViewController.swift in Sources */,
 				3BE13D21251236E000B0D977 /* NetworkTools.swift in Sources */,
+				3BABA183251A2C0100CF7F6D /* ComposeViewController.swift in Sources */,
 				3BE13D262512FD5500B0D977 /* Status.swift in Sources */,
 				3BA874B62509FDFE006710BC /* BaseViewController.swift in Sources */,
 				3B578FB92510E14E00C0D55C /* MBProgressHUD-Extension.swift in Sources */,
 				3B3833A525021F0900195410 /* RedViewController.swift in Sources */,
 				3B578FC52512015900C0D55C /* WelcomeViewController.swift in Sources */,
+				3BABA186251AB72700CF7F6D /* ComposeTextView.swift in Sources */,
 				3B578FB42510D4D400C0D55C /* OAuthViewController.swift in Sources */,
 				3BBD16E9250B6DCE00F3D6FF /* PopoverViewController.swift in Sources */,
 				3BDF45D925189E430078D957 /* PictureCollectionView.swift in Sources */,
