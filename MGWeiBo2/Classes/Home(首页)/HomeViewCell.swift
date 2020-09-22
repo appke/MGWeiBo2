@@ -22,7 +22,9 @@ class HomeViewCell: UITableViewCell {
     @IBOutlet weak var sourceLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var pictureView: PictureCollectionView!
-    
+    @IBOutlet weak var retweetedBgView: UIView!
+    @IBOutlet weak var bottomToolView: UIView!
+    @IBOutlet weak var retweetedContentLabel: UILabel!
     
     //MARK:拖线约束
     @IBOutlet weak var picViewWConst: NSLayoutConstraint!
@@ -66,7 +68,26 @@ class HomeViewCell: UITableViewCell {
             
             // 10.设置配图数据
             pictureView.picURLs = viewModel.picURLs
-
+            
+            // 11.设置转发微博的正文
+            if viewModel.status?.retweeted_status != nil {
+                if let screenName = viewModel.status?.retweeted_status?.user?.screen_name,
+                    let retweetedText = viewModel.status?.retweeted_status?.text {
+                    retweetedContentLabel.text = "@" + "\(screenName): " + retweetedText
+                }
+                // 设置背景显示
+                retweetedBgView.isHidden = false
+            } else {
+                retweetedContentLabel.text = nil
+                // 设置背景显示
+                retweetedBgView.isHidden = true
+            }
+            
+            // 12.计算cell高度
+            if viewModel.cellHeight == 0 {
+                layoutIfNeeded()
+                viewModel.cellHeight = bottomToolView.frame.maxY
+            }
         }
     }
     

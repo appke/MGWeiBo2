@@ -41,16 +41,16 @@ extension PictureCollectionView: UICollectionViewDataSource {
 /// 自定义cell
 class PictureCell : UICollectionViewCell {
     
+    @IBOutlet weak var picImageView: UIImageView!
+    
     var picURL: URL? {
         didSet {
             // nil值校验
             guard let picURL = picURL else {
                 return
             }
-            print(picURL)
+            
             picImageView.sd_setImage(with: picURL, placeholderImage: UIImage(named: "timeline_card_middle_background"), options: [], context: nil)
         }
     }
-    @IBOutlet weak var picImageView: UIImageView!
-    
 }

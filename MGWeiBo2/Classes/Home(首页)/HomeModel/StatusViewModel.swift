@@ -21,6 +21,8 @@ class StatusViewModel: NSObject {
     var profileURL: URL?
     var picURLs: [URL] = [URL]()
     
+    var cellHeight: CGFloat = 0
+    
     
     init(status: Status) {
         super.init()
@@ -67,8 +69,10 @@ class StatusViewModel: NSObject {
         let profileURLstring = status.user?.profile_image_url ?? ""
         profileURL = URL(string: profileURLstring)
         
-        // 6.处理微博配图 
-        if let picURLDicts = status.pic_urls {
+        // 6.处理微博配图
+        // 自己的配图/转发微博配图 –≥用同一个控件
+        let picURLDicts = status.pic_urls?.count == 0 ? status.retweeted_status?.pic_urls : status.pic_urls
+        if let picURLDicts = picURLDicts {
             for picURLDict in picURLDicts {
                 guard var picURLString = picURLDict["thumbnail_pic"] else { //不一定能从字典中取到值
                     continue

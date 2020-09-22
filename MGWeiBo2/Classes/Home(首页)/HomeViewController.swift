@@ -41,6 +41,8 @@ class HomeViewController: BaseViewController {
         if UserAccountViewModel.shared.isLogin {
             loadStatuses()
         }
+        
+        tableView.estimatedRowHeight = 200
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -96,6 +98,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.viewModel = viewModels[indexPath.row]
         
         return cell
+    }
+    
+    func  tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let viewModel = viewModels[indexPath.row]
+        return viewModel.cellHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

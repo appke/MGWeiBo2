@@ -18,16 +18,23 @@ class Status: NSObject {
     var mid: Int = 0        //ID
     var pic_urls: [[String : String]]?   //配图
     var user: User?
+    var retweeted_status: Status?   //转发微博
     
     //MARK: 自定义构造函数
     init(dict: [String: Any]) {
         super.init()
         setValuesForKeys(dict)
         
-        // 将用户字典转成 用户模型
+        // 1.将用户字典转成 用户模型
         if let userDict = dict["user"] as? [String: Any] {
             user = User(dict: userDict)
         }
+        
+        // 2. 将转发微博数据 转成 微博模型
+        if let retweetedStatusDict = dict["retweeted_status"] as? [String: Any] {
+            retweeted_status = Status(dict: retweetedStatusDict)
+        }
+        
     }
     
     override func setValue(_ value: Any?, forUndefinedKey key: String) {
