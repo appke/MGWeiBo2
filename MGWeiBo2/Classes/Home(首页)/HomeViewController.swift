@@ -8,14 +8,13 @@
 
 import UIKit
 import AFNetworking
+import MJRefresh
 
 class HomeViewController: BaseViewController {
-    
     
     private lazy var titleBtn: TitleButton = TitleButton()
     private lazy var popverAnimator: PopoverAnimator = PopoverAnimator()
     private lazy var viewModels: [StatusViewModel] = [StatusViewModel]()
-    
     
     @IBOutlet weak var tableView: UITableView!
 //    private lazy var tableView: UITableView = {
@@ -38,15 +37,12 @@ class HomeViewController: BaseViewController {
         
         setupNavigationBar()
         
-        if UserAccountViewModel.shared.isLogin {
-            loadStatuses()
-        }
-        
         tableView.estimatedRowHeight = 200
+        
+        setupHeaderView()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
 //        let shareInstance = AFHTTPSessionManager()
 //        shareInstance.responseSerializer.acceptableContentTypes?.insert("text/html")
 //        // 发送网络请求 
@@ -60,7 +56,13 @@ class HomeViewController: BaseViewController {
 
 //MARK:- 请求数据
 extension HomeViewController {
+    
+    @objc func loadNewStatuses() {
+        loadStatuses()
+    }
+    
     private func loadStatuses() {
+        
         NetworkTools.shared.loadStatuses { (result: [[String : Any]]?, error: Error?) in
             // 1.错误校验
             if let error = error {
@@ -114,6 +116,16 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
 //MARK:- 设置UI界面 
 extension HomeViewController {
+    
+    private func setupHeaderView() {
+     
+//        let header = MJRefreshHeader
+        // 进入刷新状态
+//        if UserAccountViewModel.shared.isLogin {
+//            loadNewStatuses()
+//        }
+    }
+    
     private func setupNavigationBar() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(imageName: "navigationbar_friendattention")
         navigationItem.rightBarButtonItem = UIBarButtonItem(imageName: "navigationbar_pop")
