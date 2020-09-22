@@ -16,7 +16,18 @@ class HomeViewController: BaseViewController {
     private lazy var popverAnimator: PopoverAnimator = PopoverAnimator()
     private lazy var viewModels: [StatusViewModel] = [StatusViewModel]()
     
+    private lazy var tipLabel: UILabel = UILabel()
     @IBOutlet weak var tableView: UITableView!
+    
+    let tipLabelH: CGFloat = 34.0
+    var navBarValidH: CGFloat {
+        var isMore: Bool = false
+        if #available(iOS 11.0, *) {
+            isMore = (UIApplication.shared.keyWindow?.safeAreaInsets.bottom)! > 0.0
+        }
+        // 导航栏有效高度
+        return isMore ? 88-44 : 64-20
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +40,8 @@ class HomeViewController: BaseViewController {
         
         setupHeaderView()
         setupFooterView()
+        
+        setupTipLabel()
     }
 }
 
@@ -53,6 +66,20 @@ extension HomeViewController {
     
     private func setupFooterView() {
         tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreStatuses))
+    }
+    
+    
+    private func setupTipLabel() {
+        // 1.加载label
+        navigationController?.navigationBar.insertSubview(tipLabel, at: 0)
+        
+        // 2.设置尺寸
+        tipLabel.frame = CGRect(x: 0, y: navBarValidH - tipLabelH, width: UIScreen.main.bounds.width, height: tipLabelH)
+        tipLabel.backgroundColor = .orange
+        tipLabel.textColor = .white
+        tipLabel.isHidden = true
+        tipLabel.font = UIFont.systemFont(ofSize: 14)
+        tipLabel.textAlignment = .center
     }
     
     private func setupNavigationBar() {
@@ -138,13 +165,35 @@ extension HomeViewController {
             } else {
                 self.viewModels += tempViewModels
             }
-            
+                        
             // 刷新表格
             self.tableView.reloadData()
             
             self.tableView.mj_header?.endRefreshing()
             self.tableView.mj_footer?.endRefreshing()
+            
+            // 最后显示提示Label
+            self.showTipLabel(count: tempViewModels.count)
         }
+    }
+    
+    private func showTipLabel(count: Int) {
+        // 设置属性
+        tipLabel.isHidden = false
+        tipLabel.text = count == 0 ? "没有最新数据" : "\(count)条微博数据"
+        
+        // 执行动画
+        UIView.animate(withDuration: 1.0, animations: {
+            self.tipLabel.frame.origin.y = 44
+        }) { (_) in
+            // 回去的时间、停留的时间
+            UIView.animate(withDuration: 1.0, delay: 1.5, options: [], animations: {
+                self.tipLabel.frame.origin.y = 10
+            }) { (_) in
+                self.tipLabel.isHidden = true
+            }
+        }
+
     }
 }
 
