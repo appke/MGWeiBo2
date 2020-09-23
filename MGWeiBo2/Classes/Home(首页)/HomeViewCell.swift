@@ -26,11 +26,13 @@ class HomeViewCell: UITableViewCell {
     @IBOutlet weak var bottomToolView: UIView!
     @IBOutlet weak var retweetedContentLabel: UILabel!
     
+    @IBOutlet weak var conetentLabelWConst: NSLayoutConstraint!
     
     //MARK:拖线约束
     @IBOutlet weak var picViewWConst: NSLayoutConstraint!
     @IBOutlet weak var picViewHConst: NSLayoutConstraint!
-    @IBOutlet weak var retweetedLabelTopConst: NSLayoutConstraint!
+    
+    @IBOutlet weak var retweetedLabelBottomConst: NSLayoutConstraint!
     @IBOutlet weak var pictureViewBottomConst: NSLayoutConstraint!
     
     //MARK: 自定义属性
@@ -78,7 +80,7 @@ class HomeViewCell: UITableViewCell {
                     retweetedContentLabel.text = "@" + "\(screenName): " + retweetedText
                     
                     // 设置转发正文距离顶部约束
-                    retweetedLabelTopConst.constant = 10
+                    retweetedLabelBottomConst.constant = 10
                 }
                 // 设置背景显示
                 retweetedBgView.isHidden = false
@@ -88,7 +90,7 @@ class HomeViewCell: UITableViewCell {
                 // 2.设置背景显示
                 retweetedBgView.isHidden = true
                 // 3.设置转发正文距离顶部约束
-                retweetedLabelTopConst.constant = 0
+                retweetedLabelBottomConst.constant = 0
             }
             
             // 12.计算cell高度
@@ -103,7 +105,7 @@ class HomeViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // 正文宽度约束？
-
+        conetentLabelWConst.constant = UIScreen.main.bounds.width - 2 * edgeMargin
         // 设置collectionView的尺寸
         let layout = pictureView.collectionViewLayout as! UICollectionViewFlowLayout
         let imageViewWH = (UIScreen.main.bounds.width - 2 * edgeMargin - 2 * itemMargin) / 3
@@ -120,14 +122,14 @@ extension HomeViewCell {
         }
         
         // 有配图需要该约束有值
-        pictureViewBottomConst.constant = 5
+        pictureViewBottomConst.constant = 10
         
         // 计算imageView宽高
         let imageViewWH = (UIScreen.main.bounds.width - 2 * edgeMargin - 2 * itemMargin) / 3
         
         // 4张配图 
         if count == 4 {
-            let picViewWH = 2 * imageViewWH + itemMargin
+            let picViewWH = 2 * imageViewWH + itemMargin + 0.5
             return CGSize(width: picViewWH, height: picViewWH)
         }
         

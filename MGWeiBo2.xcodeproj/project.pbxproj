@@ -260,8 +260,8 @@
 				3B578FC22512013200C0D55C /* Welcome */,
 				3BBD16E6250B6D9E00F3D6FF /* UIPopover */,
 				CC10E7461E076D4400DF6DE7 /* HomeViewController.swift */,
-				3BA874662508CF8A006710BC /* Home.storyboard */,
 				3B86423C25148FEC008AB856 /* HomeViewCell.swift */,
+				3BA874662508CF8A006710BC /* Home.storyboard */,
 				3BDF45D825189E430078D957 /* PictureCollectionView.swift */,
 			);
 			path = "Home(首页)";

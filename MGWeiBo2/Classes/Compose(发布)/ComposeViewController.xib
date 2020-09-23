@@ -15,11 +15,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="265" height="304"/>
+            <rect key="frame" x="0.0" y="0.0" width="302" height="304"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZkS-gx-RTc" customClass="ComposeTextView" customModule="微博2" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="265" height="304"/>
+                    <rect key="frame" x="0.0" y="0.0" width="302" height="304"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -28,16 +28,34 @@
                         <outlet property="delegate" destination="-1" id="cn7-kM-Bjh"/>
                     </connections>
                 </textView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hyb-iR-GrO">
+                    <rect key="frame" x="0.0" y="260" width="302" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="KXX-mG-d6R"/>
+                    </constraints>
+                    <items>
+                        <barButtonItem title="111" id="4TS-sw-XrF"/>
+                        <barButtonItem style="plain" id="Jll-v7-2EM">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="j9P-u7-HND">
+                                <rect key="frame" x="50" y="5" width="54" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="Hyb-iR-GrO" secondAttribute="trailing" id="C4c-Y9-3xF"/>
                 <constraint firstItem="ZkS-gx-RTc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="TZR-nZ-1y6"/>
                 <constraint firstItem="ZkS-gx-RTc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="WA9-tm-RkE"/>
+                <constraint firstAttribute="bottom" secondItem="Hyb-iR-GrO" secondAttribute="bottom" id="b0C-Z6-j1F"/>
+                <constraint firstItem="Hyb-iR-GrO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eSZ-bF-qju"/>
                 <constraint firstAttribute="trailing" secondItem="ZkS-gx-RTc" secondAttribute="trailing" id="gPo-PD-oUt"/>
                 <constraint firstAttribute="bottom" secondItem="ZkS-gx-RTc" secondAttribute="bottom" id="iZS-GK-j7x"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="29.710144927536234" y="192.1875"/>
+            <point key="canvasLocation" x="-94" y="149"/>
         </view>
     </objects>
 </document>
