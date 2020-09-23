@@ -13,16 +13,26 @@ class ComposeViewController: UIViewController {
     lazy private var titleView: ComposeTitleView = ComposeTitleView()
     @IBOutlet weak var composeTextView: ComposeTextView!
     
+    //MARK: 拖线属性
+    @IBOutlet weak var toolBarBottomConst: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupNavgationBar()
+        
+        // 监听键盘通知
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardFrameChage(_:)), name: UIResponder.keyboardWillChangeFrameNotification , object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         composeTextView.becomeFirstResponder()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
@@ -47,6 +57,24 @@ extension ComposeViewController {
     @objc private func composeItemClick() {
         print("compose……")
     }
+    
+    @objc private func keyboardFrameChage(_ noti: Notification) { 
+        // 键盘最终位置
+        let endFrame = noti.userInfo!["UIKeyboardFrameEndUserInfoKey"] as! CGRect
+        
+        // 执行时间
+        let duration = noti.userInfo!["UIKeyboardAnimationDurationUserInfoKey"] as! TimeInterval
+        
+        // 工具栏距离底部间距
+        let margin = UIScreen.main.bounds.height - endFrame.origin.y
+        
+        self.toolBarBottomConst.constant = margin
+        // 执行动画
+        UIView.animate(withDuration: duration) {
+            // 强制更新
+            self.view.layoutIfNeeded()
+        }
+    }
 }
 
 extension ComposeViewController: UITextViewDelegate {
@@ -56,4 +84,3 @@ extension ComposeViewController: UITextViewDelegate {
         navigationItem.rightBarButtonItem?.isEnabled = textView.hasText
     }
 }
-
