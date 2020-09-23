@@ -13,11 +13,11 @@ class PicPickerViewCell: UICollectionViewCell {
     var image: UIImage? {
         didSet {
             if image != nil {
-                addPhotoBtn.setBackgroundImage(image, for: .normal)
+                imageView.image = image //按钮背景图像压缩
                 addPhotoBtn.isUserInteractionEnabled = false
                 delPhotoBtn.isHidden = false
             } else {
-                addPhotoBtn.setBackgroundImage(UIImage(named: "compose_pic_add_background"), for: .normal)
+                imageView.image = nil
                 addPhotoBtn.isUserInteractionEnabled = true
                 delPhotoBtn.isHidden = true
             }
@@ -26,6 +26,7 @@ class PicPickerViewCell: UICollectionViewCell {
 
     @IBOutlet weak var addPhotoBtn: UIButton!
     @IBOutlet weak var delPhotoBtn: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
     
     
     override func awakeFromNib() {
@@ -35,11 +36,11 @@ class PicPickerViewCell: UICollectionViewCell {
     
     
     @IBAction func addPhotoClick(_ sender: Any) {
-        NotificationCenter.default.post(name: NSNotification.Name.init(PicPickerPhotoNote), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name.init(PicPickerAddPhotoNote), object: nil)
     }
     
     
     @IBAction func delPhotoClick(_ sender: Any) {
-        
+        NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: PicPickerDelPhotoNote), object: imageView.image)
     }
 }

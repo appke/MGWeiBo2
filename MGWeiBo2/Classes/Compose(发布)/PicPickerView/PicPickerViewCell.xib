@@ -25,6 +25,9 @@
                             <action selector="addPhotoClick:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Tke-ER-8tK"/>
                         </connections>
                     </button>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DDo-XJ-7G2">
+                        <rect key="frame" x="0.0" y="0.0" width="128" height="123"/>
+                    </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qf2-Wj-zOb">
                         <rect key="frame" x="104" y="0.0" width="24" height="24"/>
                         <constraints>
@@ -42,8 +45,12 @@
                 <constraint firstItem="3ir-VA-0E2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="7mB-Bd-wGc"/>
                 <constraint firstAttribute="trailing" secondItem="Qf2-Wj-zOb" secondAttribute="trailing" id="HBm-OZ-Bqs"/>
                 <constraint firstAttribute="bottom" secondItem="3ir-VA-0E2" secondAttribute="bottom" id="O2S-ex-RtU"/>
+                <constraint firstItem="DDo-XJ-7G2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Q3v-8V-LhY"/>
+                <constraint firstItem="DDo-XJ-7G2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Vvl-uq-hPq"/>
+                <constraint firstAttribute="trailing" secondItem="DDo-XJ-7G2" secondAttribute="trailing" id="eDt-Pb-f8M"/>
                 <constraint firstItem="Qf2-Wj-zOb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="hCl-GF-ZbS"/>
                 <constraint firstAttribute="trailing" secondItem="3ir-VA-0E2" secondAttribute="trailing" id="o46-Th-iWu"/>
+                <constraint firstAttribute="bottom" secondItem="DDo-XJ-7G2" secondAttribute="bottom" id="stF-2v-Csj"/>
                 <constraint firstItem="3ir-VA-0E2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="z6S-af-QIC"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -51,6 +58,7 @@
             <connections>
                 <outlet property="addPhotoBtn" destination="3ir-VA-0E2" id="Xb7-ih-CoE"/>
                 <outlet property="delPhotoBtn" destination="Qf2-Wj-zOb" id="Odh-HK-Xa8"/>
+                <outlet property="imageView" destination="DDo-XJ-7G2" id="xwz-lM-MBn"/>
             </connections>
             <point key="canvasLocation" x="62.318840579710148" y="91.40625"/>
         </collectionViewCell>

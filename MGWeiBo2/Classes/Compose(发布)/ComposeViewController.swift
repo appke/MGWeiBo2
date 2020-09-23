@@ -25,16 +25,17 @@ class ComposeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        composeTextView.becomeFirstResponder()
+        
         setupNavgationBar()
         
         setupNotification()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        composeTextView.becomeFirstResponder()
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        composeTextView.becomeFirstResponder()
+//    }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -60,13 +61,15 @@ extension ComposeViewController {
         // 监听键盘通知
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardFrameChage(_:)), name: UIResponder.keyboardWillChangeFrameNotification , object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(addPhotoClick), name: Notification.Name.init(rawValue: PicPickerPhotoNote), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(addPhotoClick), name: Notification.Name.init(rawValue: PicPickerAddPhotoNote), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(delPhotoClick(_:)), name: Notification.Name.init(rawValue: PicPickerDelPhotoNote), object: nil)
     }
 }
 
 //MARK:- 添加照片相关通知
 extension ComposeViewController {
-    @objc func addPhotoClick() {
+    @objc private func addPhotoClick() {
         print("---\(#function)")
         
         // 1.判断照片源是否可用
@@ -80,6 +83,21 @@ extension ComposeViewController {
         
         // 3.弹出照片选择器
         present(ipc, animated: true, completion: nil)
+    }
+    
+    @objc private func delPhotoClick(_ note: Notification) {
+        // 先校验
+        guard let image = note.object as? UIImage else {
+            return
+        }
+        
+        guard let index = images.firstIndex(of: image) else {
+            return
+        }
+        images.remove(at: index)
+        
+        // 更新collectionView数据源
+        picPickerCollectionView.images = images
     }
 }
 
@@ -112,12 +130,12 @@ extension ComposeViewController {
         print("compose……")
     }
     
-    @objc private func keyboardFrameChage(_ noti: Notification) {
+    @objc private func keyboardFrameChage(_ note: Notification) {
         // 键盘最终位置
-        let endFrame = noti.userInfo!["UIKeyboardFrameEndUserInfoKey"] as! CGRect
+        let endFrame = note.userInfo!["UIKeyboardFrameEndUserInfoKey"] as! CGRect
         
         // 执行时间
-        let duration = noti.userInfo!["UIKeyboardAnimationDurationUserInfoKey"] as! TimeInterval
+        let duration = note.userInfo!["UIKeyboardAnimationDurationUserInfoKey"] as! TimeInterval
         
         // 工具栏距离底部间距
         let margin = UIScreen.main.bounds.height - endFrame.origin.y
