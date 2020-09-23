@@ -10,7 +10,7 @@ import UIKit
 
 class ComposeTextView: UITextView {
     
-    lazy private var placeholderLabel: UILabel = UILabel()
+    lazy var placeholderLabel: UILabel = UILabel()
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -36,5 +36,8 @@ extension ComposeTextView {
         
         // 设置内边距
         textContainerInset = UIEdgeInsets(top: 10, left: 6, bottom: 0, right: 6)
+        tintColor = .darkGray
+        alwaysBounceVertical = true
+        keyboardDismissMode = .onDrag
     }
 }

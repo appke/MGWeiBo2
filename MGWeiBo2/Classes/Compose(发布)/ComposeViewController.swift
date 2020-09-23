@@ -18,6 +18,12 @@ class ComposeViewController: UIViewController {
         
         setupNavgationBar()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        composeTextView.becomeFirstResponder()
+    }
 }
 
 extension ComposeViewController {
@@ -34,11 +40,20 @@ extension ComposeViewController {
 
 extension ComposeViewController {
     @objc private func closeItemClick() {
+        composeTextView.resignFirstResponder()
         dismiss(animated: true, completion: nil)
     }
     
     @objc private func composeItemClick() {
         print("compose……")
     }
-
 }
+
+extension ComposeViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        // 占位label显示/隐藏
+        composeTextView.placeholderLabel.isHidden = textView.hasText
+        navigationItem.rightBarButtonItem?.isEnabled = textView.hasText
+    }
+}
+
