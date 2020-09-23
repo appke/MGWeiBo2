@@ -10,6 +10,11 @@ import UIKit
 
 class PicPickerCollectionView: UICollectionView {
     
+    var images: [UIImage] = [UIImage]() {
+        didSet {
+            reloadData()
+        }
+    }
     private let picPickerCell = "picPickerCell"
     private let edgeMargin: CGFloat = 15
     
@@ -19,7 +24,7 @@ class PicPickerCollectionView: UICollectionView {
         
         // 设置属性
         dataSource = self
-        register(UICollectionViewCell.self, forCellWithReuseIdentifier: picPickerCell)
+        register(UINib(nibName: "PicPickerViewCell", bundle: nil), forCellWithReuseIdentifier: picPickerCell)
         
         // 设置布局
         let layout = collectionViewLayout as! UICollectionViewFlowLayout
@@ -33,13 +38,14 @@ class PicPickerCollectionView: UICollectionView {
 
 extension PicPickerCollectionView: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        return images.count + 1
     }
         
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: picPickerCell, for: indexPath)
-        cell.backgroundColor = .white
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: picPickerCell, for: indexPath) as! PicPickerViewCell
+        cell.backgroundColor = .red
+        cell.image = indexPath.row <= images.count - 1 ? images[indexPath.row] : nil
         return cell
     }
 }

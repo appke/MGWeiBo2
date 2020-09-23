@@ -20,3 +20,6 @@ let app_key = "3204583937"
 let app_secret = "205130042e0e31678899faa5e28d756d"
 let redirect_uri = "https://open.weibo.com/"
 
+//MARK:- 选择照片的通知常量
+let PicPickerPhotoNote = "PicPickerPhotoNote"
+

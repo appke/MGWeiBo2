@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComposeViewController" customModule="微博2" customModuleProvider="target">
             <connections>
                 <outlet property="composeTextView" destination="ZkS-gx-RTc" id="H6n-Uq-sHk"/>
+                <outlet property="picPickerCollectionView" destination="dke-uA-VaI" id="YWW-z8-qsG"/>
                 <outlet property="picPickerViewHConst" destination="3BS-lT-HSq" id="H32-N3-Ccy"/>
                 <outlet property="toolBarBottomConst" destination="b0C-Z6-j1F" id="d9X-9B-co0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -32,11 +33,11 @@
                 </textView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="dke-uA-VaI" customClass="PicPickerCollectionView" customModule="微博2" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="260" width="302" height="0.0"/>
-                    <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" id="3BS-lT-HSq"/>
                     </constraints>
-                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pmO-V2-CYy">
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pmO-V2-CYy">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -52,7 +53,7 @@
                         <barButtonItem title=" " id="X18-gf-iiZ"/>
                         <barButtonItem style="plain" id="Jll-v7-2EM">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="j9P-u7-HND">
-                                <rect key="frame" x="31.5" y="5" width="34" height="34"/>
+                                <rect key="frame" x="35.5" y="5" width="34" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="compose_toolbar_picture_background"/>
                                 <state key="highlighted" image="compose_toolbar_picture_background_highlighted"/>
@@ -64,7 +65,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="nN4-mO-UHw"/>
                         <barButtonItem style="plain" id="pxy-y6-JxG">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hBY-vt-iNQ">
-                                <rect key="frame" x="83.5" y="5" width="34" height="34"/>
+                                <rect key="frame" x="85.5" y="5" width="34" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="compose_mentionbutton_background"/>
                                 <state key="highlighted" image="compose_mentionbutton_background_highlighted"/>
@@ -82,7 +83,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="2NS-8u-2lX"/>
                         <barButtonItem style="plain" id="AK0-Fo-eC5">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="70w-QL-BIa">
-                                <rect key="frame" x="187.5" y="5" width="34" height="34"/>
+                                <rect key="frame" x="185.5" y="5" width="34" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="compose_emoticonbutton_background"/>
                                 <state key="highlighted" image="compose_emoticonbutton_background_highlighted"/>
@@ -91,7 +92,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="ojf-Pl-vCF"/>
                         <barButtonItem style="plain" id="ZjI-55-a8k">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="K9m-Gr-fTX">
-                                <rect key="frame" x="239.5" y="5" width="34" height="34"/>
+                                <rect key="frame" x="235.5" y="5" width="34" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="compose_keyboardbutton_background"/>
                                 <state key="highlighted" image="compose_keyboardbutton_background_highlighted"/>

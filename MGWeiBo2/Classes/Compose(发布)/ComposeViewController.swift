@@ -11,7 +11,12 @@ import UIKit
 class ComposeViewController: UIViewController {
 
     lazy private var titleView: ComposeTitleView = ComposeTitleView()
+    lazy private var images: [UIImage] = [UIImage]()
+    
+    //MARK: 控件属性
     @IBOutlet weak var composeTextView: ComposeTextView!
+    @IBOutlet weak var picPickerCollectionView: PicPickerCollectionView!
+    
     
     //MARK: 拖线属性
     @IBOutlet weak var toolBarBottomConst: NSLayoutConstraint!
@@ -22,8 +27,7 @@ class ComposeViewController: UIViewController {
         
         setupNavgationBar()
         
-        // 监听键盘通知
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardFrameChage(_:)), name: UIResponder.keyboardWillChangeFrameNotification , object: nil)
+        setupNotification()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -37,6 +41,7 @@ class ComposeViewController: UIViewController {
     }
 }
 
+//MARK:- UI相关
 extension ComposeViewController {
     private func setupNavgationBar() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "取消", style: .plain, target: self, action: #selector(closeItemClick))
@@ -46,6 +51,53 @@ extension ComposeViewController {
         // 设置标题
         titleView.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
         navigationItem.titleView = titleView
+    }
+}
+
+//MARK:- 注册通知
+extension ComposeViewController {
+    private func setupNotification() {
+        // 监听键盘通知
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardFrameChage(_:)), name: UIResponder.keyboardWillChangeFrameNotification , object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(addPhotoClick), name: Notification.Name.init(rawValue: PicPickerPhotoNote), object: nil)
+    }
+}
+
+//MARK:- 添加照片相关通知
+extension ComposeViewController {
+    @objc func addPhotoClick() {
+        print("---\(#function)")
+        
+        // 1.判断照片源是否可用
+        if !UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            return
+        }
+        
+        // 2.创建照片选择器
+        let ipc = UIImagePickerController()
+        ipc.delegate = self
+        
+        // 3.弹出照片选择器
+        present(ipc, animated: true, completion: nil)
+    }
+}
+
+//MARK:- 选择照片 UIImagePickerController 代理
+extension ComposeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        // 获取选中照片
+        let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerOriginalImage")] as! UIImage
+        // 添加到数组中
+        if !images.contains(image) {
+            images.append(image)
+        }
+        
+        picPickerCollectionView.images = images
+        
+        // 注定退出
+        picker.dismiss(animated: true, completion: nil)
     }
 }
 
