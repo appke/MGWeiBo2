@@ -42,6 +42,7 @@
 		3BABA18B251B1E0A00CF7F6D /* PicPickerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BABA18A251B1E0A00CF7F6D /* PicPickerCollectionView.swift */; };
 		3BABA18E251B46D300CF7F6D /* PicPickerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BABA18C251B46D300CF7F6D /* PicPickerViewCell.swift */; };
 		3BABA18F251B46D300CF7F6D /* PicPickerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BABA18D251B46D300CF7F6D /* PicPickerViewCell.xib */; };
+		3BABA192251B743900CF7F6D /* EmoticonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BABA191251B743900CF7F6D /* EmoticonViewController.swift */; };
 		3BBD16E2250B570400F3D6FF /* UIBarButtonItem-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD16E1250B570400F3D6FF /* UIBarButtonItem-Extension.swift */; };
 		3BBD16E5250B5D5300F3D6FF /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD16E4250B5D5300F3D6FF /* TitleButton.swift */; };
 		3BBD16E9250B6DCE00F3D6FF /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD16E7250B6DCE00F3D6FF /* PopoverViewController.swift */; };
@@ -96,6 +97,7 @@
 		3BABA18A251B1E0A00CF7F6D /* PicPickerCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicPickerCollectionView.swift; sourceTree = "<group>"; };
 		3BABA18C251B46D300CF7F6D /* PicPickerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicPickerViewCell.swift; sourceTree = "<group>"; };
 		3BABA18D251B46D300CF7F6D /* PicPickerViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PicPickerViewCell.xib; sourceTree = "<group>"; };
+		3BABA191251B743900CF7F6D /* EmoticonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonViewController.swift; sourceTree = "<group>"; };
 		3BBD16E1250B570400F3D6FF /* UIBarButtonItem-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem-Extension.swift"; sourceTree = "<group>"; };
 		3BBD16E4250B5D5300F3D6FF /* TitleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
 		3BBD16E7250B6DCE00F3D6FF /* PopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +202,14 @@
 			path = PicPickerView;
 			sourceTree = "<group>";
 		};
+		3BABA190251B738500CF7F6D /* EmoticonView */ = {
+			isa = PBXGroup;
+			children = (
+				3BABA191251B743900CF7F6D /* EmoticonViewController.swift */,
+			);
+			path = EmoticonView;
+			sourceTree = "<group>";
+		};
 		3BBD16E3250B5D3000F3D6FF /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				3BBD16E3250B5D3000F3D6FF /* Category */,
+				3BABA190251B738500CF7F6D /* EmoticonView */,
 				3BBD16E4250B5D5300F3D6FF /* TitleButton.swift */,
 				3B578FB62510DB4C00C0D55C /* Common.swift */,
 				3BE13D20251236E000B0D977 /* NetworkTools.swift */,
@@ -516,6 +527,7 @@
 				CC8C1F0E1E06C5AC00FF3B3E /* AppDelegate.swift in Sources */,
 				3B95F577250F4D8C00A3B843 /* PopoverAnimator.swift in Sources */,
 				CC10E7451E076D3A00DF6DE7 /* MessageViewController.swift in Sources */,
+				3BABA192251B743900CF7F6D /* EmoticonViewController.swift in Sources */,
 				3BE13D21251236E000B0D977 /* NetworkTools.swift in Sources */,
 				3BABA183251A2C0100CF7F6D /* ComposeViewController.swift in Sources */,
 				3BE13D262512FD5500B0D977 /* Status.swift in Sources */,

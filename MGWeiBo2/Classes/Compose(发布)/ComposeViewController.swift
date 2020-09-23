@@ -31,12 +31,7 @@ class ComposeViewController: UIViewController {
         
         setupNotification()
     }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        composeTextView.becomeFirstResponder()
-//    }
-    
+        
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
@@ -96,7 +91,7 @@ extension ComposeViewController {
         }
         images.remove(at: index)
         
-        // 更新collectionView数据源
+        // 更新collectionView数据源，刷新表格
         picPickerCollectionView.images = images
     }
 }
@@ -152,10 +147,16 @@ extension ComposeViewController {
     @IBAction func picPickerBtnClick() {
         composeTextView.resignFirstResponder()
         
-        picPickerViewHConst.constant = UIScreen.main.bounds.width
+        picPickerViewHConst.constant = picPickerViewHConst.constant == 0 ? UIScreen.main.bounds.width : 0
         UIView.animate(withDuration: 0.25) {
             self.view.layoutIfNeeded()
         }
+    }
+    
+    // 表情按钮点击
+    @IBAction func emojiBtnClick() {
+        
+        print("\(#function)")
     }
 }
 
