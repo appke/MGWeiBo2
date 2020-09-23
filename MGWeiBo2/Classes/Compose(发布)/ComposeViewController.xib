@@ -10,7 +10,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComposeViewController" customModule="微博2" customModuleProvider="target">
             <connections>
                 <outlet property="composeTextView" destination="ZkS-gx-RTc" id="H6n-Uq-sHk"/>
-                <outlet property="toolBarBottomConst" destination="b0C-Z6-j1F" id="FMr-42-QEk"/>
+                <outlet property="picPickerViewHConst" destination="3BS-lT-HSq" id="H32-N3-Ccy"/>
+                <outlet property="toolBarBottomConst" destination="b0C-Z6-j1F" id="d9X-9B-co0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -29,6 +30,19 @@
                         <outlet property="delegate" destination="-1" id="cn7-kM-Bjh"/>
                     </connections>
                 </textView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="dke-uA-VaI" customClass="PicPickerCollectionView" customModule="微博2" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="260" width="302" height="0.0"/>
+                    <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" id="3BS-lT-HSq"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pmO-V2-CYy">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hyb-iR-GrO">
                     <rect key="frame" x="0.0" y="260" width="302" height="44"/>
                     <constraints>
@@ -42,6 +56,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="compose_toolbar_picture_background"/>
                                 <state key="highlighted" image="compose_toolbar_picture_background_highlighted"/>
+                                <connections>
+                                    <action selector="picPickerBtnClick" destination="-1" eventType="touchUpInside" id="pnx-Qo-iit"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="nN4-mO-UHw"/>
@@ -86,13 +103,16 @@
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
+                <constraint firstItem="Hyb-iR-GrO" firstAttribute="top" secondItem="dke-uA-VaI" secondAttribute="bottom" id="8i3-ZQ-Y6B"/>
                 <constraint firstAttribute="trailing" secondItem="Hyb-iR-GrO" secondAttribute="trailing" id="C4c-Y9-3xF"/>
+                <constraint firstAttribute="trailing" secondItem="dke-uA-VaI" secondAttribute="trailing" id="NIZ-JQ-gf3"/>
                 <constraint firstItem="ZkS-gx-RTc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="TZR-nZ-1y6"/>
                 <constraint firstItem="ZkS-gx-RTc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="WA9-tm-RkE"/>
                 <constraint firstAttribute="bottom" secondItem="Hyb-iR-GrO" secondAttribute="bottom" id="b0C-Z6-j1F"/>
                 <constraint firstItem="Hyb-iR-GrO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eSZ-bF-qju"/>
                 <constraint firstAttribute="trailing" secondItem="ZkS-gx-RTc" secondAttribute="trailing" id="gPo-PD-oUt"/>
                 <constraint firstAttribute="bottom" secondItem="ZkS-gx-RTc" secondAttribute="bottom" id="iZS-GK-j7x"/>
+                <constraint firstItem="dke-uA-VaI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uMG-nO-Xqy"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-94.20289855072464" y="148.66071428571428"/>

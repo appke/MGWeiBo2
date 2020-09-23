@@ -39,6 +39,9 @@
 		3BABA184251A2C0100CF7F6D /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BABA182251A2C0100CF7F6D /* ComposeViewController.xib */; };
 		3BABA186251AB72700CF7F6D /* ComposeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BABA185251AB72700CF7F6D /* ComposeTextView.swift */; };
 		3BABA188251AB74C00CF7F6D /* ComposeTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BABA187251AB74C00CF7F6D /* ComposeTitleView.swift */; };
+		3BABA18B251B1E0A00CF7F6D /* PicPickerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BABA18A251B1E0A00CF7F6D /* PicPickerCollectionView.swift */; };
+		3BABA18E251B46D300CF7F6D /* PicPickerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BABA18C251B46D300CF7F6D /* PicPickerViewCell.swift */; };
+		3BABA18F251B46D300CF7F6D /* PicPickerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BABA18D251B46D300CF7F6D /* PicPickerViewCell.xib */; };
 		3BBD16E2250B570400F3D6FF /* UIBarButtonItem-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD16E1250B570400F3D6FF /* UIBarButtonItem-Extension.swift */; };
 		3BBD16E5250B5D5300F3D6FF /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD16E4250B5D5300F3D6FF /* TitleButton.swift */; };
 		3BBD16E9250B6DCE00F3D6FF /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD16E7250B6DCE00F3D6FF /* PopoverViewController.swift */; };
@@ -90,6 +93,9 @@
 		3BABA182251A2C0100CF7F6D /* ComposeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
 		3BABA185251AB72700CF7F6D /* ComposeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeTextView.swift; sourceTree = "<group>"; };
 		3BABA187251AB74C00CF7F6D /* ComposeTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeTitleView.swift; sourceTree = "<group>"; };
+		3BABA18A251B1E0A00CF7F6D /* PicPickerCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicPickerCollectionView.swift; sourceTree = "<group>"; };
+		3BABA18C251B46D300CF7F6D /* PicPickerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicPickerViewCell.swift; sourceTree = "<group>"; };
+		3BABA18D251B46D300CF7F6D /* PicPickerViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PicPickerViewCell.xib; sourceTree = "<group>"; };
 		3BBD16E1250B570400F3D6FF /* UIBarButtonItem-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem-Extension.swift"; sourceTree = "<group>"; };
 		3BBD16E4250B5D5300F3D6FF /* TitleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
 		3BBD16E7250B6DCE00F3D6FF /* PopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
@@ -175,12 +181,23 @@
 		3BABA180251A2BC600CF7F6D /* Compose(发布) */ = {
 			isa = PBXGroup;
 			children = (
+				3BABA189251B1CF700CF7F6D /* PicPickerView */,
 				3BABA181251A2C0100CF7F6D /* ComposeViewController.swift */,
 				3BABA182251A2C0100CF7F6D /* ComposeViewController.xib */,
 				3BABA187251AB74C00CF7F6D /* ComposeTitleView.swift */,
 				3BABA185251AB72700CF7F6D /* ComposeTextView.swift */,
 			);
 			path = "Compose(发布)";
+			sourceTree = "<group>";
+		};
+		3BABA189251B1CF700CF7F6D /* PicPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				3BABA18A251B1E0A00CF7F6D /* PicPickerCollectionView.swift */,
+				3BABA18C251B46D300CF7F6D /* PicPickerViewCell.swift */,
+				3BABA18D251B46D300CF7F6D /* PicPickerViewCell.xib */,
+			);
+			path = PicPickerView;
 			sourceTree = "<group>";
 		};
 		3BBD16E3250B5D3000F3D6FF /* Category */ = {
@@ -427,6 +444,7 @@
 				3BA874652508C984006710BC /* Main.storyboard in Resources */,
 				3BA874AD2508F6C9006710BC /* Null.storyboard in Resources */,
 				3BBD16EA250B6DCE00F3D6FF /* PopoverViewController.xib in Resources */,
+				3BABA18F251B46D300CF7F6D /* PicPickerViewCell.xib in Resources */,
 				3BA874672508CF8A006710BC /* Home.storyboard in Resources */,
 				3BA8746D2508D077006710BC /* Profile.storyboard in Resources */,
 				3BABA184251A2C0100CF7F6D /* ComposeViewController.xib in Resources */,
@@ -507,10 +525,12 @@
 				3B578FC52512015900C0D55C /* WelcomeViewController.swift in Sources */,
 				3BABA186251AB72700CF7F6D /* ComposeTextView.swift in Sources */,
 				3B578FB42510D4D400C0D55C /* OAuthViewController.swift in Sources */,
+				3BABA18B251B1E0A00CF7F6D /* PicPickerCollectionView.swift in Sources */,
 				3BBD16E9250B6DCE00F3D6FF /* PopoverViewController.swift in Sources */,
 				3BDF45D925189E430078D957 /* PictureCollectionView.swift in Sources */,
 				CC10E7471E076D4400DF6DE7 /* HomeViewController.swift in Sources */,
 				3B95F575250F050C00A3B843 /* MGPresentationController.swift in Sources */,
+				3BABA18E251B46D300CF7F6D /* PicPickerViewCell.swift in Sources */,
 				CC10E7431E076D2C00DF6DE7 /* DiscoverViewController.swift in Sources */,
 				3B578FC12511FA9F00C0D55C /* UserAccountViewModel.swift in Sources */,
 				3BBD16E5250B5D5300F3D6FF /* TitleButton.swift in Sources */,

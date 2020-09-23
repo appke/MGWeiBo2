@@ -110,6 +110,9 @@ class HomeViewCell: UITableViewCell {
         let layout = pictureView.collectionViewLayout as! UICollectionViewFlowLayout
         let imageViewWH = (UIScreen.main.bounds.width - 2 * edgeMargin - 2 * itemMargin) / 3
         layout.itemSize = CGSize(width: imageViewWH, height: imageViewWH)
+//        layout.minimumInteritemSpacing = itemMargin
+//        layout.minimumLineSpacing = itemMargin
+//        layout.sectionInset = UIEdgeInsets.zero
     }
 }
 
@@ -129,7 +132,7 @@ extension HomeViewCell {
         
         // 4张配图 
         if count == 4 {
-            let picViewWH = 2 * imageViewWH + itemMargin + 0.5
+            let picViewWH = 2 * imageViewWH + itemMargin
             return CGSize(width: picViewWH, height: picViewWH)
         }
         
@@ -138,6 +141,6 @@ extension HomeViewCell {
         let picViewW = UIScreen.main.bounds.width - 2 * edgeMargin
         let picViewH = imageViewWH * rows + itemMargin * (rows - 1)
         
-        return CGSize(width: picViewW, height: picViewH)
+        return CGSize(width: picViewW, height: picViewH + 1)
     }
 }

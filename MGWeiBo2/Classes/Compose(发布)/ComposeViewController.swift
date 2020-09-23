@@ -15,6 +15,7 @@ class ComposeViewController: UIViewController {
     
     //MARK: 拖线属性
     @IBOutlet weak var toolBarBottomConst: NSLayoutConstraint!
+    @IBOutlet weak var picPickerViewHConst: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +49,7 @@ extension ComposeViewController {
     }
 }
 
+//MARK:- 事件监听
 extension ComposeViewController {
     @objc private func closeItemClick() {
         composeTextView.resignFirstResponder()
@@ -58,7 +60,7 @@ extension ComposeViewController {
         print("compose……")
     }
     
-    @objc private func keyboardFrameChage(_ noti: Notification) { 
+    @objc private func keyboardFrameChage(_ noti: Notification) {
         // 键盘最终位置
         let endFrame = noti.userInfo!["UIKeyboardFrameEndUserInfoKey"] as! CGRect
         
@@ -75,8 +77,19 @@ extension ComposeViewController {
             self.view.layoutIfNeeded()
         }
     }
+    
+    // 选择图片
+    @IBAction func picPickerBtnClick() {
+        composeTextView.resignFirstResponder()
+        
+        picPickerViewHConst.constant = UIScreen.main.bounds.width
+        UIView.animate(withDuration: 0.25) {
+            self.view.layoutIfNeeded()
+        }
+    }
 }
 
+//MARK:- 代理方法
 extension ComposeViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         // 占位label显示/隐藏
