@@ -11,9 +11,34 @@ import UIKit
 @objcMembers
 class Emoticon: NSObject {
 
-    var code: String?       //emoji的code
-    var png: String?        //普通表情对应，图片名称
+    var code: String? {
+        didSet {
+            guard let code = self.code else {
+                return
+            }
+            
+            let scanner = Scanner(string: code)
+            var value: UInt32 = 0
+            scanner.scanHexInt32(&value)
+            
+            let c = Character(UnicodeScalar(value)!)
+            emojiCode = String(c)
+            
+        }
+    } //emoji的code
+    var png: String? {
+        didSet {
+            guard let png = png else {
+                return
+            }
+            pngPath = Bundle.main.bundlePath + "/Emoticons.bundle/" + png
+        }
+    } //普通表情对应，图片名称
     var chs: String?        //普通表情对应的文字
+    
+    var pngPath: String?    //png全路径
+    var emojiCode: String?  //emoji表情
+    
     
     init(dict: [String: String]) {
         super.init()
@@ -24,6 +49,6 @@ class Emoticon: NSObject {
     }
     
     override var description: String {
-        return dictionaryWithValues(forKeys: ["code", "png", "chs"]).description
+        return dictionaryWithValues(forKeys: ["emojiCode", "chs", "pngPath"]).description
     }
 }
