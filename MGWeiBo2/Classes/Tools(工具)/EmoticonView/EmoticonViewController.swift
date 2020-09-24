@@ -64,7 +64,7 @@ extension EmoticonViewController {
     private func prepareForCollectionView() {
         collectionView.backgroundColor = UIColor.white
         collectionView.dataSource = self
-//        collectionView.delegate = self
+        collectionView.delegate = self
         collectionView.register(EmoticonViewCell.self, forCellWithReuseIdentifier: EmoticonCellId)
     }
     
@@ -95,7 +95,6 @@ extension EmoticonViewController {
         let indexPath = IndexPath(item: 0, section: item.tag)
         // 2.滚动到指定的indexPath,滚到最左边
         collectionView.scrollToItem(at: indexPath, at: .left, animated: false)
-        print(indexPath)
     }
 }
 
@@ -104,7 +103,8 @@ extension EmoticonViewController {
     
 }
 
-extension EmoticonViewController: UICollectionViewDataSource {
+//MARK:- Collection的数据源和代理方法
+extension EmoticonViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return manager.packages.count
     }
@@ -121,32 +121,44 @@ extension EmoticonViewController: UICollectionViewDataSource {
         //cell.backgroundColor = (indexPath.item % 2 == 0) ? UIColor.red: UIColor.purple
         
         // 2.设置数据
-        let emoticons = manager.packages[indexPath.section].emoticons
-        let emoticon = emoticons[indexPath.row]
+        let package = manager.packages[indexPath.section]
+        let emoticon = package.emoticons[indexPath.item]
         cell.emoticon = emoticon
 
         // 3.返回cell
         return cell
     }
-}
+    
+    /// 监听表情点击
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let package = manager.packages[indexPath.section]
+        let emoticon = package.emoticons[indexPath.item]
 
-//extension EmoticonViewController: UICollectionViewDelegate {
-//    /// 监听表情点击
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let package = packages[indexPath.section]
-//        let emoticon = package.emoticons![indexPath.item]
-//
-//        // 每使用一次就+1
-//        emoticon.count += 1
-//
-//        // 判断是否是删除按钮
-//        if !emoticon.isRemoveButton{
-//            // 将当前点击的表情添加到最近组中
-//            packages[0].addFavoriteEmoticon(emoticon: emoticon)
-//        }
-//        callback(emoticon)
-//    }
-//}
+        // 插入到最近分组中
+        insertRecentlyEmoticon(emoticon)
+    }
+    
+    private func insertRecentlyEmoticon(_ emoticon: Emoticon) {
+        // 1.空白、删除按钮,不需要插入
+        if emoticon.isEmpty || emoticon.isRemove {
+            return
+        }
+        
+        // 2.删除一个表情
+        if manager.packages.first!.emoticons.contains(emoticon) { //最近表情中存在
+            let index = manager.packages.first!.emoticons.firstIndex(of: emoticon)!
+            manager.packages.first?.emoticons.remove(at: index)
+        } else {
+            //
+            manager.packages.first?.emoticons.remove(at: 19)
+        }
+        
+        
+        // 3.将emoticon插入到最近分组中，永远保持
+        manager.packages.first?.emoticons.insert(emoticon, at: 0)
+        
+    }
+}
 
 
 class EmoticonCollectionViewLayout: UICollectionViewFlowLayout {
