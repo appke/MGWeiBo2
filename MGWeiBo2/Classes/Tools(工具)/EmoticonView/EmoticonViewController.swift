@@ -27,13 +27,10 @@ class EmoticonViewController: UIViewController {
 //        fatalError("init(coder:) has not been implemented")
 //    }
     
-//    private lazy var toolBar: UIToolbar = {
-//       let tb = UIToolbar()
-//        return tb
-//    }()
-    
     lazy private var collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: EmoticonCollectionViewLayout())
     lazy private var toolBar: UIToolbar = UIToolbar()
+    
+    lazy private var manager = EmoticonManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +65,7 @@ extension EmoticonViewController {
         collectionView.backgroundColor = UIColor.white
         collectionView.dataSource = self
 //        collectionView.delegate = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: EmoticonCellId)
+        collectionView.register(EmoticonViewCell.self, forCellWithReuseIdentifier: EmoticonCellId)
     }
     
     private func prepareForToolBar() {
@@ -95,7 +92,9 @@ extension EmoticonViewController {
     
     @objc private func itemClick(_ item: UIBarButtonItem) {
         // 1.创建indexPath
-        let indexPath = IndexPath(item: 0, section: item.tag)
+        let item = IndexPath(item: 0, section: item.tag)
+        print(item)
+        
         // 2.滚动到指定的indexPath
 //        collectionView.scrollToItem(at: indexPath, at: .left, animated: false)
     }
@@ -107,26 +106,25 @@ extension EmoticonViewController {
 }
 
 extension EmoticonViewController: UICollectionViewDataSource {
-//    func numberOfSections(in collectionView: UICollectionView) -> Int {
-////        return packages.count
-//    }
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return manager.packages.count
+    }
 
     // 告诉系统每组多少个
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return packages[section].emoticons?.count ?? 0
-        return 41
+        let emoticons = manager.packages[section].emoticons
+        return emoticons.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // 1.取出cell
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "keyboardCell", for: indexPath) as! KeyboardEmoticonCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmoticonCellId, for: indexPath) as! EmoticonViewCell
+        //cell.backgroundColor = (indexPath.item % 2 == 0) ? UIColor.red: UIColor.purple
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmoticonCellId, for: indexPath)
-        cell.backgroundColor = (indexPath.item % 2 == 0) ? UIColor.red: UIColor.purple
         // 2.设置数据
-//        cell.emoticon = packages[indexPath.section].emoticons![indexPath.item]
-//        let package = packages[indexPath.section]
-//        cell.emoticon = package.emoticons![indexPath.item]
+        let emoticons = manager.packages[indexPath.section].emoticons
+        let emoticon = emoticons[indexPath.row]
+        cell.emoticon = emoticon
 
         // 3.返回cell
         return cell

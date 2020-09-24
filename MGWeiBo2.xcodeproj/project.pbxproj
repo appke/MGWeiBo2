@@ -23,6 +23,7 @@
 		3B70AC1F251C6B8C00DA6B8C /* Emoticon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B70AC1E251C6B8C00DA6B8C /* Emoticon.swift */; };
 		3B70AC21251C6B9E00DA6B8C /* EmoticonPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B70AC20251C6B9E00DA6B8C /* EmoticonPackage.swift */; };
 		3B70AC23251C6EA100DA6B8C /* EmoticonViewModel.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B70AC22251C6EA100DA6B8C /* EmoticonViewModel.png */; };
+		3B70AC25251C806F00DA6B8C /* EmoticonViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B70AC24251C806F00DA6B8C /* EmoticonViewCell.swift */; };
 		3B86423325136812008AB856 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B86423225136812008AB856 /* Date+Extension.swift */; };
 		3B864235251377E1008AB856 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B864234251377E1008AB856 /* User.swift */; };
 		3B86423725137FEF008AB856 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B86423625137FEF008AB856 /* StatusViewModel.swift */; };
@@ -83,6 +84,7 @@
 		3B70AC1E251C6B8C00DA6B8C /* Emoticon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoticon.swift; sourceTree = "<group>"; };
 		3B70AC20251C6B9E00DA6B8C /* EmoticonPackage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonPackage.swift; sourceTree = "<group>"; };
 		3B70AC22251C6EA100DA6B8C /* EmoticonViewModel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EmoticonViewModel.png; sourceTree = "<group>"; };
+		3B70AC24251C806F00DA6B8C /* EmoticonViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonViewCell.swift; sourceTree = "<group>"; };
 		3B86423225136812008AB856 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		3B864234251377E1008AB856 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3B86423625137FEF008AB856 /* StatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				3B70AC1B251C6B4000DA6B8C /* Model */,
 				3B70AC19251C6AE700DA6B8C /* Emoticons.bundle */,
 				3BABA191251B743900CF7F6D /* EmoticonViewController.swift */,
+				3B70AC24251C806F00DA6B8C /* EmoticonViewCell.swift */,
 			);
 			path = EmoticonView;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				3B70AC1F251C6B8C00DA6B8C /* Emoticon.swift in Sources */,
 				3BA874B82509FF21006710BC /* VisitorView.swift in Sources */,
 				CC10E73F1E076D0500DF6DE7 /* MainViewController.swift in Sources */,
+				3B70AC25251C806F00DA6B8C /* EmoticonViewCell.swift in Sources */,
 				3BABA188251AB74C00CF7F6D /* ComposeTitleView.swift in Sources */,
 				3BBD16E2250B570400F3D6FF /* UIBarButtonItem-Extension.swift in Sources */,
 				3BA874B12509019E006710BC /* UIButton-Extension.swift in Sources */,
