@@ -25,12 +25,18 @@ class EmoticonPackage: NSObject {
         // 根据plist路径，加载里面的数组
         let array = NSArray(contentsOfFile: plistPath) as! [[String: String]]
         
+        var index = 0
         for var dict in array {
             if let png = dict["png"] {
                 dict["png"] = "\(id)/" + png
             }
             emoticons.append(Emoticon(dict: dict))
+            
+            index += 1
+            if index == 20 {
+                emoticons.append(Emoticon(isRemove: true))
+                index = 0
+            }
         }
-        
     }
 }

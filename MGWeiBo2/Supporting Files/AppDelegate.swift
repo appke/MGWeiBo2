@@ -29,13 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = defaultViewController
         window?.makeKeyAndVisible()
         
-//        let packages = EmoticonManager().packages
-//        for package in packages {
-//            for emoticon in package.emoticons {
-//                print(emoticon)
-//            }
-//        }
-        
         return true
     }
 }

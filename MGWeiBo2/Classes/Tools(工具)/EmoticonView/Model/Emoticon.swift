@@ -38,11 +38,18 @@ class Emoticon: NSObject {
     
     var pngPath: String?    //png全路径
     var emojiCode: String?  //emoji表情
+    // 最后一个删除按钮
+    var isRemove: Bool = false
     
     
     init(dict: [String: String]) {
         super.init()
         setValuesForKeys(dict)
+    }
+    
+    init(isRemove: Bool) {
+        super.init()
+        self.isRemove = isRemove
     }
     
     override func setValue(_ value: Any?, forUndefinedKey key: String) {

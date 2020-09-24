@@ -92,11 +92,10 @@ extension EmoticonViewController {
     
     @objc private func itemClick(_ item: UIBarButtonItem) {
         // 1.创建indexPath
-        let item = IndexPath(item: 0, section: item.tag)
-        print(item)
-        
-        // 2.滚动到指定的indexPath
-//        collectionView.scrollToItem(at: indexPath, at: .left, animated: false)
+        let indexPath = IndexPath(item: 0, section: item.tag)
+        // 2.滚动到指定的indexPath,滚到最左边
+        collectionView.scrollToItem(at: indexPath, at: .left, animated: false)
+        print(indexPath)
     }
 }
 
