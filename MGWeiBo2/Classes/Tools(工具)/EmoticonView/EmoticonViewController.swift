@@ -8,6 +8,8 @@
 
 import UIKit
 
+private let EmoticonCellId = "EmoticonCellId"
+
 class EmoticonViewController: UIViewController {
     
 //    /// 保存所有组数据
@@ -30,7 +32,7 @@ class EmoticonViewController: UIViewController {
 //        return tb
 //    }()
     
-    lazy private var collectionView: UICollectionView = UICollectionView()
+    lazy private var collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: EmoticonCollectionViewLayout())
     lazy private var toolBar: UIToolbar = UIToolbar()
 
     override func viewDidLoad() {
@@ -64,9 +66,9 @@ extension EmoticonViewController {
     
     private func prepareForCollectionView() {
         collectionView.backgroundColor = UIColor.white
-//        collectionView.dataSource = self
+        collectionView.dataSource = self
 //        collectionView.delegate = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "keyboardCell")
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: EmoticonCellId)
     }
     
     private func prepareForToolBar() {
@@ -95,7 +97,7 @@ extension EmoticonViewController {
         // 1.创建indexPath
         let indexPath = IndexPath(item: 0, section: item.tag)
         // 2.滚动到指定的indexPath
-        collectionView.scrollToItem(at: indexPath, at: .left, animated: false)
+//        collectionView.scrollToItem(at: indexPath, at: .left, animated: false)
     }
 }
 
@@ -104,30 +106,32 @@ extension EmoticonViewController {
     
 }
 
-//extension EmoticonViewController: UICollectionViewDataSource {
+extension EmoticonViewController: UICollectionViewDataSource {
 //    func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        return packages.count
+////        return packages.count
 //    }
-//
-//    // 告诉系统每组多少个
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
+    // 告诉系统每组多少个
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 //        return packages[section].emoticons?.count ?? 0
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        // 1.取出cell
+        return 41
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        // 1.取出cell
 //        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "keyboardCell", for: indexPath) as! KeyboardEmoticonCell
-//
-////        cell.backgroundColor = (indexPath.item % 2 == 0) ? UIColor.red: UIColor.purple
-//        // 2.设置数据
-////        cell.emoticon = packages[indexPath.section].emoticons![indexPath.item]
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmoticonCellId, for: indexPath)
+        cell.backgroundColor = (indexPath.item % 2 == 0) ? UIColor.red: UIColor.purple
+        // 2.设置数据
+//        cell.emoticon = packages[indexPath.section].emoticons![indexPath.item]
 //        let package = packages[indexPath.section]
 //        cell.emoticon = package.emoticons![indexPath.item]
-//
-//        // 3.返回cell
-//        return cell
-//    }
-//}
+
+        // 3.返回cell
+        return cell
+    }
+}
 
 //extension EmoticonViewController: UICollectionViewDelegate {
 //    /// 监听表情点击
@@ -148,7 +152,7 @@ extension EmoticonViewController {
 //}
 
 
-class KeyboardEmoticonLayout: UICollectionViewFlowLayout {
+class EmoticonCollectionViewLayout: UICollectionViewFlowLayout {
     override func prepare() {
         super.prepare()
         
@@ -165,8 +169,8 @@ class KeyboardEmoticonLayout: UICollectionViewFlowLayout {
         collectionView?.showsHorizontalScrollIndicator = false
         collectionView?.showsVerticalScrollIndicator = false
         
-        // 3.设置上下内边距，不让它上下拉伸～有空隙
-        let insetMargin = (collectionView!.bounds.height - 3 * itemWH) * 0.5
+        // 3.设置上下内边距，上下布局合理，等高
+        let insetMargin = (collectionView!.bounds.height - 3 * itemWH) / 4
         collectionView?.contentInset = UIEdgeInsets(top: insetMargin, left: 0, bottom: insetMargin, right: 0)
     }
 }

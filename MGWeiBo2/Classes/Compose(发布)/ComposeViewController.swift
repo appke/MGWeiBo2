@@ -12,6 +12,7 @@ class ComposeViewController: UIViewController {
 
     lazy private var titleView: ComposeTitleView = ComposeTitleView()
     lazy private var images: [UIImage] = [UIImage]()
+    lazy private var emoticonVC = EmoticonViewController()
     
     //MARK: 控件属性
     @IBOutlet weak var composeTextView: ComposeTextView!
@@ -155,8 +156,12 @@ extension ComposeViewController {
     
     // 表情按钮点击
     @IBAction func emojiBtnClick() {
-        
         print("\(#function)")
+        composeTextView.resignFirstResponder()
+        // 切换键盘
+        composeTextView.inputView = composeTextView.inputView == nil ? emoticonVC.view : nil
+        // 弹出键盘
+        composeTextView.becomeFirstResponder()
     }
 }
 
