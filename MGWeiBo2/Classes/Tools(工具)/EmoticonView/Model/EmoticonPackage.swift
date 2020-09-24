@@ -13,8 +13,11 @@ class EmoticonPackage: NSObject {
     var emoticons: [Emoticon] = [Emoticon]()
     
     init(id: String) {
+        super.init()
         // 1.最近分组
         if id == "" {
+            // 加20个空白表情
+            addEmptyEmoticon(true)
             return
         }
         
@@ -38,5 +41,22 @@ class EmoticonPackage: NSObject {
                 index = 0
             }
         }
+        
+        // 添加空白表情
+        addEmptyEmoticon(false)
+    }
+    
+    
+    private func addEmptyEmoticon(_ isRecently: Bool) {
+        let count = emoticons.count % 21
+        if count == 0 && !isRecently {
+            return
+        }
+        
+        for _ in count ..< 20 {
+            emoticons.append(Emoticon(isEmpty: true))
+        }
+        
+        emoticons.append(Emoticon(isRemove: true))
     }
 }

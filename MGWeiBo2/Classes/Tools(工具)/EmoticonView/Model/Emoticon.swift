@@ -40,6 +40,8 @@ class Emoticon: NSObject {
     var emojiCode: String?  //emoji表情
     // 最后一个删除按钮
     var isRemove: Bool = false
+    // 空白表情
+    var isEmpty: Bool = false
     
     
     init(dict: [String: String]) {
@@ -51,6 +53,12 @@ class Emoticon: NSObject {
         super.init()
         self.isRemove = isRemove
     }
+    
+    init(isEmpty: Bool) {
+        super.init()
+        self.isEmpty = isEmpty
+    }
+
     
     override func setValue(_ value: Any?, forUndefinedKey key: String) {
     }
