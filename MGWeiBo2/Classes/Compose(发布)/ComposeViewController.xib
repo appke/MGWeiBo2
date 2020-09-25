@@ -9,9 +9,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComposeViewController" customModule="微博2" customModuleProvider="target">
             <connections>
-                <outlet property="composeTextView" destination="ZkS-gx-RTc" id="H6n-Uq-sHk"/>
                 <outlet property="picPickerCollectionView" destination="dke-uA-VaI" id="YWW-z8-qsG"/>
                 <outlet property="picPickerViewHConst" destination="3BS-lT-HSq" id="H32-N3-Ccy"/>
+                <outlet property="textView" destination="ZkS-gx-RTc" id="5NT-5A-qpm"/>
                 <outlet property="toolBarBottomConst" destination="b0C-Z6-j1F" id="d9X-9B-co0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

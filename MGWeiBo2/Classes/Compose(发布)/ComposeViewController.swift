@@ -12,12 +12,13 @@ class ComposeViewController: UIViewController {
 
     lazy private var titleView: ComposeTitleView = ComposeTitleView()
     lazy private var images: [UIImage] = [UIImage]()
-    lazy private var emoticonVC = EmoticonViewController { (emoticon) in
-        self.composeTextView.insertEmoticon(emoticon)
+    lazy private var emoticonVC = EmoticonViewController { [weak self] (emoticon) in
+        self?.textView.insertEmoticon(emoticon)
+        self?.textViewDidChange(self!.textView)
     }
     
     //MARK: 控件属性
-    @IBOutlet weak var composeTextView: ComposeTextView!
+    @IBOutlet weak var textView: ComposeTextView!
     @IBOutlet weak var picPickerCollectionView: PicPickerCollectionView!
     
     
@@ -28,7 +29,7 @@ class ComposeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        composeTextView.becomeFirstResponder()
+        textView.becomeFirstResponder()
         
         setupNavgationBar()
         
@@ -120,12 +121,12 @@ extension ComposeViewController: UIImagePickerControllerDelegate, UINavigationCo
 //MARK:- 事件监听
 extension ComposeViewController {
     @objc private func closeItemClick() {
-        composeTextView.resignFirstResponder()
+        textView.resignFirstResponder()
         dismiss(animated: true, completion: nil)
     }
     
     @objc private func composeItemClick() {
-        print(composeTextView.getEmoticonString())
+        print(textView.getEmoticonString())
     }
     
     @objc private func keyboardFrameChage(_ note: Notification) {
@@ -148,7 +149,7 @@ extension ComposeViewController {
     
     // 选择图片
     @IBAction func picPickerBtnClick() {
-        composeTextView.resignFirstResponder()
+        textView.resignFirstResponder()
         
         picPickerViewHConst.constant = picPickerViewHConst.constant == 0 ? UIScreen.main.bounds.width : 0
         UIView.animate(withDuration: 0.25) {
@@ -159,11 +160,11 @@ extension ComposeViewController {
     // 表情按钮点击
     @IBAction func emojiBtnClick() {
         print("\(#function)")
-        composeTextView.resignFirstResponder()
+        textView.resignFirstResponder()
         // 切换键盘
-        composeTextView.inputView = composeTextView.inputView == nil ? emoticonVC.view : nil
+        textView.inputView = textView.inputView == nil ? emoticonVC.view : nil
         // 弹出键盘
-        composeTextView.becomeFirstResponder()
+        textView.becomeFirstResponder()
     }
 }
 
@@ -171,7 +172,7 @@ extension ComposeViewController {
 extension ComposeViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         // 占位label显示/隐藏
-        composeTextView.placeholderLabel.isHidden = textView.hasText
+        self.textView.placeholderLabel.isHidden = textView.hasText
         navigationItem.rightBarButtonItem?.isEnabled = textView.hasText
     }
 }
