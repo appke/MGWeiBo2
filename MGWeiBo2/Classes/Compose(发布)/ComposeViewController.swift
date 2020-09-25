@@ -13,7 +13,7 @@ class ComposeViewController: UIViewController {
     lazy private var titleView: ComposeTitleView = ComposeTitleView()
     lazy private var images: [UIImage] = [UIImage]()
     lazy private var emoticonVC = EmoticonViewController { (emoticon) in
-        self.insertEmoticonIntoTextView((emoticon))
+        self.composeTextView.insertEmoticon(emoticon)
     }
     
     //MARK: 控件属性
@@ -37,63 +37,6 @@ class ComposeViewController: UIViewController {
         
     deinit {
         NotificationCenter.default.removeObserver(self)
-    }
-}
-
-//MARK:- 插入表情
-extension ComposeViewController {
-    private func insertEmoticonIntoTextView(_ emoticon: Emoticon) {
-        // 1.空白表情
-        if emoticon.isEmpty {
-            return
-        }
-        
-        // 2.删除按钮
-        if emoticon.isRemove {
-            composeTextView.deleteBackward()
-            return
-        }
-        
-        // 3.emoji表情
-        if let emojiCode = emoticon.emojiCode {
-//            // 获取光标所在位置
-//            let textRange = composeTextView.selectedTextRange!
-//            // 替换emoji表情
-//            composeTextView.replace(textRange, withText: emojiCode)
-            composeTextView.insertText(emojiCode)
-            return
-        }
-        
-        // 4.png表情，图文混排
-        // 图片路径 –≥ 创建属性字符串
-        let attachment = EmoticonAttachment()
-        attachment.chs = emoticon.chs
-        attachment.image = UIImage(contentsOfFile: emoticon.pngPath!)
-        // 图片太大？太靠上了
-        let font = composeTextView.font!
-        attachment.bounds = CGRect(x: 0, y: -4, width: font.lineHeight, height: font.lineHeight)
-        let attImageStr = NSAttributedString(attachment: attachment)
-
-        // 创建可变字符串
-        let attrMStr = NSMutableAttributedString(attributedString: composeTextView.attributedText)
-
-        // 获取光标所在位置
-        let textRange = composeTextView.selectedRange
-        attrMStr.replaceCharacters(in: textRange, with: attImageStr)
-
-        // 显示属性字符串
-        composeTextView.attributedText = attrMStr
-
-        // 重置文字大小
-        composeTextView.font = font
-
-        // 将光标设置为原来位置 + 1
-        composeTextView.selectedRange = NSRange(location: textRange.location + 1, length: 0)
-        
-        // 插入png表情，切换
-        let isAttrText = composeTextView.attributedText.length > 0
-        composeTextView.placeholderLabel.isHidden = isAttrText
-        navigationItem.rightBarButtonItem?.isEnabled = isAttrText
     }
 }
 
@@ -169,7 +112,7 @@ extension ComposeViewController: UIImagePickerControllerDelegate, UINavigationCo
         
         picPickerCollectionView.images = images
         
-        // 注定退出
+        // 主动退出
         picker.dismiss(animated: true, completion: nil)
     }
 }
@@ -182,20 +125,7 @@ extension ComposeViewController {
     }
     
     @objc private func composeItemClick() {
-        // NSAttachment表情 + NSFont文字 Range
-        // 1.获取属性字符串
-        let attrMStr = NSMutableAttributedString(attributedString: composeTextView.attributedText)
-        
-        // 2.遍历属性字符串
-        let range = NSRange(location: 0, length: attrMStr.length) //把整个字符串都交给它
-        attrMStr.enumerateAttributes(in: range, options: []) { (dict, range, _) in
-            if let attachment = dict[NSAttributedString.Key(rawValue: "NSAttachment")] as? EmoticonAttachment {
-                attrMStr.replaceCharacters(in: range, with: attachment.chs!)
-            }
-        }
-        
-        // 3.取出字符串
-        print(attrMStr.string)
+        print(composeTextView.getEmoticonString())
     }
     
     @objc private func keyboardFrameChage(_ note: Notification) {

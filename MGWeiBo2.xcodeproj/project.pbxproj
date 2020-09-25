@@ -25,6 +25,7 @@
 		3B70AC23251C6EA100DA6B8C /* EmoticonViewModel.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B70AC22251C6EA100DA6B8C /* EmoticonViewModel.png */; };
 		3B70AC25251C806F00DA6B8C /* EmoticonViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B70AC24251C806F00DA6B8C /* EmoticonViewCell.swift */; };
 		3B70AC27251DC92900DA6B8C /* EmoticonAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B70AC26251DC92900DA6B8C /* EmoticonAttachment.swift */; };
+		3B70AC29251DCC0800DA6B8C /* TextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B70AC28251DCC0800DA6B8C /* TextView+Extension.swift */; };
 		3B86423325136812008AB856 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B86423225136812008AB856 /* Date+Extension.swift */; };
 		3B864235251377E1008AB856 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B864234251377E1008AB856 /* User.swift */; };
 		3B86423725137FEF008AB856 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B86423625137FEF008AB856 /* StatusViewModel.swift */; };
@@ -87,6 +88,7 @@
 		3B70AC22251C6EA100DA6B8C /* EmoticonViewModel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EmoticonViewModel.png; sourceTree = "<group>"; };
 		3B70AC24251C806F00DA6B8C /* EmoticonViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonViewCell.swift; sourceTree = "<group>"; };
 		3B70AC26251DC92900DA6B8C /* EmoticonAttachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonAttachment.swift; sourceTree = "<group>"; };
+		3B70AC28251DCC0800DA6B8C /* TextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextView+Extension.swift"; sourceTree = "<group>"; };
 		3B86423225136812008AB856 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		3B864234251377E1008AB856 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3B86423625137FEF008AB856 /* StatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
@@ -181,7 +183,6 @@
 				3B70AC1C251C6B7700DA6B8C /* EmoticonManager.swift */,
 				3B70AC20251C6B9E00DA6B8C /* EmoticonPackage.swift */,
 				3B70AC1E251C6B8C00DA6B8C /* Emoticon.swift */,
-				3B70AC26251DC92900DA6B8C /* EmoticonAttachment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -235,6 +236,8 @@
 				3B70AC19251C6AE700DA6B8C /* Emoticons.bundle */,
 				3BABA191251B743900CF7F6D /* EmoticonViewController.swift */,
 				3B70AC24251C806F00DA6B8C /* EmoticonViewCell.swift */,
+				3B70AC26251DC92900DA6B8C /* EmoticonAttachment.swift */,
+				3B70AC28251DCC0800DA6B8C /* TextView+Extension.swift */,
 			);
 			path = EmoticonView;
 			sourceTree = "<group>";
@@ -568,6 +571,7 @@
 				3BE13D262512FD5500B0D977 /* Status.swift in Sources */,
 				3BA874B62509FDFE006710BC /* BaseViewController.swift in Sources */,
 				3B578FB92510E14E00C0D55C /* MBProgressHUD-Extension.swift in Sources */,
+				3B70AC29251DCC0800DA6B8C /* TextView+Extension.swift in Sources */,
 				3B3833A525021F0900195410 /* RedViewController.swift in Sources */,
 				3B578FC52512015900C0D55C /* WelcomeViewController.swift in Sources */,
 				3BABA186251AB72700CF7F6D /* ComposeTextView.swift in Sources */,
