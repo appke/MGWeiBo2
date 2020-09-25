@@ -32,13 +32,17 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        visitorView.addRotation()
+        guard isLogin else {
+            visitorView.addRotation()
+            return
+        }
         
         setupNavigationBar()
         
         tableView.estimatedRowHeight = 200
         
         setupHeaderView()
+        
         setupFooterView()
         
         setupTipLabel()
@@ -96,9 +100,7 @@ extension HomeViewController {
 //MARK:- 事件监听
 extension HomeViewController {
     @objc func loadNewStatuses() {
-        if UserAccountViewModel.shared.isLogin {
-            loadStatuses(true)
-        }
+        loadStatuses(true)
     }
     
     @objc func loadMoreStatuses() {

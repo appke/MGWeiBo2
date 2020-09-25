@@ -55,18 +55,39 @@ extension ComposeViewController {
         }
         
         // 3.emoji表情
-        if emoticon.emojiCode != nil {
-            
-            // 获取光标所在位置
-            let textRange = composeTextView.selectedTextRange!
-            // 替换emoji表情
-            composeTextView.replace(textRange, withText: emoticon.emojiCode)
+        if let emojiCode = emoticon.emojiCode {
+//            // 获取光标所在位置
+//            let textRange = composeTextView.selectedTextRange!
+//            // 替换emoji表情
+//            composeTextView.replace(textRange, withText: emojiCode)
+            composeTextView.insertText(emojiCode)
             return
         }
         
         // png表情，图文混排
-        
-        
+        // 图片路径 –≥ 创建属性字符串
+        let attachment = NSTextAttachment()
+        attachment.image = UIImage(contentsOfFile: emoticon.pngPath!)
+        // 图片太大？太靠上了
+        let font = composeTextView.font!
+        attachment.bounds = CGRect(x: 0, y: -4, width: font.lineHeight, height: font.lineHeight)
+        let attImageStr = NSAttributedString(attachment: attachment)
+
+        // 创建可变字符串
+        let attrMStr = NSMutableAttributedString(attributedString: composeTextView.attributedText)
+
+        // 获取光标所在位置
+        let textRange = composeTextView.selectedRange
+        attrMStr.replaceCharacters(in: textRange, with: attImageStr)
+
+        // 显示属性字符串
+        composeTextView.attributedText = attrMStr
+
+        // 重置文字大小
+        composeTextView.font = font
+
+        // 将光标设置为原来位置 + 1
+        composeTextView.selectedRange = NSRange(location: textRange.location + 1, length: 0)
     }
 }
 
@@ -197,7 +218,7 @@ extension ComposeViewController {
     }
 }
 
-//MARK:- 代理方法
+//MARK:- 代理方法 
 extension ComposeViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         // 占位label显示/隐藏

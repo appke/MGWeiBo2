@@ -56,7 +56,7 @@ extension EmoticonViewController {
         let views: [String : Any] = ["cView": collectionView, "tBar": toolBar]
         var cons = NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[cView]-0-|", options: [], metrics: nil, views: views)
         cons += NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[tBar]-0-|", options: [], metrics: nil, views: views)
-        cons += NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[cView]-[tBar(49)]-0-|", options: [], metrics: nil, views: views)
+        cons += NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[cView]-[tBar]-0-|", options: [], metrics: nil, views: views)
         
         view.addConstraints(cons)
     }

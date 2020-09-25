@@ -15,8 +15,8 @@ class EmoticonManager: NSObject {
     override init() {
         // 加载表情包
         packages.append(EmoticonPackage(id: ""))
-        packages.append(EmoticonPackage(id: "com.apple.emoji"))
         packages.append(EmoticonPackage(id: "com.sina.default"))
+        packages.append(EmoticonPackage(id: "com.apple.emoji"))
         packages.append(EmoticonPackage(id: "com.sina.lxh"))
     }
 }

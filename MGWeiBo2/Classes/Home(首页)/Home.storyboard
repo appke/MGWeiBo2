@@ -299,7 +299,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="首页" id="NyH-2z-vQC"/>
                     <connections>
-                        <outlet property="tableView" destination="vtt-sn-D0b" id="N1a-il-910"/>
+                        <outlet property="tableView" destination="vtt-sn-D0b" id="wHj-Zl-SBz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xaq-vW-b8l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
