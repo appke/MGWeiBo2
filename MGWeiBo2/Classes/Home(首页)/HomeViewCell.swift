@@ -20,11 +20,11 @@ class HomeViewCell: UITableViewCell {
     @IBOutlet weak var vipView: UIImageView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var sourceLabel: UILabel!
-    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var contentLabel: HYLabel!
     @IBOutlet weak var pictureView: PictureCollectionView!
     @IBOutlet weak var retweetedBgView: UIView!
     @IBOutlet weak var bottomToolView: UIView!
-    @IBOutlet weak var retweetedContentLabel: UILabel!
+    @IBOutlet weak var retweetedContentLabel: HYLabel!
     
     @IBOutlet weak var conetentLabelWConst: NSLayoutConstraint!
     
@@ -113,6 +113,27 @@ class HomeViewCell: UITableViewCell {
 //        layout.minimumInteritemSpacing = itemMargin
 //        layout.minimumLineSpacing = itemMargin
 //        layout.sectionInset = UIEdgeInsets.zero
+        
+        // 修改转发Label颜色？
+        retweetedContentLabel.matchTextColor = .blue
+        
+        // 监听用户点击
+        retweetedContentLabel.userTapHandler = { (label, user, range)  in
+            print(user)
+            print(range)
+        }
+        
+        // 监听链接点击
+        retweetedContentLabel.linkTapHandler = { (label, link, range)  in
+            print(link)
+            print(range)
+        }
+        
+        // 监听话题点击
+        retweetedContentLabel.topicTapHandler = { (label, topic, range)  in
+            print(topic)
+            print(range)
+        }
     }
 }
 
