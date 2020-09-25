@@ -20,7 +20,9 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupNavigationItems()
+        if !isLogin {
+            setupNavigationItems()
+        }   
     }
 }
 

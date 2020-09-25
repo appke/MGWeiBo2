@@ -64,9 +64,10 @@ extension ComposeViewController {
             return
         }
         
-        // png表情，图文混排
+        // 4.png表情，图文混排
         // 图片路径 –≥ 创建属性字符串
-        let attachment = NSTextAttachment()
+        let attachment = EmoticonAttachment()
+        attachment.chs = emoticon.chs
         attachment.image = UIImage(contentsOfFile: emoticon.pngPath!)
         // 图片太大？太靠上了
         let font = composeTextView.font!
@@ -88,6 +89,11 @@ extension ComposeViewController {
 
         // 将光标设置为原来位置 + 1
         composeTextView.selectedRange = NSRange(location: textRange.location + 1, length: 0)
+        
+        // 插入png表情，切换
+        let isAttrText = composeTextView.attributedText.length > 0
+        composeTextView.placeholderLabel.isHidden = isAttrText
+        navigationItem.rightBarButtonItem?.isEnabled = isAttrText
     }
 }
 
@@ -176,7 +182,20 @@ extension ComposeViewController {
     }
     
     @objc private func composeItemClick() {
-        print("compose……")
+        // NSAttachment表情 + NSFont文字 Range
+        // 1.获取属性字符串
+        let attrMStr = NSMutableAttributedString(attributedString: composeTextView.attributedText)
+        
+        // 2.遍历属性字符串
+        let range = NSRange(location: 0, length: attrMStr.length) //把整个字符串都交给它
+        attrMStr.enumerateAttributes(in: range, options: []) { (dict, range, _) in
+            if let attachment = dict[NSAttributedString.Key(rawValue: "NSAttachment")] as? EmoticonAttachment {
+                attrMStr.replaceCharacters(in: range, with: attachment.chs!)
+            }
+        }
+        
+        // 3.取出字符串
+        print(attrMStr.string)
     }
     
     @objc private func keyboardFrameChage(_ note: Notification) {
