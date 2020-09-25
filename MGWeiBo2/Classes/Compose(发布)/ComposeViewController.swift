@@ -12,7 +12,9 @@ class ComposeViewController: UIViewController {
 
     lazy private var titleView: ComposeTitleView = ComposeTitleView()
     lazy private var images: [UIImage] = [UIImage]()
-    lazy private var emoticonVC = EmoticonViewController()
+    lazy private var emoticonVC = EmoticonViewController { (emoticon) in
+        self.insertEmoticonIntoTextView((emoticon))
+    }
     
     //MARK: 控件属性
     @IBOutlet weak var composeTextView: ComposeTextView!
@@ -35,6 +37,36 @@ class ComposeViewController: UIViewController {
         
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+}
+
+//MARK:- 插入表情
+extension ComposeViewController {
+    private func insertEmoticonIntoTextView(_ emoticon: Emoticon) {
+        // 1.空白表情
+        if emoticon.isEmpty {
+            return
+        }
+        
+        // 2.删除按钮
+        if emoticon.isRemove {
+            composeTextView.deleteBackward()
+            return
+        }
+        
+        // 3.emoji表情
+        if emoticon.emojiCode != nil {
+            
+            // 获取光标所在位置
+            let textRange = composeTextView.selectedTextRange!
+            // 替换emoji表情
+            composeTextView.replace(textRange, withText: emoticon.emojiCode)
+            return
+        }
+        
+        // png表情，图文混排
+        
+        
     }
 }
 

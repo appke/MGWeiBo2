@@ -12,26 +12,26 @@ private let EmoticonCellId = "EmoticonCellId"
 
 class EmoticonViewController: UIViewController {
     
-//    /// 保存所有组数据
-//    var packages: [XMGKeyboardPackage] = XMGKeyboardPackage.loadEmotionPackages()
-//
-//    /// 点击表情回调闭包
-//    var callback: (_ emoticon: XMGKeyboardEmoticon)->()
-    
-//    init(callback: @escaping (_ emoticon: XMGKeyboardEmoticon)->()) {
-//        self.callback = callback
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+    lazy private var manager = EmoticonManager()
     
     lazy private var collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: EmoticonCollectionViewLayout())
     lazy private var toolBar: UIToolbar = UIToolbar()
     
-    lazy private var manager = EmoticonManager()
+    /// 点击表情回调闭包
+    var callback: (_ emoticon: Emoticon)->()
+    
+    init(emoticonCallBack: @escaping (_ emoticon: Emoticon)->()) {
+        self.callback = emoticonCallBack
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -98,11 +98,6 @@ extension EmoticonViewController {
     }
 }
 
-//MARK:- 事件监听
-extension EmoticonViewController {
-    
-}
-
 //MARK:- Collection的数据源和代理方法
 extension EmoticonViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -131,11 +126,15 @@ extension EmoticonViewController: UICollectionViewDataSource, UICollectionViewDe
     
     /// 监听表情点击
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // 1. 取出表情
         let package = manager.packages[indexPath.section]
         let emoticon = package.emoticons[indexPath.item]
 
-        // 插入到最近分组中
+        // 2.插入到最近分组中
         insertRecentlyEmoticon(emoticon)
+        
+        // 3.将表情回调给外面控制器
+        callback(emoticon)
     }
     
     private func insertRecentlyEmoticon(_ emoticon: Emoticon) {
@@ -153,10 +152,8 @@ extension EmoticonViewController: UICollectionViewDataSource, UICollectionViewDe
             manager.packages.first?.emoticons.remove(at: 19)
         }
         
-        
         // 3.将emoticon插入到最近分组中，永远保持
         manager.packages.first?.emoticons.insert(emoticon, at: 0)
-        
     }
 }
 
