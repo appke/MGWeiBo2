@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class ComposeViewController: UIViewController {
 
@@ -126,7 +127,19 @@ extension ComposeViewController {
     }
     
     @objc private func composeItemClick() {
-        print(textView.getEmoticonString())
+        textView.resignFirstResponder()
+        
+        let statusText = textView.getEmoticonString()
+        
+        NetworkTools.shared.sendStatus(statusText: statusText) { (isSuccess) in
+            if !isSuccess {
+                MBProgressHUD.showError(error: "发送微博失败")
+            } else {
+                MBProgressHUD.showSuccess(success: "发送微博成功")
+            }
+        }
+        
+//        dismiss(animated: true, completion: nil)
     }
     
     @objc private func keyboardFrameChage(_ note: Notification) {

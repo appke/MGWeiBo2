@@ -53,3 +53,26 @@ extension NetworkTools {
         }
     }
 }
+
+
+//MARK:- 发布1条微博
+extension NetworkTools {
+    
+    func sendStatus(statusText: String, isSucess: @escaping (_ isSuccess: Bool)->()) {
+        let urlStr = "https://api.weibo.com/2/statuses/share.json"
+        var param: [String: Any] = [String: Any]()
+        param["access_token"] = (UserAccountViewModel.shared.account?.access_token)!
+        param["status"] = statusText
+        
+        NetworkTools.shared.post(urlStr, parameters: param, headers: nil, progress: nil, success: { (task: URLSessionDataTask, result: Any?) in
+            
+            isSucess(true)
+        }) { (task: URLSessionDataTask?, error: Error) in
+            
+            print("\(#function) --- error --- \(error)")
+            isSucess(false)
+        }
+        
+    }
+    
+}

@@ -11,5 +11,6 @@ target "MGWeiBo2" do
   pod "SDWebImage"
   pod "MBProgressHUD"
   pod "SnapKit"
+  pod "HYLabel"
   
 end
