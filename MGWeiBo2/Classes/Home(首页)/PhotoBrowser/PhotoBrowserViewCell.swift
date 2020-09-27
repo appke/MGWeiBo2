@@ -39,15 +39,16 @@ extension PhotoBrowserViewCell {
         contentView.addSubview(scrollView)
         scrollView.addSubview(imageView)
         
+        // 设置scrollView的尺寸
         scrollView.frame = contentView.bounds
-//        scrollView.showsVerticalScrollIndicator = false
+        // 不能bounds，会移动frame的x值
+        scrollView.frame.size.width -= 20
         
         contentView.addSubview(progressView)
         progressView.isHidden = true
         progressView.backgroundColor = .clear
         progressView.bounds = CGRect(x: 0, y: 0, width: 80, height: 80)
         progressView.center = CGPoint(x: contentView.bounds.width * 0.5, y: contentView.bounds.height * 0.5)
-
     }
 }
 

@@ -17,7 +17,8 @@ class PhotoBrowserController: UIViewController {
     private let picUrls: [URL]
     
     private lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: PhotoBrowserLayout())
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: PhotoBrowserLayout())
+        collectionView.frame = view.bounds
         collectionView.dataSource = self
 //        collectionView.delegate = self
         collectionView.register(PhotoBrowserViewCell.self, forCellWithReuseIdentifier: PhotoBrowserCellId)
@@ -42,16 +43,25 @@ class PhotoBrowserController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK:- 系统回调函数
+    override func loadView() {
+        super.loadView()
+        
+        // 控制器的宽度+20 –≥ collectionView的宽度+20 –≥ collectionView的contentView宽度+20
+        view.bounds.size.width += 20
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .purple
+        view.backgroundColor = .red
         
         setupUI()
         
         // 瞬间移动到对应图片
         collectionView.scrollToItem(at: indexPath as IndexPath, at: .left, animated: false)
     }
+    
 }
 
 //MARK:- 界面相关
@@ -112,14 +122,15 @@ extension PhotoBrowserController: UICollectionViewDataSource {
 //MARK:- 自定义collectionView布局
 class PhotoBrowserLayout: UICollectionViewFlowLayout {
     override func prepare() {
-        itemSize = collectionView!.frame.size
+        itemSize = collectionView!.bounds.size
         minimumInteritemSpacing = 0
         minimumLineSpacing = 0
         scrollDirection = .horizontal
         
         // 设置collectionView的属性
-        //collectionView?.bounces = false
+        collectionView?.bounces = false
         collectionView?.isPagingEnabled = true
         collectionView?.showsHorizontalScrollIndicator = false
+        collectionView?.contentInset = .zero
     }
 }
