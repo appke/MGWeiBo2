@@ -20,7 +20,7 @@ class PhotoBrowserController: UIViewController {
         let collectionView = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: PhotoBrowserLayout())
         collectionView.dataSource = self
 //        collectionView.delegate = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: PhotoBrowserCellId)
+        collectionView.register(PhotoBrowserViewCell.self, forCellWithReuseIdentifier: PhotoBrowserCellId)
         
         return collectionView
     }()
@@ -74,7 +74,6 @@ extension PhotoBrowserController {
         // 监听按钮点击
         closeBtn.addTarget(self, action: #selector(closeBtnClick), for: .touchUpInside)
         saveBtn.addTarget(self, action: #selector(saveBtnClick), for: .touchUpInside)
-
     }
 }
 
@@ -98,9 +97,10 @@ extension PhotoBrowserController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoBrowserCellId, for: indexPath)
-
-        cell.backgroundColor = indexPath.row % 2 == 0 ? .blue : .magenta
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoBrowserCellId, for: indexPath) as! PhotoBrowserViewCell
+        cell.picUrl = picUrls[indexPath.row]
+        
+        //cell.backgroundColor = indexPath.row % 2 == 0 ? .orange : .magenta
         
         return cell
     }
@@ -115,7 +115,7 @@ class PhotoBrowserLayout: UICollectionViewFlowLayout {
         scrollDirection = .horizontal
         
         // 设置collectionView的属性
-        collectionView?.bounces = false
+        //collectionView?.bounces = false
         collectionView?.isPagingEnabled = true
         collectionView?.showsHorizontalScrollIndicator = false
     }
