@@ -31,7 +31,7 @@
 		3B864235251377E1008AB856 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B864234251377E1008AB856 /* User.swift */; };
 		3B86423725137FEF008AB856 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B86423625137FEF008AB856 /* StatusViewModel.swift */; };
 		3B86423D25148FEC008AB856 /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B86423C25148FEC008AB856 /* HomeViewCell.swift */; };
-		3B95F575250F050C00A3B843 /* MGPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95F574250F050C00A3B843 /* MGPresentationController.swift */; };
+		3B95F575250F050C00A3B843 /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95F574250F050C00A3B843 /* PresentationController.swift */; };
 		3B95F577250F4D8C00A3B843 /* PopoverAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95F576250F4D8C00A3B843 /* PopoverAnimator.swift */; };
 		3BA8690B251DF50F00EFB058 /* FindEmoticon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8690A251DF50F00EFB058 /* FindEmoticon.swift */; };
 		3BA874652508C984006710BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA874642508C984006710BC /* Main.storyboard */; };
@@ -96,7 +96,7 @@
 		3B864234251377E1008AB856 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3B86423625137FEF008AB856 /* StatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
 		3B86423C25148FEC008AB856 /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
-		3B95F574250F050C00A3B843 /* MGPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPresentationController.swift; sourceTree = "<group>"; };
+		3B95F574250F050C00A3B843 /* PresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
 		3B95F576250F4D8C00A3B843 /* PopoverAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverAnimator.swift; sourceTree = "<group>"; };
 		3BA8690A251DF50F00EFB058 /* FindEmoticon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindEmoticon.swift; sourceTree = "<group>"; };
 		3BA874642508C984006710BC /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -264,7 +264,7 @@
 			children = (
 				3BBD16E7250B6DCE00F3D6FF /* PopoverViewController.swift */,
 				3BBD16E8250B6DCE00F3D6FF /* PopoverViewController.xib */,
-				3B95F574250F050C00A3B843 /* MGPresentationController.swift */,
+				3B95F574250F050C00A3B843 /* PresentationController.swift */,
 				3B95F576250F4D8C00A3B843 /* PopoverAnimator.swift */,
 			);
 			path = UIPopover;
@@ -589,7 +589,7 @@
 				3BBD16E9250B6DCE00F3D6FF /* PopoverViewController.swift in Sources */,
 				3BDF45D925189E430078D957 /* PictureCollectionView.swift in Sources */,
 				CC10E7471E076D4400DF6DE7 /* HomeViewController.swift in Sources */,
-				3B95F575250F050C00A3B843 /* MGPresentationController.swift in Sources */,
+				3B95F575250F050C00A3B843 /* PresentationController.swift in Sources */,
 				3BABA18E251B46D300CF7F6D /* PicPickerViewCell.swift in Sources */,
 				CC10E7431E076D2C00DF6DE7 /* DiscoverViewController.swift in Sources */,
 				3B578FC12511FA9F00C0D55C /* UserAccountViewModel.swift in Sources */,

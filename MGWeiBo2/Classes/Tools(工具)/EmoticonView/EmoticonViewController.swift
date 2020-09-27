@@ -12,10 +12,10 @@ private let EmoticonCellId = "EmoticonCellId"
 
 class EmoticonViewController: UIViewController {
     
-    lazy private var manager = EmoticonManager()
+    private lazy var manager = EmoticonManager()
     
-    lazy private var collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: EmoticonCollectionViewLayout())
-    lazy private var toolBar: UIToolbar = UIToolbar()
+    private lazy var collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: EmoticonCollectionViewLayout())
+    private lazy var toolBar: UIToolbar = UIToolbar()
     
     /// 点击表情回调闭包
     var callback: (_ emoticon: Emoticon)->()

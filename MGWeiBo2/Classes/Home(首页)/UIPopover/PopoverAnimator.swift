@@ -20,7 +20,7 @@ class PopoverAnimator: NSObject {
 extension PopoverAnimator: UIViewControllerTransitioningDelegate {
     // 自定义弹出view的尺寸
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        return MGPresentationController(presentedViewController: presented, presenting: presenting)
+        return PresentationController(presentedViewController: presented, presenting: presenting)
     }
     
     // 自定义弹出动画

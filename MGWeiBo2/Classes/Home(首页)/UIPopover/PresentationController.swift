@@ -1,5 +1,5 @@
 //
-//  MGPresentationController.swift
+//  PresentationController.swift
 //  MGWeiBo2
 //
 //  Created by MGBook on 2020/9/14.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MGPresentationController: UIPresentationController {
+class PresentationController: UIPresentationController {
 
     private lazy var coverView = UIView()
     override func containerViewDidLayoutSubviews() {
@@ -25,7 +25,7 @@ class MGPresentationController: UIPresentationController {
     }
 }
 
-extension MGPresentationController {
+extension PresentationController {
     private func setupCoverView() {
 //        containerView?.addSubview(coverView)
         containerView?.insertSubview(coverView, at: 0)
@@ -38,7 +38,7 @@ extension MGPresentationController {
     }
 }
 
-extension MGPresentationController {
+extension PresentationController {
     @objc private func coverViewClick() {
         presentedViewController.dismiss(animated: true, completion: nil)
     }
