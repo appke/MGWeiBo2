@@ -34,6 +34,7 @@
 		3B95F575250F050C00A3B843 /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95F574250F050C00A3B843 /* PresentationController.swift */; };
 		3B95F577250F4D8C00A3B843 /* PopoverAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95F576250F4D8C00A3B843 /* PopoverAnimator.swift */; };
 		3BA8690B251DF50F00EFB058 /* FindEmoticon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8690A251DF50F00EFB058 /* FindEmoticon.swift */; };
+		3BA8690E2520689000EFB058 /* PhotoBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8690D2520689000EFB058 /* PhotoBrowserController.swift */; };
 		3BA874652508C984006710BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA874642508C984006710BC /* Main.storyboard */; };
 		3BA874672508CF8A006710BC /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA874662508CF8A006710BC /* Home.storyboard */; };
 		3BA874692508D018006710BC /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA874682508D018006710BC /* Message.storyboard */; };
@@ -99,6 +100,7 @@
 		3B95F574250F050C00A3B843 /* PresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
 		3B95F576250F4D8C00A3B843 /* PopoverAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverAnimator.swift; sourceTree = "<group>"; };
 		3BA8690A251DF50F00EFB058 /* FindEmoticon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindEmoticon.swift; sourceTree = "<group>"; };
+		3BA8690D2520689000EFB058 /* PhotoBrowserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserController.swift; sourceTree = "<group>"; };
 		3BA874642508C984006710BC /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3BA874662508CF8A006710BC /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		3BA874682508D018006710BC /* Message.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Message.storyboard; sourceTree = "<group>"; };
@@ -201,6 +203,14 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		3BA8690C25203DE700EFB058 /* PhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				3BA8690D2520689000EFB058 /* PhotoBrowserController.swift */,
+			);
+			path = PhotoBrowser;
+			sourceTree = "<group>";
+		};
 		3BA874B22509FDB9006710BC /* Visitor */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,7 +269,7 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
-		3BBD16E6250B6D9E00F3D6FF /* UIPopover */ = {
+		3BBD16E6250B6D9E00F3D6FF /* Popover */ = {
 			isa = PBXGroup;
 			children = (
 				3BBD16E7250B6DCE00F3D6FF /* PopoverViewController.swift */,
@@ -267,7 +277,7 @@
 				3B95F574250F050C00A3B843 /* PresentationController.swift */,
 				3B95F576250F4D8C00A3B843 /* PopoverAnimator.swift */,
 			);
-			path = UIPopover;
+			path = Popover;
 			sourceTree = "<group>";
 		};
 		3BE13D1F2512366D00B0D977 /* Tools(工具) */ = {
@@ -324,7 +334,8 @@
 			children = (
 				3BE13D222512FCB400B0D977 /* HomeModel */,
 				3B578FC22512013200C0D55C /* Welcome */,
-				3BBD16E6250B6D9E00F3D6FF /* UIPopover */,
+				3BBD16E6250B6D9E00F3D6FF /* Popover */,
+				3BA8690C25203DE700EFB058 /* PhotoBrowser */,
 				CC10E7461E076D4400DF6DE7 /* HomeViewController.swift */,
 				3B86423C25148FEC008AB856 /* HomeViewCell.swift */,
 				3BA874662508CF8A006710BC /* Home.storyboard */,
@@ -581,6 +592,7 @@
 				3B578FB92510E14E00C0D55C /* MBProgressHUD-Extension.swift in Sources */,
 				3B70AC29251DCC0800DA6B8C /* TextView+Extension.swift in Sources */,
 				3B3833A525021F0900195410 /* RedViewController.swift in Sources */,
+				3BA8690E2520689000EFB058 /* PhotoBrowserController.swift in Sources */,
 				3B578FC52512015900C0D55C /* WelcomeViewController.swift in Sources */,
 				3BABA186251AB72700CF7F6D /* ComposeTextView.swift in Sources */,
 				3B70AC21251C6B9E00DA6B8C /* EmoticonPackage.swift in Sources */,

@@ -46,6 +46,8 @@ class HomeViewController: BaseViewController {
         setupFooterView()
         
         setupTipLabel()
+        
+        setupNotifications()
     }
 }
 
@@ -95,6 +97,11 @@ extension HomeViewController {
         titleBtn.addTarget(self, action: #selector(titleBtnClick), for: .touchUpInside)
         navigationItem.titleView = titleBtn
     }
+    
+    /// 注册通知
+    private func setupNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(showPhotoBrowser(_:)), name: NSNotification.Name(rawValue: ShowPhotoBrowserNote), object: nil)
+    }
 }
 
 //MARK:- 事件监听
@@ -111,17 +118,26 @@ extension HomeViewController {
 
     @objc private func titleBtnClick() {
         let vc = PopoverViewController()
-//        vc.view.backgroundColor = .magenta
+        // vc.view.backgroundColor = .magenta
         // 设置控制器的modal样式
         vc.modalPresentationStyle = .custom
         // 设置转场代理
         vc.transitioningDelegate = popverAnimator
-//        popverAnimator.
         popverAnimator.presentedBlack = { [weak self] (isPresnted: Bool)->() in
             self?.titleBtn.isSelected = isPresnted
         }
         
         present(vc, animated: true, completion: nil)
+    }
+    
+    @objc private func showPhotoBrowser(_ note: Notification) {
+        
+        // 1.取出数据
+        let indexPtah = note.userInfo![ShowPhotoBrowserIndexKey] as! NSIndexPath
+        let picUrls = note.userInfo![ShowPhotoBrowserUrlsKey] as! [URL]
+        
+        let photoBrowserVc = PhotoBrowserController(indexPath: indexPtah, picUrls: picUrls)
+        present(photoBrowserVc, animated: true, completion: nil)
     }
 }
 

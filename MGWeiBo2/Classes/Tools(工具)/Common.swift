@@ -24,3 +24,9 @@ let redirect_uri = "https://open.weibo.com/"
 let PicPickerAddPhotoNote = "PicPickerAddPhotoNote"
 let PicPickerDelPhotoNote = "PicPickerDelPhotoNote"
 
+//MARK:- 照片浏览器的通知常量
+let ShowPhotoBrowserNote = "ShowPhotoBrowserNote"
+let ShowPhotoBrowserIndexKey = "ShowPhotoBrowserIndexKey"
+let ShowPhotoBrowserUrlsKey = "ShowPhotoBrowserUrlsKey"
+
+
