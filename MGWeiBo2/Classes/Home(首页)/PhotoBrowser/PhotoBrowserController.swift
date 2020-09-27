@@ -48,6 +48,9 @@ class PhotoBrowserController: UIViewController {
         view.backgroundColor = .purple
         
         setupUI()
+        
+        // 瞬间移动到对应图片
+        collectionView.scrollToItem(at: indexPath as IndexPath, at: .left, animated: false)
     }
 }
 

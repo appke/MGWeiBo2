@@ -8,44 +8,17 @@
 
 import UIKit
 import SDWebImage
+
 class PhotoBrowserViewCell: UICollectionViewCell {
     var picUrl: URL? {
         didSet {
-            // 1.nil值校验
-            guard let picUrl = picUrl else {
-                return
-            }
-            
-            // 2.取出image对象
-            imageView.sd_setImage(with: picUrl) { (image: UIImage?, err: Error?, type: SDImageCacheType, url: URL?) in
-                
-//                self.indicatorView.stopAnimating()
-                
-                guard let image = image else {
-                    return
-                }
-                
-                let width = UIScreen.main.bounds.size.width
-                // 放大了多少倍
-                let height = width / image.size.width * image.size.height
-                
-                
-                var y: CGFloat = 0
-                if height > UIScreen.main.bounds.size.height {
-                    y = 0
-                } else {
-                    y = (UIScreen.main.bounds.size.height - height) * 0.5
-                    
-                }
-                self.imageView.frame = CGRect(x: 0, y: y, width: width, height: height)
-                // 设置图片
-                self.imageView.image = image
-            }
+            setupContent(picUrl)
         }
     }
     
     private lazy var scrollView: UIScrollView = UIScrollView()
     private lazy var imageView: UIImageView = UIImageView()
+    private lazy var progressView : ProgressView = ProgressView()
     
     // 重写init方法，初始化数据
     override init(frame: CGRect) {
@@ -60,11 +33,80 @@ class PhotoBrowserViewCell: UICollectionViewCell {
     
 }
 
+//MARK:- 设置界面
 extension PhotoBrowserViewCell {
     private func setupUI() {
         contentView.addSubview(scrollView)
         scrollView.addSubview(imageView)
         
         scrollView.frame = contentView.bounds
+//        scrollView.showsVerticalScrollIndicator = false
+        
+        contentView.addSubview(progressView)
+        progressView.isHidden = true
+        progressView.backgroundColor = .clear
+        progressView.bounds = CGRect(x: 0, y: 0, width: 80, height: 80)
+        progressView.center = CGPoint(x: contentView.bounds.width * 0.5, y: contentView.bounds.height * 0.5)
+
+    }
+}
+
+//MARK:- 设置Cell内容
+extension PhotoBrowserViewCell {
+    private func setupContent(_ picUrl: URL?) {
+        // 1.空值校验
+        guard let picUrl = picUrl else {
+            return
+        }
+        
+        // 2.取出小image
+        var smallImage = UIImage(named: "empty_picture")
+        SDWebImageManager.shared.imageCache.queryImage(forKey: picUrl.absoluteString, options: [], context: nil, cacheType: .disk) { (image, _, _) in
+            
+            if image != nil {
+                smallImage = image
+            }
+            
+            // 3.计算imageView的位置和尺寸
+            self.calculateImageViewFrame(smallImage!)
+            
+            // 4.下载大图
+            self.progressView.isHidden = false
+            self.imageView.sd_setImage(with: self.bigImageURL(picUrl), placeholderImage: smallImage, options: [], context: nil, progress: { (current, total, _) in
+                DispatchQueue.main.async {
+                    self.progressView.progress = CGFloat(current) / CGFloat(total)
+                }
+            }) { (image, _, _, _) in
+                self.calculateImageViewFrame(image!)
+                self.imageView.image = image
+                self.progressView.isHidden = true
+            }
+        }
+        
+    }
+    
+    private func calculateImageViewFrame(_ image: UIImage) {
+        // 1.计算位置
+        let imageWidth = UIScreen.main.bounds.width
+        let imageHeight = imageWidth / image.size.width * image.size.height
+        
+        // 2.设置frame
+        imageView.frame = CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight)
+        // 3.设置contentSize, 否则不能滚动
+        scrollView.contentSize = CGSize(width: imageWidth, height: imageHeight)
+        
+        // 4.判断是长图还是短图
+        if imageHeight < UIScreen.main.bounds.height { // 短图
+            // 设置偏移量
+            let topInset = (UIScreen.main.bounds.height - imageHeight) * 0.5
+            scrollView.contentInset = UIEdgeInsets(top: topInset, left: 0, bottom: 0, right: 0)
+        } else { // 长图
+            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        }
+    }
+    
+    private func bigImageURL(_ picUrl: URL) -> URL {
+        let middleURLString = picUrl.absoluteString.replacingOccurrences(of: "thumbnail", with: "bmiddle")
+        return URL(string: middleURLString)!
     }
 }

@@ -36,6 +36,7 @@
 		3BA8690B251DF50F00EFB058 /* FindEmoticon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8690A251DF50F00EFB058 /* FindEmoticon.swift */; };
 		3BA8690E2520689000EFB058 /* PhotoBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8690D2520689000EFB058 /* PhotoBrowserController.swift */; };
 		3BA869102520773400EFB058 /* PhotoBrowserViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8690F2520773400EFB058 /* PhotoBrowserViewCell.swift */; };
+		3BA8691225209C8E00EFB058 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8691125209C8E00EFB058 /* ProgressView.swift */; };
 		3BA874652508C984006710BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA874642508C984006710BC /* Main.storyboard */; };
 		3BA874672508CF8A006710BC /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA874662508CF8A006710BC /* Home.storyboard */; };
 		3BA874692508D018006710BC /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA874682508D018006710BC /* Message.storyboard */; };
@@ -103,6 +104,7 @@
 		3BA8690A251DF50F00EFB058 /* FindEmoticon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindEmoticon.swift; sourceTree = "<group>"; };
 		3BA8690D2520689000EFB058 /* PhotoBrowserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserController.swift; sourceTree = "<group>"; };
 		3BA8690F2520773400EFB058 /* PhotoBrowserViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserViewCell.swift; sourceTree = "<group>"; };
+		3BA8691125209C8E00EFB058 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		3BA874642508C984006710BC /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3BA874662508CF8A006710BC /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		3BA874682508D018006710BC /* Message.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Message.storyboard; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			children = (
 				3BA8690D2520689000EFB058 /* PhotoBrowserController.swift */,
 				3BA8690F2520773400EFB058 /* PhotoBrowserViewCell.swift */,
+				3BA8691125209C8E00EFB058 /* ProgressView.swift */,
 			);
 			path = PhotoBrowser;
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 				CC8C1F0E1E06C5AC00FF3B3E /* AppDelegate.swift in Sources */,
 				3B95F577250F4D8C00A3B843 /* PopoverAnimator.swift in Sources */,
 				CC10E7451E076D3A00DF6DE7 /* MessageViewController.swift in Sources */,
+				3BA8691225209C8E00EFB058 /* ProgressView.swift in Sources */,
 				3BA869102520773400EFB058 /* PhotoBrowserViewCell.swift in Sources */,
 				3BABA192251B743900CF7F6D /* EmoticonViewController.swift in Sources */,
 				3BE13D21251236E000B0D977 /* NetworkTools.swift in Sources */,

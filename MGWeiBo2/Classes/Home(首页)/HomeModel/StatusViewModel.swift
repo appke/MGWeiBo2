@@ -74,10 +74,9 @@ class StatusViewModel: NSObject {
         let picURLDicts = status.pic_urls?.count == 0 ? status.retweeted_status?.pic_urls : status.pic_urls
         if let picURLDicts = picURLDicts {
             for picURLDict in picURLDicts {
-                guard var picURLString = picURLDict["thumbnail_pic"] else { //不一定能从字典中取到值
+                guard let picURLString = picURLDict["thumbnail_pic"] else { //不一定能从字典中取到值
                     continue
                 }
-                picURLString = picURLString.replacingOccurrences(of: "thumbnail", with: "bmiddle")
                 picURLs.append(URL(string: picURLString)!)
             }
         }
