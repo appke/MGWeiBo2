@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MBProgressHUD
+import SVProgressHUD
 import AFNetworking
 
 class OAuthViewController: UIViewController {
@@ -63,17 +63,17 @@ extension OAuthViewController {
 extension OAuthViewController: UIWebViewDelegate{
     /// 开始加载网页
     func webViewDidStartLoad(_ webView: UIWebView) {
-        MBProgressHUD.show()
+        SVProgressHUD.show()
     }
     
     /// 加载网页结束
     func webViewDidFinishLoad(_ webView: UIWebView) {
-        MBProgressHUD.hideHUD()
+        SVProgressHUD.dismiss()
     }
 
     /// 加载网页失败
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
-        MBProgressHUD.hideHUD()
+        SVProgressHUD.dismiss()
     }
     
     /// 正准备开始加载某页面

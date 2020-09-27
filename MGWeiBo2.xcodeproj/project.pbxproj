@@ -12,8 +12,6 @@
 		3B578FB42510D4D400C0D55C /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B578FB22510D4D400C0D55C /* OAuthViewController.swift */; };
 		3B578FB52510D4D500C0D55C /* OAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B578FB32510D4D400C0D55C /* OAuthViewController.xib */; };
 		3B578FB72510DB4C00C0D55C /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B578FB62510DB4C00C0D55C /* Common.swift */; };
-		3B578FB92510E14E00C0D55C /* MBProgressHUD-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B578FB82510E14E00C0D55C /* MBProgressHUD-Extension.swift */; };
-		3B578FBB2510E30B00C0D55C /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3B578FBA2510E30B00C0D55C /* MBProgressHUD.bundle */; };
 		3B578FBF2511A9DB00C0D55C /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B578FBE2511A9DB00C0D55C /* UserAccount.swift */; };
 		3B578FC12511FA9F00C0D55C /* UserAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B578FC02511FA9F00C0D55C /* UserAccountViewModel.swift */; };
 		3B578FC52512015900C0D55C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B578FC32512015900C0D55C /* WelcomeViewController.swift */; };
@@ -37,6 +35,7 @@
 		3BA8690E2520689000EFB058 /* PhotoBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8690D2520689000EFB058 /* PhotoBrowserController.swift */; };
 		3BA869102520773400EFB058 /* PhotoBrowserViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8690F2520773400EFB058 /* PhotoBrowserViewCell.swift */; };
 		3BA8691225209C8E00EFB058 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8691125209C8E00EFB058 /* ProgressView.swift */; };
+		3BA869152520C18700EFB058 /* PhotoBrowserAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA869142520C18700EFB058 /* PhotoBrowserAnimator.swift */; };
 		3BA874652508C984006710BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA874642508C984006710BC /* Main.storyboard */; };
 		3BA874672508CF8A006710BC /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA874662508CF8A006710BC /* Home.storyboard */; };
 		3BA874692508D018006710BC /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA874682508D018006710BC /* Message.storyboard */; };
@@ -80,8 +79,6 @@
 		3B578FB22510D4D400C0D55C /* OAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		3B578FB32510D4D400C0D55C /* OAuthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OAuthViewController.xib; sourceTree = "<group>"; };
 		3B578FB62510DB4C00C0D55C /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
-		3B578FB82510E14E00C0D55C /* MBProgressHUD-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MBProgressHUD-Extension.swift"; sourceTree = "<group>"; };
-		3B578FBA2510E30B00C0D55C /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		3B578FBE2511A9DB00C0D55C /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		3B578FC02511FA9F00C0D55C /* UserAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountViewModel.swift; sourceTree = "<group>"; };
 		3B578FC32512015900C0D55C /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +102,7 @@
 		3BA8690D2520689000EFB058 /* PhotoBrowserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserController.swift; sourceTree = "<group>"; };
 		3BA8690F2520773400EFB058 /* PhotoBrowserViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserViewCell.swift; sourceTree = "<group>"; };
 		3BA8691125209C8E00EFB058 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		3BA869142520C18700EFB058 /* PhotoBrowserAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserAnimator.swift; sourceTree = "<group>"; };
 		3BA874642508C984006710BC /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3BA874662508CF8A006710BC /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		3BA874682508D018006710BC /* Message.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Message.storyboard; sourceTree = "<group>"; };
@@ -212,6 +210,7 @@
 			children = (
 				3BA8690D2520689000EFB058 /* PhotoBrowserController.swift */,
 				3BA8690F2520773400EFB058 /* PhotoBrowserViewCell.swift */,
+				3BA869142520C18700EFB058 /* PhotoBrowserAnimator.swift */,
 				3BA8691125209C8E00EFB058 /* ProgressView.swift */,
 			);
 			path = PhotoBrowser;
@@ -269,8 +268,6 @@
 				3B86423225136812008AB856 /* Date+Extension.swift */,
 				3BA874B02509019E006710BC /* UIButton-Extension.swift */,
 				3BBD16E1250B570400F3D6FF /* UIBarButtonItem-Extension.swift */,
-				3B578FB82510E14E00C0D55C /* MBProgressHUD-Extension.swift */,
-				3B578FBA2510E30B00C0D55C /* MBProgressHUD.bundle */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -499,7 +496,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B578FBB2510E30B00C0D55C /* MBProgressHUD.bundle in Resources */,
 				3B578FC62512015900C0D55C /* WelcomeViewController.xib in Resources */,
 				3B70AC23251C6EA100DA6B8C /* EmoticonViewModel.png in Resources */,
 				CC10E7321E07217700DF6DE7 /* Assets.xcassets in Resources */,
@@ -575,6 +571,7 @@
 				3BA874B82509FF21006710BC /* VisitorView.swift in Sources */,
 				CC10E73F1E076D0500DF6DE7 /* MainViewController.swift in Sources */,
 				3B70AC25251C806F00DA6B8C /* EmoticonViewCell.swift in Sources */,
+				3BA869152520C18700EFB058 /* PhotoBrowserAnimator.swift in Sources */,
 				3BABA188251AB74C00CF7F6D /* ComposeTitleView.swift in Sources */,
 				3BBD16E2250B570400F3D6FF /* UIBarButtonItem-Extension.swift in Sources */,
 				3BA874B12509019E006710BC /* UIButton-Extension.swift in Sources */,
@@ -597,7 +594,6 @@
 				3BABA183251A2C0100CF7F6D /* ComposeViewController.swift in Sources */,
 				3BE13D262512FD5500B0D977 /* Status.swift in Sources */,
 				3BA874B62509FDFE006710BC /* BaseViewController.swift in Sources */,
-				3B578FB92510E14E00C0D55C /* MBProgressHUD-Extension.swift in Sources */,
 				3B70AC29251DCC0800DA6B8C /* TextView+Extension.swift in Sources */,
 				3B3833A525021F0900195410 /* RedViewController.swift in Sources */,
 				3BA8690E2520689000EFB058 /* PhotoBrowserController.swift in Sources */,

@@ -9,7 +9,7 @@ target "MGWeiBo2" do
   pod "AFNetworking"
   pod "MJRefresh"
   pod "SDWebImage"
-  pod "MBProgressHUD"
+  pod "SVProgressHUD"
   pod "SnapKit"
   
 end

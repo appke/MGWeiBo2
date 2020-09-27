@@ -9,6 +9,10 @@
 import UIKit
 import SDWebImage
 
+protocol PhotoBrowserViewCellDelegate: NSObjectProtocol {
+    func imageViewClick()
+}
+
 class PhotoBrowserViewCell: UICollectionViewCell {
     var picUrl: URL? {
         didSet {
@@ -16,8 +20,11 @@ class PhotoBrowserViewCell: UICollectionViewCell {
         }
     }
     
+    var delegate: PhotoBrowserViewCellDelegate?
+    
+    
     private lazy var scrollView: UIScrollView = UIScrollView()
-    private lazy var imageView: UIImageView = UIImageView()
+    lazy var imageView: UIImageView = UIImageView()
     private lazy var progressView : ProgressView = ProgressView()
     
     // 重写init方法，初始化数据
@@ -29,26 +36,38 @@ class PhotoBrowserViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
 }
 
 //MARK:- 设置界面
 extension PhotoBrowserViewCell {
     private func setupUI() {
+        // 添加子控件
         contentView.addSubview(scrollView)
+        // 还是看得见在scrollView外面
+        contentView.addSubview(progressView)
         scrollView.addSubview(imageView)
+        
         
         // 设置scrollView的尺寸
         scrollView.frame = contentView.bounds
         // 不能bounds，会移动frame的x值
         scrollView.frame.size.width -= 20
+        imageView.isUserInteractionEnabled = true
         
-        contentView.addSubview(progressView)
         progressView.isHidden = true
         progressView.backgroundColor = .clear
         progressView.bounds = CGRect(x: 0, y: 0, width: 80, height: 80)
         progressView.center = CGPoint(x: contentView.bounds.width * 0.5, y: contentView.bounds.height * 0.5)
+        
+        // 监听图片的点击
+        let tap = UITapGestureRecognizer(target: self, action: #selector(imageViewClick))
+        imageView.addGestureRecognizer(tap)
+    }
+}
+//MARK:- 监听图片点击
+extension PhotoBrowserViewCell {
+    @objc private func imageViewClick() {
+        delegate?.imageViewClick()
     }
 }
 

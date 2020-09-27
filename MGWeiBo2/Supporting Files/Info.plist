@@ -39,5 +39,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>$(PRODUCT_NAME)需要您的同意才能储存图片到相册中</string>
+	<key>Photo Library Usage Description</key>
+	<string>$(PRODUCT_NAME)需要您的同意才能访问相册</string>
 </dict>
 </plist>

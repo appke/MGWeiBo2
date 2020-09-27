@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MBProgressHUD
+import SVProgressHUD
 
 class ComposeViewController: UIViewController {
 
@@ -133,9 +133,9 @@ extension ComposeViewController {
         
         NetworkTools.shared.sendStatus(statusText: statusText) { (isSuccess) in
             if !isSuccess {
-                MBProgressHUD.showError(error: "发送微博失败")
+                SVProgressHUD.showError(withStatus: "发送微博失败")
             } else {
-                MBProgressHUD.showSuccess(success: "发送微博成功")
+                SVProgressHUD.showSuccess(withStatus: "发送微博成功")
             }
         }
         

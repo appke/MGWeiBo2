@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import SVProgressHUD
 
 private let PhotoBrowserCellId: String = "PhotoBrowserCellId"
 
@@ -48,7 +49,7 @@ class PhotoBrowserController: UIViewController {
         super.loadView()
         
         // 控制器的宽度+20 –≥ collectionView的宽度+20 –≥ collectionView的contentView宽度+20
-        view.bounds.size.width += 20
+        view.frame.size.width += 20
     }
     
     override func viewDidLoad() {
@@ -98,9 +99,31 @@ extension PhotoBrowserController {
     }
     
     @objc private func saveBtnClick() {
-        // 保存到相册
+        
+        // 1.拿到当前的cell的图片
+        let cell = collectionView.visibleCells.last as! PhotoBrowserViewCell
+        guard let image = cell.imageView.image else {
+            return
+        }
+        
+        // 2.把图片保存到相册
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+        
         dismiss(animated: true, completion: nil)
     }
+    
+    /// 保存到相册，字典回调函数
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: Any) {
+        var showInfo: String = ""
+        if error != nil {
+            showInfo = "保存失败"
+        } else {
+            showInfo = "保存成功"
+        }
+        
+        SVProgressHUD.showInfo(withStatus: showInfo)
+    }
+    
 }
 
 extension PhotoBrowserController: UICollectionViewDataSource {
@@ -112,10 +135,17 @@ extension PhotoBrowserController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoBrowserCellId, for: indexPath) as! PhotoBrowserViewCell
         cell.picUrl = picUrls[indexPath.row]
-        
+        cell.delegate = self
         //cell.backgroundColor = indexPath.row % 2 == 0 ? .orange : .magenta
         
         return cell
+    }
+}
+
+//MARK:- 遵守PhotoBrowserViewCellDelegate
+extension PhotoBrowserController: PhotoBrowserViewCellDelegate {
+    func imageViewClick() {
+        dismiss(animated: true, completion: nil)
     }
 }
 
