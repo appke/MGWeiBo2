@@ -10,7 +10,7 @@ import AFNetworking
 
 class NetworkTools: AFHTTPSessionManager {
     
-    static let shared = NetworkTools()
+    static let shared: NetworkTools = NetworkTools()
 
 }
 
@@ -71,8 +71,6 @@ extension NetworkTools {
             
             print("\(#function) --- error --- \(error)")
             isSucess(false)
-        }
-        
+        }   
     }
-    
 }

@@ -156,8 +156,8 @@ extension PhotoBrowserController: PhotoBrowserDismissDelegate {
         let cell = collectionView.visibleCells.last as! PhotoBrowserViewCell
         imageView.image = cell.imageView.image
         var frame = cell.imageView.frame
-        if frame.size.height > UIScreen.main.bounds.height {
-            frame.size.height = UIScreen.main.bounds.height
+        if frame.size.height > UIScreen.main.bounds.height * 2 { //超长图
+            frame.size.height = UIScreen.main.bounds.height * 2
         }
         imageView.frame = frame
         
