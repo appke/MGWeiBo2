@@ -21,7 +21,6 @@ class PhotoBrowserController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: PhotoBrowserLayout())
         collectionView.frame = view.bounds
         collectionView.dataSource = self
-//        collectionView.delegate = self
         collectionView.register(PhotoBrowserViewCell.self, forCellWithReuseIdentifier: PhotoBrowserCellId)
         
         return collectionView
@@ -99,7 +98,6 @@ extension PhotoBrowserController {
     }
     
     @objc private func saveBtnClick() {
-        
         // 1.拿到当前的cell的图片
         let cell = collectionView.visibleCells.last as! PhotoBrowserViewCell
         guard let image = cell.imageView.image else {
@@ -146,6 +144,32 @@ extension PhotoBrowserController: UICollectionViewDataSource {
 extension PhotoBrowserController: PhotoBrowserViewCellDelegate {
     func imageViewClick() {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+//MARK:- 遵守PhotoBrowserDismissDelegate
+extension PhotoBrowserController: PhotoBrowserDismissDelegate {
+    // 1.提供退出的imageView
+    func imageViewForDismiss() -> UIImageView {
+        // 创建imageView对象
+        let imageView = UIImageView()
+        
+        // 设置imageView的frame
+        let cell = collectionView.visibleCells.last as! PhotoBrowserViewCell
+        imageView.image = cell.imageView.image
+        imageView.frame = cell.imageView.frame
+        
+        // 设置imageView的属性
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        
+        return imageView
+    }
+    
+    // 2.提供退出的indexPath
+    func indexPathForDismiss() -> NSIndexPath {
+        // 获取当前显示cell的indexPath
+        return collectionView.indexPathsForVisibleItems.last! as NSIndexPath
     }
 }
 

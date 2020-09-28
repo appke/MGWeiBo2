@@ -23,7 +23,7 @@ class PhotoBrowserViewCell: UICollectionViewCell {
     var delegate: PhotoBrowserViewCellDelegate?
     
     
-    private lazy var scrollView: UIScrollView = UIScrollView()
+    lazy var scrollView: UIScrollView = UIScrollView()
     lazy var imageView: UIImageView = UIImageView()
     private lazy var progressView : ProgressView = ProgressView()
     
@@ -102,7 +102,6 @@ extension PhotoBrowserViewCell {
                 self.progressView.isHidden = true
             }
         }
-        
     }
     
     private func calculateImageViewFrame(_ image: UIImage) {

@@ -10,11 +10,13 @@ import UIKit
 import AFNetworking
 import MJRefresh
 
+private let homeViewCellId = "homeViewCellId"
 class HomeViewController: BaseViewController {
     
     private lazy var titleBtn: TitleButton = TitleButton()
     private lazy var popverAnimator: PopoverAnimator = PopoverAnimator()
     private lazy var viewModels: [StatusViewModel] = [StatusViewModel]()
+    private lazy var photoBrowserAnimator = PhotoBrowserAnimator()
     
     private lazy var tipLabel: UILabel = UILabel()
     @IBOutlet weak var tableView: UITableView!
@@ -129,15 +131,29 @@ extension HomeViewController {
         
         present(vc, animated: true, completion: nil)
     }
-    
+}
+
+// MARK:- 弹出照片浏览器
+extension HomeViewController {
     @objc private func showPhotoBrowser(_ note: Notification) {
         
-        // 1.取出数据
+        // 取出数据
         let indexPtah = note.userInfo![ShowPhotoBrowserIndexKey] as! NSIndexPath
         let picUrls = note.userInfo![ShowPhotoBrowserUrlsKey] as! [URL]
+        let object = note.object as! PictureCollectionView
         
+        // 1.创建图片浏览器
         let photoBrowserVc = PhotoBrowserController(indexPath: indexPtah, picUrls: picUrls)
-        photoBrowserVc.modalPresentationStyle = .custom //设置弹出样式
+        // 2.设置弹出样式为自定义
+        photoBrowserVc.modalPresentationStyle = .custom
+        
+        // 3.设置photoBrowserVc的转场代理
+        photoBrowserVc.transitioningDelegate = photoBrowserAnimator
+        
+        // 4.设置photoBrowserAnimator的相关属性
+        photoBrowserAnimator.setProperty(indexPtah, presentedDelegate: object, dismissDelegate: photoBrowserVc)
+        
+        // 弹出图片浏览器
         present(photoBrowserVc, animated: true, completion: nil)
     }
 }
@@ -223,7 +239,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! HomeViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "homeViewCellId") as! HomeViewCell
         cell.viewModel = viewModels[indexPath.row]
         
         return cell

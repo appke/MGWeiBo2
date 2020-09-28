@@ -23,7 +23,7 @@ protocol PhotoBrowserDismissDelegate : NSObjectProtocol {
     // 1.提供退出的imageView
     func imageViewForDismiss() -> UIImageView
     
-    // 2.提供退出的indexPath
+    // 2.提供退出的indexPath, 就可知消失最后的frame
     func indexPathForDismiss() -> NSIndexPath
 }
 
@@ -40,7 +40,7 @@ class PhotoBrowserAnimator: NSObject {
     var dismissDelegate : PhotoBrowserDismissDelegate?
     
     // 定义快速设置属性的函数
-    func setProperty(indexPath : NSIndexPath, presentedDelegate : PhotoBrowserPresentedDelegate, dismissDelegate : PhotoBrowserDismissDelegate) {
+    func setProperty(_ indexPath : NSIndexPath, presentedDelegate : PhotoBrowserPresentedDelegate, dismissDelegate : PhotoBrowserDismissDelegate) {
         self.indexPath = indexPath
         self.presentedDelegate = presentedDelegate
         self.dismissDelegate = dismissDelegate
@@ -50,13 +50,13 @@ class PhotoBrowserAnimator: NSObject {
 extension PhotoBrowserAnimator : UIViewControllerTransitioningDelegate {
     
     // 该方法是告诉系统,弹出动画交给谁来处理
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         isPresented = true
         return self
     }
     
     // 该方法是告诉系统,消失动画交给谁来处理
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         isPresented = false
         return self
     }
@@ -64,6 +64,7 @@ extension PhotoBrowserAnimator : UIViewControllerTransitioningDelegate {
 
 
 extension PhotoBrowserAnimator : UIViewControllerAnimatedTransitioning {
+        
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.6
     }
@@ -71,6 +72,7 @@ extension PhotoBrowserAnimator : UIViewControllerAnimatedTransitioning {
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         isPresented ? presentAnimate(transitionContext: transitionContext) : dismissAnimate(transitionContext: transitionContext)
     }
+    
     
     /// 弹出动画的封装
     func presentAnimate(transitionContext: UIViewControllerContextTransitioning) {
@@ -94,11 +96,11 @@ extension PhotoBrowserAnimator : UIViewControllerAnimatedTransitioning {
         presentedView.alpha = 0.0
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: { () -> Void in
             tempImageView.frame = presentedDelegate.endRectForPresent(indexPath: indexPath)
-            }) { (_) -> Void in
-                transitionContext.containerView.backgroundColor = .clear
-                transitionContext.completeTransition(true)
-                tempImageView.removeFromSuperview()
-                presentedView.alpha = 1.0
+        }) { (_) -> Void in
+            transitionContext.containerView.backgroundColor = .clear
+            transitionContext.completeTransition(true)
+            tempImageView.removeFromSuperview()
+            presentedView.alpha = 1.0
         }
     }
     
@@ -120,12 +122,13 @@ extension PhotoBrowserAnimator : UIViewControllerAnimatedTransitioning {
         // 2.执行动画
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: { () -> Void in
             
+            // 有indexPath就可以最终的frame
             tempImageView.frame = presentedDelegate.startRectForPresent(indexPath: dismissDelegate.indexPathForDismiss())
             
-            }) { (_) -> Void in
-                tempImageView.removeFromSuperview()
-                dismissView?.removeFromSuperview()
-                transitionContext.completeTransition(true)
+        }) { (_) -> Void in
+            tempImageView.removeFromSuperview()
+            dismissView?.removeFromSuperview()
+            transitionContext.completeTransition(true)
         }
     }
 }
