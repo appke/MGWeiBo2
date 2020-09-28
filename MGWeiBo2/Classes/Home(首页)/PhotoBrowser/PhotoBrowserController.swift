@@ -155,7 +155,11 @@ extension PhotoBrowserController: PhotoBrowserDismissDelegate {
         // 设置imageView的frame
         let cell = collectionView.visibleCells.last as! PhotoBrowserViewCell
         imageView.image = cell.imageView.image
-        imageView.frame = cell.imageView.frame
+        var frame = cell.imageView.frame
+        if frame.size.height > UIScreen.main.bounds.height {
+            frame.size.height = UIScreen.main.bounds.height
+        }
+        imageView.frame = frame
         
         // 设置imageView的属性
         imageView.contentMode = .scaleAspectFill

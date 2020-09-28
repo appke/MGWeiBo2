@@ -25,6 +25,7 @@ class PictureCollectionView: UICollectionView {
     }
 }
 
+//MARK:- UICollectionView数据源代理
 extension PictureCollectionView: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return picURLs.count
@@ -45,6 +46,8 @@ extension PictureCollectionView: UICollectionViewDataSource, UICollectionViewDel
     }
 }
 
+
+//MARK:- PhotoBrowserPresentedDelegate
 extension PictureCollectionView: PhotoBrowserPresentedDelegate {
     // 1.提供弹出的imageView
     func imageForPresent(indexPath : NSIndexPath) -> UIImageView {

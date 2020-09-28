@@ -74,6 +74,8 @@ extension HomeViewController {
     
     private func setupFooterView() {
         tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreStatuses))
+        // 创建时隐藏
+        tableView.mj_footer?.isHidden = true
     }
     
     
@@ -113,9 +115,7 @@ extension HomeViewController {
     }
     
     @objc func loadMoreStatuses() {
-        if UserAccountViewModel.shared.isLogin {
             loadStatuses(false)
-        }
     }
 
     @objc private func titleBtnClick() {
@@ -203,6 +203,9 @@ extension HomeViewController {
                         
             // 刷新表格
             self.tableView.reloadData()
+            
+            // 有数据时，显示上拉
+            self.tableView.mj_footer?.isHidden = self.viewModels.count == 0 ? true : false
             
             self.tableView.mj_header?.endRefreshing()
             self.tableView.mj_footer?.endRefreshing()
