@@ -79,7 +79,7 @@ extension PhotoBrowserController {
         }
         
         saveBtn.snp_makeConstraints { (make) in
-            make.right.equalTo(-20)
+            make.right.equalTo(-40)
             make.bottom.equalTo(self.closeBtn)
             make.size.equalTo(self.closeBtn)
         }
@@ -106,8 +106,6 @@ extension PhotoBrowserController {
         
         // 2.把图片保存到相册
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
-        
-        dismiss(animated: true, completion: nil)
     }
     
     /// 保存到相册，字典回调函数
