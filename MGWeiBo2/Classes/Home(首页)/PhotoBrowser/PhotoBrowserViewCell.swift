@@ -22,8 +22,7 @@ class PhotoBrowserViewCell: UICollectionViewCell {
     
     var delegate: PhotoBrowserViewCellDelegate?
     
-    
-    lazy var scrollView: UIScrollView = UIScrollView()
+    private lazy var scrollView: UIScrollView = UIScrollView()
     lazy var imageView: UIImageView = UIImageView()
     private lazy var progressView : ProgressView = ProgressView()
     
